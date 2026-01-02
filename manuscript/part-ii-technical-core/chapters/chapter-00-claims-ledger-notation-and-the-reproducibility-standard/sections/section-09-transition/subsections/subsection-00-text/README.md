@@ -1,4 +1,4 @@
-# 00.9 Transition
+# 0.9 Transition
 
 Next we stop framing and start doing:
 

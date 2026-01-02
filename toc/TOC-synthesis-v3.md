@@ -12,3 +12,8 @@ This chapter governs:
 - reproducibility contract
 - null models + stress tests
 - per-chapter claims ledger discipline
+
+## Chapters 00–01 (repo-integrated)
+
+- Chapter 00: `manuscript/part-ii-technical-core/chapters/chapter-00-claims-ledger-notation-and-the-reproducibility-standard/`
+- Chapter 01: `manuscript/part-ii-technical-core/chapters/chapter-01-phase-definitions-from-the-log-line-to-the-circle/`

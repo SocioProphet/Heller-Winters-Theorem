@@ -1,0 +1,9 @@
+- section-00-epigraphs-and-intro-visualization
+- section-01-the-phase-pipeline-canonical
+- section-02-base-phase-families
+- section-03-hyperbolic-coupling-layer-bridge-operator
+- section-04-the-winters-log-circle-instrument
+- section-05-the-explicit-phase-equation-slot
+- section-06-validation-checklist
+- section-07-immediate-experiments
+- section-08-transition

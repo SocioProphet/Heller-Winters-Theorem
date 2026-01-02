@@ -1,0 +1,4 @@
+- subsection-00-intro
+- subsection-01-the-log-phase-baseline
+- subsection-02-the-double-log-phase-slow-phase
+- subsection-03-index-phase-ordering-control
