@@ -1,0 +1,3 @@
+# Chapter 01 — Purpose and Thesis
+
+We situate primes as locally discrete but globally lawful, and we frame our contribution as a policy-enforced multiscale program rather than a single trick. We separate hard constraints (eliminators) from soft analytic layers (scorers and diagnostics). We define success as a disciplined, falsifiable pipeline that increases inference value and remains auditable in failure. We distinguish constructive localization from proof of RH, treating RH-consistency as an envelope constraint on residuals. We require a rigor contract: every operator is either theorem-backed, a coordinate change, or a labeled heuristic probe.
