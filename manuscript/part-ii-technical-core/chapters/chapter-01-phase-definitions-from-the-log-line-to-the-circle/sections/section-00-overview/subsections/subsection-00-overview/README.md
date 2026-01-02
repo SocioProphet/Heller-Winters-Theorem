@@ -106,22 +106,118 @@ This is the point of the instrument: the circle is the phase; the windowing and 
 
 ---
 
-## 1.5 The Explicit Phase Equation Slot (verbatim insertion point)
+## 1.5 Explicit Phase Equations (No Placeholders)
 
-This section is reserved for the explicit phase equation as it appears in the original notes. In this manuscript it will be inserted verbatim, then immediately normalized into a unit-clean form (radians, consistent wrapping, defined domain).
+We define all phase equations in unit-clean form:
 
-**Equation 1.5.A (verbatim form).**  
-\theta_{\star}(p)=\;\;\text{[INSERT EQUATION EXACTLY AS WRITTEN IN NOTES]}
+- Angle is always in **radians**.  
+- Wrap is always \(\bmod 2\pi\).  
+- Embed is always \(\Phi(p)=e^{i(\theta(p)\bmod 2\pi)}\).
 
-**Normalization rule (applied once, immediately).**
-- All angles expressed in degrees are converted to radians via \theta^\circ \mapsto \theta\cdot\pi/180.
-- Any constant like 90^\circ is rewritten as \pi/2.
-- Any wrapping is stated as \bmod 2\pi.
-- Any indexing variable k is defined explicitly: whether it refers to prime index n, residue class index, or another deterministic traversal.
-
-This guarantees the equation becomes a reproducible operator rather than a handwritten artifact.
+Formally, for any phase map \(\theta:\mathbb{P}\to\mathbb{R}\),
+\[
+r(p)=\theta(p)\bmod 2\pi,\qquad \Phi(p)=e^{i r(p)}\in S^1.
+\]
 
 ---
+
+### 1.5.1 Baseline Phase Operators (exact)
+
+**(E1) Log-phase (canonical base)**  
+\[
+\theta_{\log}(p)=\log p,\qquad
+r_{\log}(p)=\theta_{\log}(p)\bmod 2\pi,\qquad
+\Phi_{\log}(p)=e^{i r_{\log}(p)}.
+\]
+
+**(E2) Double-log phase (slow phase)**  
+\[
+\theta_{\log\log}(p)=\log\log p,\qquad
+r_{\log\log}(p)=\theta_{\log\log}(p)\bmod 2\pi,\qquad
+\Phi_{\log\log}(p)=e^{i r_{\log\log}(p)}.
+\]
+
+**(E3) Index-phase control (ordering-only)**  
+Let \(p_n\) be the \(n\)-th prime.
+\[
+\theta_{\mathrm{idx}}(p_n)=n,\qquad
+r_{\mathrm{idx}}(p_n)=n\bmod 2\pi,\qquad
+\Phi_{\mathrm{idx}}(p_n)=e^{i r_{\mathrm{idx}}(p_n)}.
+\]
+
+These three operators are our **non-negotiable baselines**: every later “structure” claim must be compared against them and against the null/stress tests in Chapter 0.
+
+---
+
+### 1.5.2 Degree-constants normalization (exact, non-guessing)
+
+If your handwritten equation contains degree measures (e.g. \(90^\circ\), \(60^\circ\)), we normalize them **exactly**:
+
+\[
+90^\circ = \frac{\pi}{2},\qquad
+60^\circ = \frac{\pi}{3},\qquad
+1^\circ=\frac{\pi}{180}.
+\]
+
+So any term intended as “\(\pi\) plus one degree” must be written unambiguously as:
+\[
+\pi + 1^\circ \;=\; \pi + \frac{\pi}{180} \;=\; \pi\left(1+\frac{1}{180}\right).
+\]
+
+Any term intended as “\(\pi\) plus one arcminute” is:
+\[
+\pi + 1' \;=\; \pi + \frac{\pi}{10800}.
+\]
+
+We do **not** infer intent from ambiguous forms like \(\pi + \tfrac{1}{60}\). The text you paste decides whether \(\tfrac{1}{60}\) means degrees, arcminutes, radians, or an ad hoc constant.
+
+---
+
+### 1.5.3 The explicit equation insertion protocol (one-line, verbatim)
+
+We reserve **exactly one line** for your handwritten equation, inserted **verbatim** as text. The manuscript uses anchors so the slot is mechanically findable and scriptable.
+
+**Raw equation slot (verbatim, one line):**
+
+<!-- BEGIN THETA_STAR_RAW (verbatim one-line equation; no edits) -->
+
+<!-- END THETA_STAR_RAW -->
+
+Rules:
+
+1. The line between anchors must be **one line** containing your exact \(\theta_\star(p)=\cdots\) as you wrote it (including any \(^\circ\), primes \( '\), constants, indices, etc.).  
+2. We do not “clean it up” first. We preserve the raw artifact, then normalize it deterministically.  
+3. After insertion, we immediately derive the unit-clean operator:
+
+\[
+r_{\star}(p)=\theta_{\star}(p)\bmod 2\pi,\qquad
+\Phi_{\star}(p)=e^{i r_{\star}(p)}.
+\]
+
+This guarantees the object becomes **testable** the moment the line exists: it can be plotted, null-tested, stress-tested, and compared against baselines.
+
+---
+
+### 1.5.4 Canonical publication form (what we report after normalization)
+
+Every explicit phase gate we publish is reported in this canonical form:
+
+\[
+\theta_{\star}(p)=A\cdot f(p)+B,
+\qquad
+r_{\star}(p)=\theta_{\star}(p)\bmod 2\pi,
+\qquad
+\Phi_{\star}(p)=e^{i r_{\star}(p)}.
+\]
+
+Where:
+
+- \(f(p)\) is the prime-derived scalar (commonly \(\log p\), \(\log\log p\), the index \(n\), or a deterministic traversal index defined elsewhere).  
+- \(A,B\) are **fixed constants** (declared; not tuned post hoc).  
+- If your pasted \(\theta_\star\) is not affine in a single scalar \(f(p)\), we report the exact functional form as-is and then explicitly state which parts are constants, which are indices, and which are transforms—no compression that hides degrees/radians, and no “it’s basically…” handwaving.
+
+This is the reproducibility boundary: once we can’t express the operator clearly and deterministically, we stop pretending it’s an instrument.
+
 
 ## 1.6 Validation Checklist (applied to every phase equation)
 
