@@ -61,7 +61,7 @@ def replace_between_anchors(doc: str, new_block: str) -> str:
     )
     if not pattern.search(doc):
         raise ValueError("Anchors not found after ensure_intro_slot().")
-    return pattern.sub(f"{BEGIN}\n{new_block.rstrip()}\n{END}", doc, count=1)
+    return pattern.sub(lambda _m: f"{BEGIN}\n{new_block.rstrip()}\n{END}", doc, count=1)
 
 def main() -> None:
     if not TARGET.exists():
