@@ -10,3 +10,5 @@
 
 Status:
 - CURRENT: vA
+- 2026-01-02: v0 user draft stored as `2026-01-02_v0-user-euler-product-analytic-doorway.md`
+- 2026-01-02: figure spec stored as `2026-01-02_FIGURES.md`
