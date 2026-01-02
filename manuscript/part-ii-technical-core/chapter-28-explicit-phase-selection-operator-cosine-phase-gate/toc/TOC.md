@@ -1,0 +1,12 @@
+# TOC — Chapter 28 — Explicit Phase-Selection Operator (Cosine Phase-Gate)
+
+- [28.1 Canonical transcription](sections/sec-28-1-28-1-canonical-transcription/README.md)
+- [28.2 State-governed parameters (no free knobs)](sections/sec-28-2-28-2-state-governed-parameters-no-free-knobs/README.md)
+- [28.3 Sector quantization under lattice-safe governance](sections/sec-28-3-28-3-sector-quantization-under-lattice-safe-governance/README.md)
+- [28.4 The (90/11) normalization component (documented, testable)](sections/sec-28-4-28-4-the-9011-normalization-component-documented-testable/README.md)
+- [28.5 Hit conditions and tolerances](sections/sec-28-5-28-5-hit-conditions-and-tolerances/README.md)
+- [28.6 Ablations: on/off and tolerance sweeps](sections/sec-28-6-28-6-ablations-onoff-and-tolerance-sweeps/README.md)
+- [28.7 Cross-base survival requirement](sections/sec-28-7-28-7-cross-base-survival-requirement/README.md)
+- [28.8 Cross-window survival requirement](sections/sec-28-8-28-8-cross-window-survival-requirement/README.md)
+- [28.9 Circular-channel integration](sections/sec-28-9-28-9-circular-channel-integration/README.md)
+- [28.10 Falsifiers and failure taxonomy](sections/sec-28-10-28-10-falsifiers-and-failure-taxonomy/README.md)

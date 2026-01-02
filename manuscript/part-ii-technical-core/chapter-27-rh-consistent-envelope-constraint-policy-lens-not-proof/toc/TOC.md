@@ -1,0 +1,10 @@
+# TOC — Chapter 27 — RH-Consistent Envelope Constraint (policy lens; not proof)
+
+- [27.1 ρ=β+iγ notation](sections/sec-27-1-27-1-ρβiγ-notation/README.md)
+- [27.2 x^ρ decomposition](sections/sec-27-2-27-2-xρ-decomposition/README.md)
+- [27.3 Envelope meaning of β=1/2](sections/sec-27-3-27-3-envelope-meaning-of-β12/README.md)
+- [27.4 Envelope measurement](sections/sec-27-4-27-4-envelope-measurement/README.md)
+- [27.5 Drift tests](sections/sec-27-5-27-5-drift-tests/README.md)
+- [27.6 Stability checks](sections/sec-27-6-27-6-stability-checks/README.md)
+- [27.7 Failure signatures](sections/sec-27-7-27-7-failure-signatures/README.md)
+- [27.8 Policy use (not proof)](sections/sec-27-8-27-8-policy-use-not-proof/README.md)
