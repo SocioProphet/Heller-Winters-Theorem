@@ -1,24 +1,20 @@
-# Chapter 2 — Draft Index
 
-We are storing every rendition verbatim for provenance and rollback.
+# Chapter 2 — Stored Versions
 
-Files
-- FIGURES.md
-  - Sealed canonical Figure 2.1 (1–120 grid with {2,3,5} + 30-wheel overlay)
-  - Sealed canonical Figure 2.2 (R30 residues + repeating gap cycle)
+- **vA-jer-matt-poincare-figspec.md**
+  - Jeremiah 29:13 / Matthew 7:7 / Poincaré (1908).
+  - Prime machines + Euclid algorithm + sieve + wheel micro-example.
+  - Figure spec included (grid + overlay instructions).
 
-Renditions
-- v0-misindexed-log-phase-circle-instrument.md
-  - Original “CHAPTER 2” draft that is actually the log-phase instrument + nulls protocol (later mapped to Part II harmonic formalism)
-- v1-prime-machines-basic.md
-  - Prime machines chapter with wheel as concept (no M=30 worked example)
-- v2-prime-machines-m30-microexample.md
-  - Adds the M=30 reduced residues, density drop, and repeating gap cycle
-- v3-prime-machines-figure-2-1-2-2-integrated.md
-  - Adds explicit Figure 2.1 spec and points to sealed Figure package in FIGURES.md
-- v4-newton-epigraph-rewrite.md
-  - Alternate rewrite + alternate epigraph set (Psalm 111 / John 1 / Newton)
+- **vA-jer-matt-poincare-inline-figs.md**
+  - Same epigraph family, but includes the **sealed text-true renders** for Figures 2.1–2.2 inline.
 
-Status
-- CURRENT: v3-prime-machines-figure-2-1-2-2-integrated.md
-- FIGURES: FIGURES.md is canonical and shared
+- **vB-ps111-john1-newton.md**
+  - Psalm 111:1 / John 1:1 / Newton (Principia “Rules of Reasoning”).
+  - Narrative rewrite; same technical spine; figure references are conceptual (no sealed grid render).
+
+- **FIGURES.md**
+  - Canonical sealed Figure 2.1 + 2.2 package (rules + legend + render + typesetting spec).
+
+Status:
+- CURRENT: (set explicitly when we choose)
