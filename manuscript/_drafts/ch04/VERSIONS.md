@@ -1,4 +1,8 @@
-# Chapter Versions
+# Chapter 4 Versions
 
-- 2026-01-02: v0 user draft stored as `2026-01-02_v0-user-ps90-cleobulus-gauss.md`
-- 2026-01-02: figure spec stored as `2026-01-02_FIGURES.md`
+- v0 — prior user draft (earlier epigraph set; baseline narrative)
+- v1 — clean assistant draft (normalized flow; baseline narrative)
+- v2 — Psalm 90:12 / Cleobulus / Gauss + worked micro-example [100,200] (verbatim user draft)
+
+Status:
+- CURRENT: v2
