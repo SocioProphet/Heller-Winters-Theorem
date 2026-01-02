@@ -1,0 +1,26 @@
+# Part II — TOC
+
+- ch_01-purpose-and-thesis/
+- ch_02-canonical-coordinate-system/
+- ch_03-prime-density-mean-field-model/
+- ch_04-boundedness-layer-unconditional-enclosure/
+- ch_05-wheel-sieve-layer-periodic-state-governance/
+- ch_06-symmetric-offset-algebra-shells-certificates/
+- ch_07-figurate-number-lattices-quadratic-scaffolds/
+- ch_08-compartmentalization-across-encodings-base-b-zeckendorf/
+- ch_09-p-adic-structure-layer/
+- ch_10-quotient-functions-and-normalization/
+- ch_11-euler-mascheroni-calibration-gamma/
+- ch_12-euler-maclaurin-bridge-sum-integral/
+- ch_13-ratio-families-as-window-schedules/
+- ch_14-governance-of-ratio-application-anti-overfit/
+- ch_15-harmonic-signature-formalism-log-harmonics/
+- ch_16-identity-channels-circular-vs-hyperbolic/
+- ch_17-rh-consistent-envelope-constraint-policy-lens-not-proof/
+- ch_18-explicit-phase-selection-operator-cosine-phase-gate/
+- ch_19-structural-sieves-beyond-the-wheel/
+- ch_20-optimization-view-policy-as-constraint-system/
+- ch_21-classical-theorems-as-policy-operators/
+- ch_22-evidence-ledger-and-falsification-protocol/
+- ch_23-consolidated-spec-extensions/
+- interludes/
