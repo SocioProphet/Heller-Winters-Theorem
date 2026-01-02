@@ -1,11 +1,14 @@
-# TOCs (prepublication)
+# Table of Contents drafts (prepublication)
 
-This directory intentionally contains multiple, competing Table of Contents drafts for the manuscript.
+This directory intentionally contains competing TOC drafts.
 
-- This is **prepublication** material: structure and ordering are expected to change.
-- Do **not** assume any TOC here is canonical unless it is explicitly labeled as such.
-- Naming convention:
-  - `TOC-prepublication-v#.md` = working drafts
-  - `TOC-<tag>-<YYYYMMDD>.md` = alternates (e.g., `technical-first`, `narrative-first`, `journal-submission`)
+Rationale:
+- The manuscript is prepublication and evolving.
+- Different TOCs serve different purposes (book-first vs paper-first vs technical-core vs pedagogy).
+- We preserve drafts to avoid losing design intent and to keep provenance/auditability.
 
-Note: the root-level `TABLE_OF_CONTENTS.md` is for repository navigation, not manuscript structure.
+Files:
+- TOC-technical-core-v1.md
+- TOC-technical-core-v2.md
+- TOC-synthesis-v3.md
+- TOC-compare-v0-v1-v2-v3.md
