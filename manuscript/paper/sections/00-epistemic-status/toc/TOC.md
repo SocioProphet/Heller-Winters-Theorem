@@ -1,0 +1,3 @@
+- Claim boundaries
+- Evidence posture
+- Falsifiers & adversarial reading

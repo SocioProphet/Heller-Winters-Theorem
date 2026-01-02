@@ -57,3 +57,14 @@ Subtopics: prediction events; FP/FN; drift tests (scale/base/p-adic); residual t
 
 Chapter 23 — Consolidated Spec + Extensions
 Subtopics: one-page spec; data structures; governance; complexity accounting; claims taxonomy; constellations; prime powers; psi-residuals; lattice counting/Ehrhart modules; research map.
+
+## Chapter 0 (added) — Claims Ledger / Notation / Reproducibility
+
+Canonical text lives at:
+`manuscript/part-ii-technical-core/chapters/chapter-00-claims-ledger-notation-and-the-reproducibility-standard/`
+
+This chapter governs:
+- A/B/C/D claim tagging
+- reproducibility contract
+- null models + stress tests
+- per-chapter claims ledger discipline

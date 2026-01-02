@@ -1,0 +1,10 @@
+- 00.0 Epigraph + Intro visualization spec
+- 00.1 Why this chapter exists
+- 00.2 The four bins (A/B/C/D)
+- 00.3 Minimal notation
+- 00.4 Prime-to-geometry template (θ, Φ, wrapped phase)
+- 00.5 What we claim in this book
+- 00.6 Reproducibility contract
+- 00.7 Controls, null models, stress tests
+- 00.8 Claims ledger table (per-chapter)
+- 00.9 Transition

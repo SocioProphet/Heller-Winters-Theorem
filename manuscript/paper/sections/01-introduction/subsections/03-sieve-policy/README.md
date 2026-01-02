@@ -1,0 +1,5 @@
+# 01.3 The combinatorial turning point: sieve theory and constraint-first reasoning
+
+In parallel with analytic developments, sieve methods matured into a systematic technology for removing structured composite mass. From early inclusion–exclusion reasoning to modern sieves, the core principle is constraint-first: before attempting to detect primes, one removes provable composites by modular restrictions. This paper treats sieve logic not merely as an algorithmic preprocessing step, but as a policy layer—a formal set of admissibility constraints that defines the feasible state space prior to any spectral inference.
+
+Our construction begins with hard bounding (e.g., the guaranteed existence of a prime in ((n,2n))), proceeds through wheel admissibility ((\gcd(n,M)=1)), and then adds symmetric offset shells (difference-of-squares factorization witnesses) as structured composite certificates. These layers are deterministic and auditable: they do not “guess” primes, they only remove impossibilities and organize the residual search space.

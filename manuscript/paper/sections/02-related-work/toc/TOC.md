@@ -1,0 +1,3 @@
+- Lineage bridge
+- Methodological anchors
+- What we inherit vs what we change

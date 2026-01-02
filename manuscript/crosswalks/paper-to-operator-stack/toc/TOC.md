@@ -1,0 +1,3 @@
+- mapping.md
+- promotion rules
+- no-duplication policy

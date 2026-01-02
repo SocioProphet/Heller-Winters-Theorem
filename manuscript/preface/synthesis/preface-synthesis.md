@@ -1,0 +1,1 @@
+# Preface synthesis (stub)

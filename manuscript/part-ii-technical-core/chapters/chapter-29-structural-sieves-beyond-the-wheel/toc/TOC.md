@@ -1,0 +1,4 @@
+- 00.0 Overview
+- 00.1 Definitions and operators
+- 00.2 Tests and falsifiers
+- 00.3 Notes / implementation hooks

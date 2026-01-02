@@ -1,0 +1,3 @@
+# 01.5 Identity channels: Euclidean and hyperbolic projections as denoising operators
+
+A second calibration principle is geometric: the decomposition of behavior into channels that satisfy exact identities. Circular identities ((\sin^2+\cos^2=1)) define unit-magnitude phase objects, while hyperbolic identities ((\cosh^2-\sinh^2=1)) define growth/decay envelopes. We use these as identity channels: projections that force modeled components back onto their invariant manifolds, with the residual interpreted as off-channel noise or structural mismatch. This provides a disciplined mechanism for “cutting noise” without collapsing the signal into arbitrary smoothing.

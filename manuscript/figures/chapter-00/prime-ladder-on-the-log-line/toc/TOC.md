@@ -1,0 +1,3 @@
+- spec
+- output paths
+- reproduction notes

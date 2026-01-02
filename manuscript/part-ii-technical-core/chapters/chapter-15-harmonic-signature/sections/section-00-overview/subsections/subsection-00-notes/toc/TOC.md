@@ -1,0 +1,3 @@
+- Notes
+- Open questions
+- TODO
