@@ -84,6 +84,44 @@ must be flagged in the claims ledger.
 
 ---
 
+### Kuiper statistic V
+
+**Definition**: V = D⁺ + D⁻, the sum of the maximum positive and maximum negative
+deviations of the empirical CDF from the theoretical CDF on the circle. Invariant under
+cyclic shift; used as the circular KS analogue.
+
+**First adopted in**: Chapter 2 v05 analytics additions (§C).
+
+---
+
+### Watson statistic U²
+
+**Definition**: A rotation-invariant circular analogue of the Cramér–von Mises statistic.
+Preferred over the Kuiper test when the alternative distribution is not merely a shift.
+
+**First adopted in**: Chapter 2 v05 analytics additions (§C).
+
+---
+
+### Rayleigh test statistic z
+
+**Definition**: z = N · R², where R is the mean resultant length. Under H₀ (uniform
+distribution on the circle), z is approximately χ²(2)/2 for large N. Tests for unimodal
+angular concentration.
+
+**First adopted in**: Chapter 2 v05 analytics additions (§C).
+
+---
+
+### Default wheel order Q
+
+**Definition**: The default primorial cutoff Q = 7, giving M = 2·3·5·7 = 210.
+Sensitivity tables should cover Q ∈ {5, 7, 11}.
+
+**First adopted in**: Chapter 2 v05 analytics additions (§D).
+
+---
+
 ## Term Adoption Command Pattern
 
 To record adoption of a new term, use the glossary construction tool:
