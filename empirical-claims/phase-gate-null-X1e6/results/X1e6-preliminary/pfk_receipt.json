@@ -1,0 +1,11 @@
+{
+  "artifact_id": "phase-gate-null-X1e6",
+  "registry_version": "phase-gate-v0.1",
+  "claim_class": "empirical",
+  "limit": 1000000,
+  "replicates": 16,
+  "seed": 20260510,
+  "deterministic_result_sha256": "729da4e129e6f76b61bcb109629490d566468ec3387db71a80fb66edfb023105",
+  "result_file": "phase_gate_results.json",
+  "summary_file": "summary.md"
+}
