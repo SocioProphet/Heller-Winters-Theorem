@@ -1,44 +1,58 @@
 # Alternate-Substrate Gates
 
-Status: required.
+Status: executable definitions for registry v0.1.
 
-This artifact is incomplete unless all alternate-substrate gates execute successfully.
+This artifact is incomplete unless all alternate-substrate gates execute and report results.
 
-## Gate A — all integers baseline
+## Gate A — all-integers baseline
 
 Run the identical statistic pipeline on:
 
 ```text
-{1,2,3,...,X}
+I(X) = {2,3,...,X}
 ```
 
-Expectation:
+Purpose: expose whether the phase map is measuring log-coordinate structure common to all integers rather than prime-specific structure.
 
-The statistic should reproduce the baseline predicted by equidistribution behavior under the declared normalization.
+Expected result: report `T(I(X))`. No uniformity assumption is made.
 
-## Gate B — density-matched Poisson surrogate
+## Gate B — Cramér-Bernoulli surrogate
 
-Construct a random sequence with approximately the same density profile as the primes up to `X`.
+For each `n in {2,...,X}`, include `n` independently with probability:
 
-Expectation:
+```math
+p(n) = \min(1,1/\log n).
+```
 
-The pipeline must distinguish the prime sequence from the surrogate if the measured phenomenon is genuinely arithmetic rather than density-driven.
+Purpose: test whether the statistic distinguishes primes from a density-matched random surrogate.
 
-## Gate C — wheel-preserving composite surrogate
+Expected result: report Monte Carlo distribution of `T(S_b)` and empirical p-value:
 
-Construct a wheel-compatible but intentionally non-prime substrate.
+```math
+p_{emp} = \frac{1 + |\{b : T(S_b) \ge T(P(X))\}|}{B + 1}.
+```
 
-Expectation:
+## Gate C — wheel-compatible count-matched composite surrogate
 
-The apparatus should not collapse wheel structure into primality automatically.
+Let:
+
+```text
+C_30(X) = {n <= X : gcd(n,30) = 1 and n is composite}.
+```
+
+Sample exactly `|P(X)|` elements from `C_30(X)` without replacement.
+
+Purpose: prevent the apparatus from collapsing wheel-admissibility into primality.
+
+Expected result: report Monte Carlo distribution and empirical p-value against the prime statistic.
 
 ## Gate D — replay gate
 
-Independent rerun using identical registry and fixture.
+Rerun the fixture with identical registry, seed, and replicate count.
 
-Expectation:
+Purpose: verify deterministic replay.
 
-Deterministic replay within declared tolerance.
+Expected result: deterministic payload hash matches `results/fixture/pfk_receipt.json`.
 
 ## Failure policy
 
@@ -46,4 +60,5 @@ If a gate fails:
 
 - the artifact remains empirical-only,
 - promotion halts,
-- claim status cannot advance.
+- claim status cannot advance,
+- and the failure is recorded in the claim ledger.
