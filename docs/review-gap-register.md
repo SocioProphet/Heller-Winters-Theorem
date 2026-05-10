@@ -2,7 +2,7 @@
 
 Status: live.  
 Review date: 2026-05-10.  
-Scope: Heller–Winters Programme repository after programme reframing and Candidate C scaffolding.
+Scope: Heller–Winters Programme repository after programme reframing and Candidate C capture.
 
 This register captures the gaps identified in the review pass and records how each gap is being discharged.
 
@@ -24,17 +24,17 @@ Status: mitigated; full discharge requires repository rename or permanent reposi
 
 ## G-03 — Programme-map theorem-language drift
 
-Risk: `docs/clay-problem-programme-map.md` still contains phrases such as “central theorem” and “Heller–Winters Theorem.”
+Risk: `docs/clay-problem-programme-map.md` contained phrases such as “central theorem” and “Heller–Winters Theorem.”
 
-Disposition: `tools/patch_programme_language.py` applies targeted replacements so the file refers to theorem candidates and future theorem-worthy results rather than an existing central theorem.
+Disposition: the programme-map has been patched to refer to the Heller–Winters Programme and to future theorem-candidate statements rather than an existing central theorem.
 
-Status: patch prepared; discharge after patch script is run and diff reviewed.
+Status: discharged by governance cleanup PR.
 
 ## G-04 — Candidate C package missing required files
 
 Risk: the package README named `run-plan.md`, `claim-ledger-entry.md`, and `pfk-receipt-template.json`, but those files were absent.
 
-Disposition: all three are supplied in this capture pack.
+Disposition: all three are supplied in the Candidate C capture.
 
 Status: discharged by file creation.
 
@@ -58,9 +58,9 @@ Status: discharged for executable v0.1.
 
 Risk: Wγ was specified but not executed.
 
-Disposition: fixture result for `X_fixture = 1e4`, `B = 16`, and seed `20260510` is included under `results/fixture/`.
+Disposition: fixture result for `X_fixture = 1e4`, `B = 16`, and seed `20260510` is included under `results/fixture/`; hosted CI replay passed.
 
-Status: fixture executed locally and captured; independent replay still owed.
+Status: discharged for fixture replay; larger-run replay remains separate work.
 
 ## G-08 — PFK was referenced but not integrated
 
@@ -92,7 +92,7 @@ Risk: Candidate C may be known, a restatement, an empirical illustration, or a g
 
 Disposition: `claim-ledger-entry.md` records literature status as pending and blocks theorem promotion.
 
-Status: open.
+Status: open; tracked by issue #27.
 
 ## G-12 — Code layer absent
 
@@ -100,15 +100,15 @@ Risk: no deterministic runner, fixture harness, surrogate generator, statistic i
 
 Disposition: `scripts/run_phase_gate_candidate_c.py` and `tests/test_phase_gate_candidate_c.py` are supplied.
 
-Status: discharged for v0.1 fixture and preliminary `X = 1e6` execution; independent replay still owed.
+Status: discharged for v0.1 fixture and preliminary `X = 1e6` execution.
 
 ## G-13 — Direct-to-main commits are inconsistent with audit discipline
 
 Risk: prior changes were committed directly to `main`.
 
-Disposition: future work should use branch + PR + review checklist. This capture pack includes a CI workflow and can be committed on a branch.
+Disposition: Candidate C capture and governance cleanup are handled by branch + PR + CI.
 
-Status: captured; process change required.
+Status: mitigated for current work; future work must keep branch/PR discipline.
 
 ## G-14 — Candidate C v0.1 does not currently show Cramér-surrogate rejection
 
@@ -116,4 +116,12 @@ Risk: the first executable statistic may not distinguish primes from a density-m
 
 Disposition: the artifact reports the negative/ambiguous result rather than inflating claims. This is a successful governance outcome: the apparatus produced a finite-window result without promotion.
 
-Status: captured; next work is statistic refinement or acceptance of negative result.
+Status: captured; tracked by issues #29 and #30.
+
+## G-15 — X1e6 preliminary raw JSON policy
+
+Risk: preliminary `X=1e6` summary and receipt existed without explicit policy for full raw JSON.
+
+Disposition: `results/X1e6-preliminary/README.md` records the decision to treat the full raw JSON as regenerable-only until the stronger B=256 run supersedes it.
+
+Status: discharged by governance cleanup PR.
