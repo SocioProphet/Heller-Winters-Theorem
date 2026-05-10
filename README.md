@@ -4,6 +4,10 @@ Canonical repository for the Heller–Winters Programme: a research programme in
 
 The programme develops an auditable operator framework for prime-distribution research. Its current deliverables are methodological and infrastructural: programme maps, typed operator specifications, empirical protocols, claim ledgers, residual/envelope analysis plans, phase-gate instrumentation, quotient-normalization work, Ehrhart/lattice-counting layers, falsification gates, and Proof Fabric Kernel provenance.
 
+## Repository-name note
+
+The GitHub repository may still appear as `Heller-Winters-Theorem` for continuity with earlier work. That repository name is historical. The canonical conceptual object is the **Heller–Winters Programme**. The word “theorem” is reserved for future, formally stated and proved results inside the programme.
+
 ## Claim discipline
 
 The repository must distinguish five classes of claims:
@@ -20,5 +24,7 @@ The phrase “Heller–Winters Theorem” is reserved for future theorem-worthy 
 
 - `docs/clay-problem-programme-map.md` — positioning map for RH/GRH-related programmes and the Heller–Winters operator layer.
 - `docs/empirical-protocol.md` — required discipline for empirical artifacts, including cross-track translation, null models, basis consistency, alternate-substrate gates, and promotion rules.
+- `docs/review-gap-register.md` — gap register produced after review of the current programme state.
 - `docs/04-programme-obligations.md` — live obligations ledger for substrate, instrumentation, theorem candidates, and cross-lane governance.
 - `docs/first-theorem-candidate-workplan.md` — Phase Wα/Wβ/Wγ workplan for isolating the first theorem-worthy result.
+- `empirical-claims/phase-gate-null-X1e6/` — Candidate C executable empirical artifact package.
