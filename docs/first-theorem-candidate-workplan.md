@@ -1,16 +1,15 @@
 # First Theorem Candidate Workplan
 
-Status: programmatic.
+Status: programmatic.  
+Updated: 2026-05-10.
 
 The Heller–Winters Programme does not currently possess a theorem. This document defines the disciplined path toward the first theorem-worthy result.
 
 ## Candidate families
 
-### Candidate A — residual-envelope theorem
+### Candidate A — residual-envelope theorem candidate
 
 Target:
-
-A bounded statement involving:
 
 ```math
 R(x) = \pi(x) - Li(x)
@@ -22,23 +21,24 @@ or
 \psi(x) - x.
 ```
 
-This is the highest-risk and most RH-adjacent candidate.
+This is the highest-risk and most RH-adjacent candidate. It remains programmatic.
 
-### Candidate B — quotient-normalization theorem
+### Candidate B — quotient-normalization theorem candidate
 
-Target:
+Target: a finite-window normalization or quotient-stability statement with explicit error control.
 
-A finite-window normalization or quotient-stability statement with explicit error control.
+This is lower ambition than Candidate A and may be more likely to close rigorously, but it requires Chapters 10–12 to be substantially drafted.
 
-Lower ambition than Candidate A but more likely to close rigorously.
+### Candidate C — phase-gate empirical artifact candidate
 
-### Candidate C — phase-gate distinguishability theorem
+Target: a finite-window phase-gate artifact comparing primes against declared null and alternate substrates under a locked statistic.
 
-Target:
+Candidate C is not a theorem yet. It becomes theorem-candidate material only after:
 
-A theorem about finite-window distinguishability between primes and declared null models under a locked phase-gate statistic.
-
-This is instrumentation-heavy and must not be inflated into an RH claim.
+1. the executable artifact is complete,
+2. the literature check identifies the exact novelty status,
+3. a formal statement is written with hypotheses and conclusion,
+4. a proof or bounded finite-window verification argument exists.
 
 ## Mandatory progression
 
@@ -91,6 +91,18 @@ Required outputs:
 - deterministic fixture receipts.
 
 No asymptotic language is permitted before Wγ succeeds.
+
+## Candidate C status after registry v0.1
+
+Candidate C has an executable empirical package at:
+
+```text
+empirical-claims/phase-gate-null-X1e6/
+```
+
+Registry v0.1 produced a useful negative/ambiguous result: the phase-gate statistic does not currently distinguish primes from the Cramér-Bernoulli surrogate at `B = 16`.
+
+That result is not a failure of the programme. It is the empirical protocol doing its job: the first artifact blocks premature theorem promotion.
 
 ## Promotion discipline
 
