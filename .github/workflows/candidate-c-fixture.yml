@@ -1,0 +1,23 @@
+name: Candidate C Fixture Replay
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  candidate-c-fixture:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Run fixture
+        run: |
+          python3 scripts/run_phase_gate_candidate_c.py \
+            --x 10000 \
+            --replicates 16 \
+            --artifact-dir empirical-claims/phase-gate-null-X1e6/results/ci-fixture
+      - name: Run fixture replay test
+        run: |
+          python3 tests/test_phase_gate_candidate_c.py

@@ -1,147 +1,40 @@
 # Programme Obligations Ledger
 
-Status: live governance document.
+Status: live governance document.  
+Updated: 2026-05-10.
 
 This ledger tracks work owed before empirical observations or theorem candidates may be promoted.
 
-## O-Substrate-1
+| ID | Obligation | Status | Evidence | Next action |
+|---|---|---:|---|---|
+| O-Substrate-1 | Lock canonical notation across all chapters. | open | notation legend still needed | draft canonical notation legend |
+| O-Substrate-2 | Complete operator registry normalization. | open | operator registry not fully typed | create operator registry inventory |
+| O-Instrumentation-1 | Phase-gate registry lock. | partial | `empirical-claims/phase-gate-null-X1e6/registry.md` v0.1 | independent review of formulas |
+| O-Instrumentation-2 | Phase-gate invariant audit. | partial | runner emits rotation-invariance audit | add translation/window audits |
+| O-Instrumentation-3 | Alternate-substrate gate. | partial | Cramér and wheel gates implemented | increase replicates and review controls |
+| O-Instrumentation-4 | Fixture replay. | partial | fixture result included | independent replay on second machine |
+| O-TheoremCandidate-1 | Residual-envelope theorem-candidate formalization. | open | Candidate A still programmatic | isolate residual object and hypotheses |
+| O-TheoremCandidate-2 | Uniformity obligation. | open | finite-window only | state exact uniformity theorem needed |
+| O-TheoremCandidate-3 | Empirical-to-analytic bridge. | open | no analytic target yet | literature check and target selection |
+| O-CrossLane-1 | Cross-track translation requirement. | partial | Candidate C README declares non-claims | enforce in all future artifacts |
+| O-CrossLane-2 | Claim taxonomy enforcement. | partial | Candidate C claim ledger added | add CI check for claim class |
+| O-Governance-1 | Programme-map consistency. | partial | patch script supplied | run and review patch |
+| O-Governance-2 | Replayability compliance. | partial | runner emits JSON receipts | connect to native PFK/Event-IR schema |
 
-Lock canonical notation across all chapters.
+## Current blockers
 
-Discharge condition:
+### B-01 — Independent replay
 
-- canonical notation legend completed,
-- glossary enforcement tooling operational,
-- no duplicated operator definitions.
+The fixture and `X = 1e6` preliminary results must be replayed outside the originating environment.
 
-## O-Substrate-2
+### B-02 — Literature status
 
-Complete operator registry normalization.
+Candidate C must be checked against uniform distribution and prime-sequence literature before it can be treated as theorem-candidate material.
 
-Discharge condition:
+### B-03 — Negative/ambiguous surrogate result
 
-- every operator typed,
-- invariants declared,
-- provenance schema attached.
+The registry v0.1 statistic does not currently distinguish primes from the Cramér-Bernoulli surrogate at `B = 16`. This must remain visible and must not be suppressed.
 
-## O-Instrumentation-1
+### B-04 — PFK native integration
 
-Phase-gate registry lock.
-
-Discharge condition:
-
-- window selection fixed,
-- phase definition fixed,
-- test-statistic family fixed,
-- normalization fixed.
-
-## O-Instrumentation-2
-
-Phase-gate invariant audit.
-
-Discharge condition:
-
-- translation equivariance verified,
-- symmetry conditions verified,
-- rotational invariance verified,
-- parity invariants verified.
-
-## O-Instrumentation-3
-
-Phase-gate alternate-substrate gate.
-
-Discharge condition:
-
-- all-integer baseline executed,
-- Poisson-thinned baseline executed,
-- density-matched random baseline executed,
-- expected trivial-result behavior verified.
-
-## O-Instrumentation-4
-
-Fixture replay.
-
-Discharge condition:
-
-- small explicit fixture constructed,
-- replay verified exactly,
-- replay reproducible across independent runs.
-
-## O-TheoremCandidate-1
-
-Residual-envelope theorem candidate formalization.
-
-Discharge condition:
-
-- hypotheses explicit,
-- residual object fixed,
-- asymptotic target explicit,
-- finite-window dependence isolated.
-
-## O-TheoremCandidate-2
-
-Uniformity obligation.
-
-Discharge condition:
-
-- proof obligation for window-uniform convergence stated,
-- scale-limit assumptions isolated,
-- asymptotic upgrade path explicit.
-
-## O-TheoremCandidate-3
-
-Empirical-to-analytic bridge.
-
-Discharge condition:
-
-- basis-consistency guardrail satisfied,
-- analytic target and empirical target normalized identically,
-- residual comparison performed in common basis.
-
-## O-CrossLane-1
-
-Cross-track translation requirement.
-
-Discharge condition:
-
-Every empirical artifact declares:
-
-- what it demonstrates,
-- what it does not claim,
-- where it sits relative to theorem-track work.
-
-## O-CrossLane-2
-
-Claim taxonomy enforcement.
-
-Discharge condition:
-
-Every artifact classified as:
-
-- proven,
-- definitional,
-- empirical,
-- conjectural,
-- or programmatic.
-
-## O-Governance-1
-
-Programme-map consistency.
-
-Discharge condition:
-
-No repository artifact claims RH/GRH proof status unless a formally verified theorem exists.
-
-## O-Governance-2
-
-Replayability compliance.
-
-Discharge condition:
-
-Every empirical artifact ships with:
-
-- provenance,
-- fixtures,
-- registry versions,
-- replay instructions,
-- hardware/runtime declarations.
+The receipt emitted here is JSON-compatible with the PFK discipline, but not yet a full Event-IR or ProofArtifact emission.
