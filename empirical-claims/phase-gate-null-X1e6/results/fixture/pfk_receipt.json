@@ -1,0 +1,23 @@
+{
+  "artifact_id": "phase-gate-null-X1e6",
+  "basis": {
+    "analytic_target": "Uniform[0,1) only for one-sample Kuiper statistic; no RH-linked analytic target used",
+    "basis": "circular phase basis [0,1)",
+    "comparison_rule": "all reported comparisons computed in same phase basis and same statistic"
+  },
+  "claim_class": "empirical",
+  "deterministic_result_sha256": "ab70a276f21fae3e6d3b5e16ba08378c23d0d6a08574784b6e798ae51c3f7c2b",
+  "limit": 10000,
+  "non_claim_boundary": [
+    "not RH",
+    "not GRH",
+    "not asymptotic",
+    "not zero-location",
+    "not a residual-envelope theorem"
+  ],
+  "registry_version": "phase-gate-v0.1",
+  "replicates": 16,
+  "result_file": "phase_gate_results.json",
+  "seed": 20260510,
+  "summary_file": "summary.md"
+}
