@@ -1,0 +1,34 @@
+{
+  "artifact_id": "phase-gate-null-X1e6",
+  "registry_version": "phase-gate-v0.1",
+  "claim_class": "empirical",
+  "run": {
+    "x": "<integer>",
+    "replicates": "<integer>",
+    "seed": 20260510
+  },
+  "basis": {
+    "coordinate": "u(n) = log(n)",
+    "phase": "theta_omega(n) = frac(omega * log(n) / (2*pi))",
+    "frequencies": [
+      1,
+      2,
+      3,
+      5,
+      8
+    ],
+    "circle": "[0,1)"
+  },
+  "outputs": {
+    "result_json": "phase_gate_results.json",
+    "deterministic_result_sha256": "<sha256>",
+    "summary": "summary.md"
+  },
+  "non_claim_boundary": [
+    "not RH",
+    "not GRH",
+    "not asymptotic",
+    "not zero-location",
+    "not residual-envelope theorem"
+  ]
+}
