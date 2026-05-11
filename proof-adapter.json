@@ -1,0 +1,28 @@
+{
+  "adapter_version": "0.1",
+  "repo": "SocioProphet/Heller-Winters-Theorem",
+  "domain": "su2-finite-channel-representation-theory",
+  "controller_protocol": "protocol/proof-apparatus-workspace/v0",
+  "claims": [],
+  "gates": [
+    { "gate_id": "channel-product", "kind": "symbolic_check", "status": "planned" },
+    { "gate_id": "jmax-gram", "kind": "symbolic_check", "status": "planned" },
+    { "gate_id": "u1-null-model", "kind": "test", "status": "planned" },
+    { "gate_id": "wigner-table-reproduction", "kind": "fixture_check", "status": "planned" },
+    { "gate_id": "symbolic-small-jmax", "kind": "symbolic_check", "status": "planned" }
+  ],
+  "non_claims": [
+    {
+      "non_claim_id": "heller-winters.no-continuum-ym-claim",
+      "statement": "This adapter does not claim continuum Yang-Mills mass gap or continuum constructive field theory."
+    },
+    {
+      "non_claim_id": "heller-winters.no-convention-free-result",
+      "statement": "This adapter does not treat Wigner, Haar, or quaternion convention-dependent outputs as convention-free until gates record the convention."
+    },
+    {
+      "non_claim_id": "heller-winters.no-finite-cutoff-promotion",
+      "statement": "This adapter does not promote finite-channel or finite-cutoff evidence to a continuum theorem."
+    }
+  ]
+}
