@@ -14,5 +14,5 @@ jobs:
     uses: SocioProphet/sociosphere/.github/workflows/proof-apparatus.yml@main
     with:
       domain_repo: ${{ github.repository }}
-      domain_ref: ${{ github.ref_name }}
-      domain_sha: ${{ github.sha }}
+      domain_ref: ${{ github.event_name == 'pull_request' && format('refs/pull/{0}/head', github.event.pull_request.number) || github.ref_name }}
+      domain_sha: ${{ github.event_name == 'pull_request' && github.event.pull_request.head.sha || github.sha }}
