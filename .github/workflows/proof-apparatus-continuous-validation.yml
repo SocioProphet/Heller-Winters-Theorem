@@ -1,0 +1,18 @@
+name: Proof apparatus continuous validation
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '**'
+  pull_request:
+    paths:
+      - '**'
+
+jobs:
+  validate-with-sociosphere:
+    uses: SocioProphet/sociosphere/.github/workflows/proof-apparatus.yml@main
+    with:
+      domain_repo: ${{ github.repository }}
+      domain_ref: ${{ github.ref_name }}
+      domain_sha: ${{ github.sha }}
