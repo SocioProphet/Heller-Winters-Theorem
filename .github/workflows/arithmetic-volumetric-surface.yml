@@ -1,0 +1,18 @@
+name: arithmetic-volumetric-surface
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Run surface fixture
+        run: python3 scripts/run_arithmetic_volumetric_surface.py --artifact-dir /tmp/arithvol-surface
+      - name: Run surface tests
+        run: python3 -m unittest discover -s tests -p test_arithmetic_volumetric_surface.py

@@ -53,6 +53,31 @@
         "arithmetic-volume-fixture-check"
       ],
       "obstruction_walls": ["certificate_wall"]
+    },
+    {
+      "claim_id": "HW-ARITHVOL-SURFACE-002",
+      "state": "draft",
+      "severity": "E7",
+      "substrate": "finite-window arithmetic volumetric surface replay",
+      "shell_level": "v0.2 empirical runner artifact",
+      "projection": "deterministic Score(u,L) grid with PFK-style receipt",
+      "statement": "Arithmetic Volumetric Surface Runner v0.2 generates a deterministic finite-window Score(u,L) surface and replay receipt for declared log-volume grids.",
+      "boundary": [
+        "The claim is empirical and finite-window scoped.",
+        "The surface score is not theorem strength and does not promote RH, GRH, deterministic primality, or asymptotic speedup.",
+        "The quantum-volume relation remains methodological analogy only and is not a quantum hardware benchmark or quantum advantage claim."
+      ],
+      "non_claim_refs": [
+        "heller-winters.no-main-theorem-claim",
+        "heller-winters.no-rh-proof-claim",
+        "heller-winters.no-quantum-volume-equivalence"
+      ],
+      "owned_gates": [
+        "arithmetic-volume-surface-claim-boundary",
+        "arithmetic-volume-surface-non-claim",
+        "arithmetic-volume-surface-fixture-check"
+      ],
+      "obstruction_walls": ["certificate_wall"]
     }
   ],
   "gates": [
@@ -100,6 +125,26 @@
       "command": "python3 scripts/check_arithmetic_volumetric_benchmark.py",
       "fixture": "empirical-claims/arithmetic-volumetric-benchmark-v0.1/registry.json",
       "expected": "Arithmetic volumetric benchmark registry passes local replay checks."
+    },
+    {
+      "gate_id": "arithmetic-volume-surface-claim-boundary",
+      "kind": "claim_boundary_check",
+      "status": "planned",
+      "expected": "Arithmetic volumetric surface runner remains finite-window empirical instrumentation."
+    },
+    {
+      "gate_id": "arithmetic-volume-surface-non-claim",
+      "kind": "non_claim_check",
+      "status": "planned",
+      "expected": "Non-claim boxes block quantum-volume equivalence, quantum advantage, theorem-strength, and RH/GRH overstatement."
+    },
+    {
+      "gate_id": "arithmetic-volume-surface-fixture-check",
+      "kind": "test",
+      "status": "planned",
+      "command": "python3 scripts/run_arithmetic_volumetric_surface.py --artifact-dir /tmp/arithvol-surface && python3 -m unittest discover -s tests -p test_arithmetic_volumetric_surface.py",
+      "fixture": "empirical-claims/arithmetic-volumetric-benchmark-v0.2/registry.json",
+      "expected": "Arithmetic volumetric surface runner emits deterministic surface, summary, and receipt outputs."
     }
   ],
   "non_claims": [
@@ -118,17 +163,17 @@
     {
       "non_claim_id": "heller-winters.no-main-theorem-claim",
       "statement": "This adapter does not claim a completed Heller-Winters theorem or final prime-distribution theorem.",
-      "applies_to": ["HW-LOGVOLUME-001", "HW-ARITHVOL-001"]
+      "applies_to": ["HW-LOGVOLUME-001", "HW-ARITHVOL-001", "HW-ARITHVOL-SURFACE-002"]
     },
     {
       "non_claim_id": "heller-winters.no-rh-proof-claim",
       "statement": "This adapter does not claim a proof of RH, GRH, zero-location, deterministic primality, or asymptotic speedup.",
-      "applies_to": ["HW-LOGVOLUME-001", "HW-ARITHVOL-001"]
+      "applies_to": ["HW-LOGVOLUME-001", "HW-ARITHVOL-001", "HW-ARITHVOL-SURFACE-002"]
     },
     {
       "non_claim_id": "heller-winters.no-quantum-volume-equivalence",
       "statement": "Arithmetic volumetric benchmarking is a methodological analogy to quantum-volume-style benchmarking, not an equivalence to quantum volume and not a quantum hardware benchmark.",
-      "applies_to": ["HW-ARITHVOL-001"]
+      "applies_to": ["HW-ARITHVOL-001", "HW-ARITHVOL-SURFACE-002"]
     }
   ]
 }
