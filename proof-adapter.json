@@ -1,15 +1,106 @@
 {
   "adapter_version": "0.1",
   "repo": "SocioProphet/Heller-Winters-Theorem",
-  "domain": "su2-finite-channel-representation-theory",
+  "domain": "su2-finite-channel-representation-theory and finite-window prime-distribution instrumentation",
   "controller_protocol": "protocol/proof-apparatus-workspace/v0",
-  "claims": [],
+  "claims": [
+    {
+      "claim_id": "HW-LOGVOLUME-001",
+      "state": "draft",
+      "severity": "E7",
+      "substrate": "finite-window prime-distribution normalization",
+      "shell_level": "v0.1 definitional artifact",
+      "projection": "log-volume coordinate, mean-field subtraction, residual-channel separation",
+      "statement": "Prime Log-Volume Spectral Normalization v0.1 defines a replayable normalization contract for finite-window empirical artifacts in the Heller-Winters Programme.",
+      "boundary": [
+        "The claim is definitional and empirical-harness scoped.",
+        "The artifact does not promote an RH, GRH, zero-location, deterministic-primality, or asymptotic-speedup theorem.",
+        "Promotion requires separate theorem-candidate obligations, independent replay, and SocioSphere controller gates."
+      ],
+      "non_claim_refs": [
+        "heller-winters.no-main-theorem-claim",
+        "heller-winters.no-rh-proof-claim",
+        "heller-winters.no-quantum-volume-equivalence"
+      ],
+      "owned_gates": [
+        "log-volume-claim-boundary",
+        "log-volume-non-claim",
+        "log-volume-fixture-check"
+      ],
+      "obstruction_walls": ["certificate_wall"]
+    },
+    {
+      "claim_id": "HW-ARITHVOL-001",
+      "state": "draft",
+      "severity": "E7",
+      "substrate": "finite-window arithmetic volumetric benchmarking",
+      "shell_level": "v0.1 definitional artifact",
+      "projection": "two-axis surface over scale location u and log-width L",
+      "statement": "Arithmetic Volumetric Benchmark v0.1 defines a two-axis benchmark surface for normalized arithmetic signal volume, inspired by quantum-volume methodology but not equivalent to quantum volume.",
+      "boundary": [
+        "The claim is a benchmarking analogy and finite-window harness definition.",
+        "The artifact does not claim quantum hardware execution, quantum advantage, or equivalence to quantum volume.",
+        "Promotion requires a separate compiler/runtime artifact if arithmetic residual tasks are later mapped to quantum circuits."
+      ],
+      "non_claim_refs": [
+        "heller-winters.no-main-theorem-claim",
+        "heller-winters.no-rh-proof-claim",
+        "heller-winters.no-quantum-volume-equivalence"
+      ],
+      "owned_gates": [
+        "arithmetic-volume-claim-boundary",
+        "arithmetic-volume-non-claim",
+        "arithmetic-volume-fixture-check"
+      ],
+      "obstruction_walls": ["certificate_wall"]
+    }
+  ],
   "gates": [
     { "gate_id": "channel-product", "kind": "symbolic_check", "status": "planned" },
     { "gate_id": "jmax-gram", "kind": "symbolic_check", "status": "planned" },
     { "gate_id": "u1-null-model", "kind": "test", "status": "planned" },
     { "gate_id": "wigner-table-reproduction", "kind": "fixture_check", "status": "planned" },
-    { "gate_id": "symbolic-small-jmax", "kind": "symbolic_check", "status": "planned" }
+    { "gate_id": "symbolic-small-jmax", "kind": "symbolic_check", "status": "planned" },
+    {
+      "gate_id": "log-volume-claim-boundary",
+      "kind": "claim_boundary_check",
+      "status": "planned",
+      "expected": "Prime log-volume normalization remains definitional or empirical unless a separate proof artifact promotes it."
+    },
+    {
+      "gate_id": "log-volume-non-claim",
+      "kind": "non_claim_check",
+      "status": "planned",
+      "expected": "Non-claim boxes block RH, GRH, deterministic-primality, zero-location, and asymptotic-speedup overstatement."
+    },
+    {
+      "gate_id": "log-volume-fixture-check",
+      "kind": "test",
+      "status": "planned",
+      "command": "python3 scripts/check_log_volume_normalization.py",
+      "fixture": "empirical-claims/log-volume-normalization-v0.1/registry.json",
+      "expected": "Log-volume normalization registry passes local replay checks."
+    },
+    {
+      "gate_id": "arithmetic-volume-claim-boundary",
+      "kind": "claim_boundary_check",
+      "status": "planned",
+      "expected": "Arithmetic volumetric benchmark remains a benchmarking analogy unless separate runtime/proof artifacts promote it."
+    },
+    {
+      "gate_id": "arithmetic-volume-non-claim",
+      "kind": "non_claim_check",
+      "status": "planned",
+      "expected": "Non-claim boxes block quantum-volume equivalence, quantum hardware benchmark, and quantum advantage claims."
+    },
+    {
+      "gate_id": "arithmetic-volume-fixture-check",
+      "kind": "test",
+      "status": "planned",
+      "command": "python3 scripts/check_arithmetic_volumetric_benchmark.py",
+      "fixture": "empirical-claims/arithmetic-volumetric-benchmark-v0.1/registry.json",
+      "expected": "Arithmetic volumetric benchmark registry passes local replay checks."
+    }
   ],
   "non_claims": [
     {
@@ -23,6 +114,21 @@
     {
       "non_claim_id": "heller-winters.no-finite-cutoff-promotion",
       "statement": "This adapter does not promote finite-channel or finite-cutoff evidence to a continuum theorem."
+    },
+    {
+      "non_claim_id": "heller-winters.no-main-theorem-claim",
+      "statement": "This adapter does not claim a completed Heller-Winters theorem or final prime-distribution theorem.",
+      "applies_to": ["HW-LOGVOLUME-001", "HW-ARITHVOL-001"]
+    },
+    {
+      "non_claim_id": "heller-winters.no-rh-proof-claim",
+      "statement": "This adapter does not claim a proof of RH, GRH, zero-location, deterministic primality, or asymptotic speedup.",
+      "applies_to": ["HW-LOGVOLUME-001", "HW-ARITHVOL-001"]
+    },
+    {
+      "non_claim_id": "heller-winters.no-quantum-volume-equivalence",
+      "statement": "Arithmetic volumetric benchmarking is a methodological analogy to quantum-volume-style benchmarking, not an equivalence to quantum volume and not a quantum hardware benchmark.",
+      "applies_to": ["HW-ARITHVOL-001"]
     }
   ]
 }
