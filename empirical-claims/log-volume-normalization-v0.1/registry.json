@@ -1,0 +1,57 @@
+{
+  "normalization_id": "prime-log-volume-spectral-normalization",
+  "normalization_version": "0.1.0",
+  "claim_class": "definitional",
+  "coordinate": {
+    "canonical": "u = ln(x)",
+    "inverse": "x = exp(u)",
+    "volume_element": "dx = exp(u) du"
+  },
+  "base_policy": {
+    "canonical_base": "e",
+    "display_bases_allowed": true,
+    "frequency_rescale_rule": "gamma_b = gamma * ln(b)",
+    "score_invariant_under_display_base_change": true
+  },
+  "window": {
+    "type": "multiplicative_log_window",
+    "formula": "W(u,L) = [exp(u), exp(u+L)]",
+    "constraints": ["u > 0", "L > 0"]
+  },
+  "mean_field": {
+    "observable": "prime_count",
+    "formula": "Li(exp(u+L)) - Li(exp(u))",
+    "integral_form": "integral_u_to_u_plus_L exp(v)/v dv",
+    "leading_asymptotic": "exp(u)/u * (exp(L)-1)",
+    "finite_u_correction_required": true
+  },
+  "observable": ["prime_count", "psi"],
+  "residual_definition": {
+    "prime_count": "pi(exp(u+L)) - pi(exp(u)) - MF_count(u,L)",
+    "psi": "psi(exp(u+L)) - psi(exp(u)) - (exp(u+L)-exp(u))"
+  },
+  "phase_basis": {
+    "coordinate": "u",
+    "basis": ["cos(gamma_j u)", "sin(gamma_j u)"],
+    "frequency_source_classes": ["synthetic_grid", "zero_table_declared_context_only", "operator_candidate_declared", "fixture_only"]
+  },
+  "envelope_policy": {
+    "psi_channel": "exp(u/2)",
+    "prime_count_channel_allowed": ["li_rho_leading_channel", "finite_window_empirical_scale", "no_envelope_claim"],
+    "observable_separation_required": true
+  },
+  "finite_window_scope": true,
+  "claim_boundary": {
+    "allowed": ["finite-window ranking", "residual decomposition", "falsifiable heuristic scoring", "normalization lock"],
+    "disallowed_without_separate_proof_artifact": ["unproved global theorem promotion", "deterministic primality guarantee", "asymptotic speedup claim", "zero-location theorem"]
+  },
+  "fixtures": [
+    {"u": 20.0, "L": 0.2},
+    {"u": 30.0, "L": 0.1},
+    {"u": 40.0, "L": 0.05}
+  ],
+  "replay_instructions": [
+    "python3 scripts/check_log_volume_normalization.py",
+    "python3 -m unittest discover -s tests -p test_log_volume_normalization.py"
+  ]
+}
