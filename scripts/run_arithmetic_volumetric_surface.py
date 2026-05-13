@@ -79,10 +79,30 @@ def build_surface(u_values: Sequence[float], L_values: Sequence[float]) -> dict:
     }
 
 
+def runtime_metadata(start_time: float, deterministic_runtime: bool) -> dict:
+    if deterministic_runtime:
+        return {
+            "seconds": 0.0,
+            "python": "deterministic-fixture",
+            "platform": "deterministic-fixture",
+        }
+    return {
+        "seconds": time.time() - start_time,
+        "python": sys.version,
+        "platform": platform.platform(),
+    }
+
+
 def write_outputs(result: dict, receipt: dict, artifact_dir: Path) -> None:
     artifact_dir.mkdir(parents=True, exist_ok=True)
-    (artifact_dir / "surface.json").write_text(json.dumps(result, indent=2, sort_keys=True) + "\n", encoding="utf-8")
-    (artifact_dir / "pfk_receipt.json").write_text(json.dumps(receipt, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+    (artifact_dir / "surface.json").write_text(
+        json.dumps(result, indent=2, sort_keys=True) + "\n",
+        encoding="utf-8",
+    )
+    (artifact_dir / "pfk_receipt.json").write_text(
+        json.dumps(receipt, indent=2, sort_keys=True) + "\n",
+        encoding="utf-8",
+    )
     summary = result["surface"]["summary"]
     lines = [
         "# Arithmetic Volumetric Surface Run Summary",
@@ -105,7 +125,12 @@ def write_outputs(result: dict, receipt: dict, artifact_dir: Path) -> None:
     (artifact_dir / "summary.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
 
 
-def run_surface(u_values: Sequence[float], L_values: Sequence[float], artifact_dir: Path) -> tuple[dict, dict]:
+def run_surface(
+    u_values: Sequence[float],
+    L_values: Sequence[float],
+    artifact_dir: Path,
+    deterministic_runtime: bool = False,
+) -> tuple[dict, dict]:
     start = time.time()
     registry = load_registry()
     deterministic_payload = {
@@ -122,7 +147,7 @@ def run_surface(u_values: Sequence[float], L_values: Sequence[float], artifact_d
     result = {
         **deterministic_payload,
         "deterministic_result_sha256": digest,
-        "runtime": {"seconds": time.time() - start, "python": sys.version, "platform": platform.platform()},
+        "runtime": runtime_metadata(start, deterministic_runtime),
     }
     receipt = {
         "artifact_id": registry["artifact_id"],
@@ -131,6 +156,7 @@ def run_surface(u_values: Sequence[float], L_values: Sequence[float], artifact_d
         "deterministic_result_sha256": digest,
         "result_file": "surface.json",
         "summary_file": "summary.md",
+        "runtime_mode": "deterministic-fixture" if deterministic_runtime else "observed-runtime",
         "non_claim_boundary": registry["claim_boundary"]["disallowed"],
     }
     write_outputs(result, receipt, artifact_dir)
@@ -144,8 +170,18 @@ def main() -> None:
     parser.add_argument("--u-values", type=parse_float_csv, default=defaults["u_values"])
     parser.add_argument("--L-values", type=parse_float_csv, default=defaults["L_values"])
     parser.add_argument("--artifact-dir", type=Path, default=DEFAULT_ARTIFACT_DIR)
+    parser.add_argument(
+        "--deterministic-runtime",
+        action="store_true",
+        help="write stable fixture runtime metadata for committed canonical outputs",
+    )
     args = parser.parse_args()
-    _, receipt = run_surface(args.u_values, args.L_values, args.artifact_dir)
+    _, receipt = run_surface(
+        args.u_values,
+        args.L_values,
+        args.artifact_dir,
+        deterministic_runtime=args.deterministic_runtime,
+    )
     print(json.dumps(receipt, indent=2, sort_keys=True))
 
 
