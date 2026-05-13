@@ -1,0 +1,133 @@
+{
+  "artifact_id": "arithmetic-volumetric-surface-runner",
+  "artifact_version": "0.2.0",
+  "claim_boundary": {
+    "allowed": [
+      "finite-window benchmark surface generation",
+      "deterministic replay receipt",
+      "methodological analogy to volumetric benchmarking"
+    ],
+    "disallowed": [
+      "equivalence to quantum volume",
+      "quantum hardware benchmark",
+      "quantum advantage claim",
+      "proof of RH or GRH",
+      "deterministic primality guarantee",
+      "asymptotic speedup claim"
+    ]
+  },
+  "claim_class": "empirical",
+  "deterministic_result_sha256": "caa5d85fe5a49396aae95162d2332b6554ad834ff3c26ee7783eff5b44cc4425",
+  "parent_benchmark": {
+    "benchmark_id": "arithmetic-volumetric-benchmark",
+    "benchmark_version": "0.1.0"
+  },
+  "parent_normalization": {
+    "normalization_id": "prime-log-volume-spectral-normalization",
+    "normalization_version": "0.1.0"
+  },
+  "runtime": {
+    "platform": "deterministic-fixture",
+    "python": "deterministic-fixture",
+    "seconds": 0.0
+  },
+  "score_policy": {
+    "formula": "log1p(corrected_mean_field(u,L)) / (1 + u * L)",
+    "score_is_finite_window_only": true,
+    "score_is_not_theorem_strength": true
+  },
+  "surface": {
+    "axes": {
+      "L_values": [
+        0.05,
+        0.1,
+        0.2
+      ],
+      "u_values": [
+        20.0,
+        30.0,
+        40.0
+      ]
+    },
+    "cells": [
+      {
+        "L": 0.05,
+        "corrected_mean_field": 1242179.934975024,
+        "score": 7.016189605599685,
+        "u": 20.0,
+        "x_end": 510040146.90193856,
+        "x_start": 485165195.4097903
+      },
+      {
+        "L": 0.1,
+        "corrected_mean_field": 2544779.0074215825,
+        "score": 4.916518254379599,
+        "u": 20.0,
+        "x_end": 536190464.42938966,
+        "x_start": 485165195.4097903
+      },
+      {
+        "L": 0.2,
+        "corrected_mean_field": 5343096.848501463,
+        "score": 3.098263232834641,
+        "u": 20.0,
+        "x_end": 592582107.8368351,
+        "x_start": 485165195.4097903
+      },
+      {
+        "L": 0.05,
+        "corrected_mean_field": 18248229134.86863,
+        "score": 9.450933551446322,
+        "u": 30.0,
+        "x_end": 11234381849713.742,
+        "x_start": 10686474581524.463
+      },
+      {
+        "L": 0.1,
+        "corrected_mean_field": 37400065035.8172,
+        "score": 6.086234570079429,
+        "u": 30.0,
+        "x_end": 11810380924255.479,
+        "x_start": 10686474581524.463
+      },
+      {
+        "L": 0.2,
+        "corrected_mean_field": 78595517180.35938,
+        "score": 3.583940071634153,
+        "u": 30.0,
+        "x_end": 13052489528882.516,
+        "x_start": 10686474581524.463
+      },
+      {
+        "L": 0.05,
+        "corrected_mean_field": 301521376490282.06,
+        "score": 11.113287343349251,
+        "u": 40.0,
+        "x_end": 2.4745372753851626e+17,
+        "x_start": 2.3538526683702e+17
+      },
+      {
+        "L": 0.1,
+        "corrected_mean_field": 618105608786739.9,
+        "score": 6.811536089358197,
+        "u": 40.0,
+        "x_end": 2.6014095145175104e+17,
+        "x_start": 2.3538526683702e+17
+      },
+      {
+        "L": 0.2,
+        "corrected_mean_field": 1299507997998959.2,
+        "score": 3.866751347185025,
+        "u": 40.0,
+        "x_end": 2.8750021414500458e+17,
+        "x_start": 2.3538526683702e+17
+      }
+    ],
+    "summary": {
+      "cell_count": 9,
+      "score_max": 11.113287343349251,
+      "score_mean": 6.215961562874034,
+      "score_min": 3.098263232834641
+    }
+  }
+}
