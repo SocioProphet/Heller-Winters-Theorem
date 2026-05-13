@@ -1,0 +1,53 @@
+{
+  "benchmark_id": "arithmetic-volumetric-benchmark",
+  "benchmark_version": "0.1.0",
+  "claim_class": "definitional",
+  "parent_normalization": {
+    "normalization_id": "prime-log-volume-spectral-normalization",
+    "normalization_version": "0.1.0"
+  },
+  "axes": {
+    "scale_location": "u",
+    "log_width": "L",
+    "surface": "Score(u,L)",
+    "collapse_to_scalar_allowed": false
+  },
+  "base_policy": {
+    "canonical_base": "e",
+    "display_bases_allowed": true,
+    "score_invariant_under_display_base_change": true
+  },
+  "quantum_volume_relation": {
+    "status": "methodological_analogy_only",
+    "analogy": {
+      "quantum_width_depth": "arithmetic_u_L_surface",
+      "hardware_noise": "density_drift_and_normalization_error",
+      "successful_circuit_volume": "replayable_residual_signal_volume",
+      "volumetric_benchmarking_map": "score_surface"
+    },
+    "equivalence_to_quantum_volume": false,
+    "quantum_hardware_benchmark": false,
+    "quantum_advantage_claim": false
+  },
+  "observable_channels": ["prime_count", "psi"],
+  "scoring_policy": {
+    "fixture_score_formula": "log(1 + corrected_mean_field(u,L)) / (1 + u * L)",
+    "score_must_be_finite": true,
+    "score_must_be_non_negative": true,
+    "score_is_not_theorem_strength": true
+  },
+  "fixtures": [
+    {"u": 20.0, "L": 0.05},
+    {"u": 20.0, "L": 0.2},
+    {"u": 30.0, "L": 0.1},
+    {"u": 40.0, "L": 0.05}
+  ],
+  "claim_boundary": {
+    "allowed": ["benchmark surface definition", "finite-window scoring", "methodological analogy to volumetric benchmarking", "replay harness validation"],
+    "disallowed_without_separate_proof_or_runtime_artifact": ["equivalence to quantum volume", "quantum hardware benchmark", "quantum advantage claim", "proof of RH or GRH", "deterministic primality guarantee", "asymptotic speedup claim"]
+  },
+  "replay_instructions": [
+    "python3 scripts/check_arithmetic_volumetric_benchmark.py",
+    "python3 -m unittest discover -s tests -p test_arithmetic_volumetric_benchmark.py"
+  ]
+}
