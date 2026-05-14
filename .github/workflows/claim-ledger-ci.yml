@@ -1,0 +1,35 @@
+name: Claim Ledger Validation
+
+on:
+  push:
+    paths:
+      - 'schemas/**'
+      - 'fixtures/**'
+      - 'tests/test_claim_ledger_schema.py'
+      - 'scripts/generate_json_schema.py'
+      - 'requirements-dev.txt'
+      - 'Makefile'
+      - '.github/workflows/claim-ledger-ci.yml'
+  pull_request:
+    paths:
+      - 'schemas/**'
+      - 'fixtures/**'
+      - 'tests/test_claim_ledger_schema.py'
+      - 'scripts/generate_json_schema.py'
+      - 'requirements-dev.txt'
+      - 'Makefile'
+      - '.github/workflows/claim-ledger-ci.yml'
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install -r requirements-dev.txt
+      - run: make validate-claim-ledger
+      - run: make generate-json-schema
+      - name: Verify generated JSON Schema is committed
+        run: git diff --exit-code -- schemas/json
