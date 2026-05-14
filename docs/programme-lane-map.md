@@ -8,7 +8,7 @@ This document records the lane structure implied by the umbrella README reframin
 
 The Heller–Winters Programme is an umbrella research programme. It is not a completed theorem.
 
-The umbrella currently has five named programme lanes plus one subordinate prime/operator lane. The five named lanes are not automatically theorem-track. Each lane must carry its own maturity level, load-bearing prerequisites, and non-claims.
+The umbrella currently has five named programme lanes plus one subordinate prime/operator lane. The five named lanes are not automatically theorem-track. Each lane carries its own maturity level, load-bearing prerequisites, non-claims, interfaces, proof/falsification obligations, and adversarial notes in the lane-scoping documents under `docs/programme-lanes/`.
 
 The phrase **one coherence engine** is used in two senses:
 
@@ -19,14 +19,14 @@ The current README permits the coordination claim. The structural claim remains 
 
 ## 2. Lane inventory
 
-| Lane | Current role | Maturity | Load-bearing prerequisites | Non-claims |
-| --- | --- | --- | --- | --- |
-| Gravitational information bounds | Regulator on local information density and motivation for invariant/compressed descriptions. | Structural motivation. | Bekenstein-type bounds, area-law interpretation, declared bounded-region setup. | Does not prove a cosmological model; does not identify the universe with any specific white-hole or boundary-state construction. |
-| Octonionic Hopf geometry | Apex geometry and nonassociative obstruction source. | Structural/theorem-candidate substrate. | Hopf division-algebra ladder, `S^7` Moufang-loop caveat, `Spin(8)`/triality convention discipline, associative-slice gate. | Does not identify triality sectors with observable physics without a representation-to-sector map. |
-| Spectral zeta regularization | Spectral invariant channel and determinant-gradient source. | Mathematical baseline plus theorem-candidate channel. | Positive elliptic baseline or declared regulator, zeta determinant convention, trace-class/regularization assumptions. | Does not automatically transfer to Lorentzian geometry; does not prove a Riemann-zeta bridge. |
-| Descent/topos semantics | Gauge/descent-stable language for fibered data. | Definitional/structural. | Čech groupoid, descent equivalence, declared fibration/groupoid objects. | Does not by itself prove physical invariance or existence of functorial lifts. |
-| Information-geometric learning dynamics | Variational update layer on connections and boundary-conditioned kernels. | Structural/computational diagnostic target. | Transition kernels, reference-adjoint backward kernel, Fisher/Dirichlet/entropy regularizer, mirror-descent assumptions. | Does not supply empirical falsification without executable kernels and declared observables. |
-| Prime/operator lane | Arithmetic/operator research substrate now subordinate to the umbrella. | Active infrastructure and empirical/theorem-candidate work. | Operator registry, claim ledger, run receipts, residual channels, harness protocol. | Does not define the whole Heller–Winters Programme; does not turn RH-shaped residual diagnostics into RH claims. |
+| Lane | Scoping document | Current role | Maturity | Load-bearing prerequisites | Non-claims |
+| --- | --- | --- | --- | --- | --- |
+| Gravitational information bounds | `docs/programme-lanes/gravitational-information-bounds.md` | Regulator on local information density and motivation for invariant/compressed descriptions. | Structural motivation. | Bekenstein-type bounds, area-law interpretation, declared bounded-region setup. | Does not prove a cosmological model; does not identify the universe with any specific white-hole or boundary-state construction. |
+| Octonionic Hopf geometry | `docs/programme-lanes/octonionic-hopf-geometry.md` | Apex geometry and nonassociative obstruction source. | Structural/theorem-candidate substrate. | Hopf division-algebra ladder, `S^7` Moufang-loop caveat, `Spin(8)`/triality convention discipline, associative-slice gate. | Does not identify triality sectors with observable physics without a representation-to-sector map. |
+| Spectral zeta regularization | `docs/programme-lanes/spectral-zeta-regularization.md` | Spectral invariant channel and determinant-gradient source. | Mathematical baseline plus theorem-candidate channel. | Positive elliptic baseline or declared regulator, zeta determinant convention, trace-class/regularization assumptions. | Does not automatically transfer to Lorentzian geometry; does not prove a Riemann-zeta bridge. |
+| Descent/topos semantics | `docs/programme-lanes/descent-topos-semantics.md` | Gauge/descent-stable language for fibered data. | Definitional/structural. | Čech groupoid, descent equivalence, declared fibration/groupoid objects. | Does not by itself prove physical invariance or existence of functorial lifts. |
+| Information-geometric learning dynamics | `docs/programme-lanes/information-geometric-learning-dynamics.md` | Variational update layer on connections and boundary-conditioned kernels. | Structural/computational diagnostic target. | Transition kernels, reference-adjoint backward kernel, Fisher/Dirichlet/entropy regularizer, mirror-descent assumptions. | Does not supply empirical falsification without executable kernels and declared observables. |
+| Prime/operator lane | `docs/prime-operator-lane/` | Arithmetic/operator research substrate now subordinate to the umbrella. | Active infrastructure and empirical/theorem-candidate work. | Operator registry, claim ledger, run receipts, residual channels, harness protocol. | Does not define the whole Heller–Winters Programme; does not turn RH-shaped residual diagnostics into RH claims. |
 
 ## 3. Dependency graph
 
@@ -108,7 +108,21 @@ Candidate repos such as `yang-mills`, `np-program`, `bsd-proof-program`, `Heller
 
 ## 7. Immediate follow-up obligations
 
-1. Add one scoping document per non-prime lane, or explicitly mark the lane as "README-scoped only" until such a document exists.
-2. Decide whether `ClaimLedgerEntry` becomes programme-wide or remains prime/operator-lane infrastructure.
-3. Add cross-repository relationship declarations only after repo-specific review.
-4. Keep theorem language reserved for formal statements with declared assumptions, proof obligations, and validation artifacts.
+Status as of 2026-05-14:
+
+| Obligation | Status | Notes |
+| --- | --- | --- |
+| Add one scoping document per non-prime lane. | Complete. | Scoping documents now exist under `docs/programme-lanes/`. |
+| Decide whether `ClaimLedgerEntry` becomes programme-wide or remains prime/operator-lane infrastructure. | Open. | Current policy keeps it prime/operator-lane scoped until a declared extension lands. |
+| Add cross-repository relationship declarations only after repo-specific review. | Open. | Default policy remains minimalist unless explicitly promoted. |
+| Keep theorem language reserved for formal statements with declared assumptions, proof obligations, and validation artifacts. | Active invariant. | Applies across all lanes. |
+
+## 8. Adversarial programme controls
+
+The umbrella framing is allowed only under the following controls:
+
+1. no lane may inherit theorem status from the umbrella;
+2. no analogy may be treated as an identification without a declared map;
+3. no standard background theorem may be used as evidence for a novel coupled claim unless the coupling is proved;
+4. no cross-repo work may be counted as a Heller–Winters lane without an explicit relationship declaration;
+5. no claim-ledger artifact may be treated as programme-wide until the schema says so.
