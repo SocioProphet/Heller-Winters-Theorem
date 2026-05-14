@@ -1,4 +1,5 @@
 {
+  "$comment": "Semantic promotion constraints (C1/C2/D0 boundary) are enforced by Pydantic validators in claim_ledger_schema.py, not by this JSON Schema. This schema covers structural type constraints only.",
   "$defs": {
     "ArtifactType": {
       "enum": [
@@ -22,7 +23,7 @@
     }
   },
   "additionalProperties": false,
-  "description": "Reference to an evidence artifact.",
+  "description": "Structural JSON Schema only. Semantic promotion constraints for the Heller-Winters prime/operator lane (C1/C2/D0 boundary and D0-locked operator rules) are enforced by Pydantic validators in schemas/claim_ledger_schema.py, not by this JSON Schema.",
   "properties": {
     "artifact_id": {
       "minLength": 1,
@@ -44,5 +45,6 @@
     "version"
   ],
   "title": "ArtifactRef",
-  "type": "object"
+  "type": "object",
+  "x-semantic-constraints": []
 }
