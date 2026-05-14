@@ -1,4 +1,4 @@
-.PHONY: glossary-strict glossary-check figure-2-1 glossary-apply validate-claim-ledger
+.PHONY: glossary-strict glossary-check figure-2-1 glossary-apply validate-claim-ledger generate-json-schema
 
 ## Run glossary enforcement in strict mode (min 1 outside use per term)
 glossary-strict:
@@ -19,3 +19,7 @@ glossary-apply:
 ## Validate prime/operator-lane claim ledger schema fixtures
 validate-claim-ledger:
 	python3 -m pytest -q tests/test_claim_ledger_schema.py
+
+## Generate portable JSON Schema artifacts from Pydantic models
+generate-json-schema:
+	python3 scripts/generate_json_schema.py
