@@ -8,7 +8,7 @@ artifact_refs:
     version: "v0.1"
 run_receipt_ids: []
 demotion_reason: null
-manuscript_editing_rule: false
+manuscript_editing_rule: true
 promoted_from: null
 created: "2026-05-14T00:00:00Z"
 last_modified: "2026-05-14T00:00:00Z"
