@@ -14,6 +14,30 @@ The programme's central claim is not that a theorem has already been proved. The
 
 That is the repository's main orientation. Prime-distribution, operator-envelope, lattice-counting, and residual-analysis work remain live lanes, but they are now subordinate to the broader Heller–Winters coherence programme rather than the sole headline.
 
+## Umbrella reframing record
+
+The 2026-05-14 reframing is recorded in `CHANGELOG.md` and controlled by `docs/programme-lane-map.md`.
+
+This matters because the repository's semantic posture changed: it is no longer naturally read as only a prime/operator theorem-attempt repository. It is an umbrella programme repository. The old prime/operator interpretation remains historically important, but it is now one lane inside the wider Heller–Winters Programme.
+
+## Programme lanes and dependency policy
+
+The current lane map distinguishes coordination claims from structural claims.
+
+- A **coordination claim** means the lanes share claim discipline, artifact conventions, and compatible variational/functorial vocabulary.
+- A **structural claim** means the lanes have been formalized as a coupled mathematical system with declared objects, maps, assumptions, and proof obligations.
+
+The current repository permits the coordination claim. The structural claim remains programme-level unless separately formalized.
+
+The controlled lane inventory is maintained in `docs/programme-lane-map.md`. At present the lanes are:
+
+1. gravitational information bounds;
+2. octonionic Hopf geometry;
+3. spectral zeta regularization;
+4. descent/topos semantics;
+5. information-geometric learning dynamics;
+6. the subordinate prime/operator lane.
+
 ## Defensible mathematical spine
 
 The current spine is a structural variational scheme on fibered configuration data, with the octonionic apex as a worked target.
@@ -56,6 +80,17 @@ The repository must distinguish five classes of claims:
 - **Programmatic:** research-direction commitments, theorem-candidate roadmaps, scale-limit assumptions, and work still owed.
 
 The phrase **Heller–Winters Theorem** is reserved for future theorem-worthy results only after they are formally stated and proved. The whole body of work is the **Heller–Winters Programme**.
+
+## Claim-ledger scope
+
+The existing executable claim-ledger schema is currently scoped to the prime/operator lane. It is general in style, but not yet programme-wide by declaration.
+
+Until a programme-wide extension lands:
+
+- prime/operator claims use the existing `ClaimLedgerEntry` schema and prime-lane operator registry;
+- non-prime lanes may cite that schema as a pattern but not as a complete validator;
+- programme-wide claims require either an extension of `ClaimLedgerEntry` or a separate cross-lane ledger schema;
+- any cross-lane theorem candidate must declare which lane ledger validates which part of the claim.
 
 ## Current theorem-candidate targets
 
@@ -103,10 +138,22 @@ This lane remains active, but it is no longer the sole README framing. It is one
 
 ## Repository-name note
 
-The GitHub repository may still appear as `Heller-Winters-Theorem` for continuity with earlier work. That repository name is historical. The canonical conceptual object is the **Heller–Winters Programme**. The word “theorem” is reserved for future, formally stated and proved results inside the programme.
+The GitHub repository may still appear as `Heller-Winters-Theorem` for continuity with earlier work. That repository name is historical and aspirational. The canonical conceptual object is the **Heller–Winters Programme**. The word “theorem” is reserved for future, formally stated and proved results inside the programme.
+
+The intended reading is: this repository houses the Heller–Winters Programme, whose long-range target is to isolate theorem-worthy Heller–Winters results. A future rename to `Heller-Winters-Programme` is a governance option, not a current requirement.
+
+## Cross-repository relationship policy
+
+Other SocioProphet repositories may use Heller methodology without being lanes of this repository.
+
+Default policy: **minimalist unless explicitly promoted.** A repo is not inside the Heller–Winters Programme merely because it shares methodology, vocabulary, or proof discipline.
+
+Candidate repos such as `yang-mills`, `np-program`, `bsd-proof-program`, `Heller-Godel`, and `hphd-zeta-mirror-lattice` must be classified explicitly before they are treated as programme lanes. Relationship classes are defined in `docs/programme-lane-map.md`.
 
 ## Current canonical documents
 
+- `CHANGELOG.md` — durable record of the 2026-05-14 umbrella reframing and downstream claim-boundary implications.
+- `docs/programme-lane-map.md` — programme-control document for lane inventory, dependency graph, claim-ledger scope, naming intent, and cross-repository relationship policy.
 - `docs/clay-problem-programme-map.md` — positioning map for RH/GRH-related programmes and the Heller–Winters operator layer.
 - `docs/empirical-protocol.md` — required discipline for empirical artifacts, including cross-track translation, null models, basis consistency, alternate-substrate gates, and promotion rules.
 - `docs/review-gap-register.md` — gap register produced after review of the current programme state.
