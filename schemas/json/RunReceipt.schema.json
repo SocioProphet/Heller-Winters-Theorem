@@ -1,0 +1,39 @@
+{
+  "additionalProperties": false,
+  "description": "Receipt recording what actually executed.",
+  "properties": {
+    "execution_status": {
+      "default": "success",
+      "enum": [
+        "success",
+        "failed",
+        "partial"
+      ],
+      "title": "Execution Status",
+      "type": "string"
+    },
+    "output_artifact_ids": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Output Artifact Ids",
+      "type": "array"
+    },
+    "run_receipt_id": {
+      "minLength": 1,
+      "title": "Run Receipt Id",
+      "type": "string"
+    },
+    "runspec_id": {
+      "minLength": 1,
+      "title": "Runspec Id",
+      "type": "string"
+    }
+  },
+  "required": [
+    "run_receipt_id",
+    "runspec_id"
+  ],
+  "title": "RunReceipt",
+  "type": "object"
+}
