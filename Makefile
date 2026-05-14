@@ -24,7 +24,7 @@ validate-claim-ledger:
 generate-json-schema:
 	python3 scripts/generate_json_schema.py
 
-## Run full local claim-ledger gate: regenerate, validate, and verify committed JSON Schema
+## Run full local/CI claim-ledger gate: regenerate, validate, and verify committed JSON Schema
 check-claim-ledger:
 	$(MAKE) generate-json-schema
 	$(MAKE) validate-claim-ledger
