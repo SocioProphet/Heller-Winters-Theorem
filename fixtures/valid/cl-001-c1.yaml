@@ -1,0 +1,14 @@
+claim_id: "CL-001"
+claim_class: "C1"
+statement: "The Jacobian correction COORD-JAC-001 is well-typed under the operator registry v0.1."
+operator_refs: ["COORD-JAC-001"]
+artifact_refs:
+  - artifact_id: "DEF-COORD-JAC-001"
+    artifact_type: "DefinitionArtifact"
+    version: "v0.1"
+run_receipt_ids: []
+demotion_reason: null
+manuscript_editing_rule: false
+promoted_from: null
+created: "2026-05-14T00:00:00Z"
+last_modified: "2026-05-14T00:00:00Z"
