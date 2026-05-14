@@ -91,6 +91,8 @@ The following issues are not solved and must not be overclaimed:
 
 The repository also develops an auditable operator framework for prime-distribution and related arithmetic research. Its current deliverables are methodological and infrastructural: programme maps, typed operator specifications, empirical protocols, claim ledgers, residual/envelope analysis plans, phase-gate instrumentation, quotient-normalization work, Ehrhart/lattice-counting layers, falsification gates, and Proof Fabric Kernel provenance.
 
+The current prime residual manuscript scaffold is captured in `docs/prime-operator-lane/prime-residual-manuscript-scaffold-v0.1.md`. It locks the density/intensity correction `dπ/dx ~ 1/log x` versus `dπ/du ~ e^u/u`, keeps `e^(u/2)` language as an RH-shaped diagnostic only, and defines the manuscript spine for operator ordering, residual channels, harness protocol, claim ledger, figure semantics, and publication voice.
+
 This lane remains active, but it is no longer the sole README framing. It is one research substrate inside the larger Heller–Winters coherence programme.
 
 ## Repository-name note
@@ -104,4 +106,5 @@ The GitHub repository may still appear as `Heller-Winters-Theorem` for continuit
 - `docs/review-gap-register.md` — gap register produced after review of the current programme state.
 - `docs/04-programme-obligations.md` — live obligations ledger for substrate, instrumentation, theorem candidates, and cross-lane governance.
 - `docs/first-theorem-candidate-workplan.md` — Phase Wα/Wβ/Wγ workplan for isolating the first theorem-worthy result.
+- `docs/prime-operator-lane/prime-residual-manuscript-scaffold-v0.1.md` — current coherent rewrite scaffold for the prime residual-analysis manuscript, including density correction, RH diagnostic boundary, operator taxonomy, harness protocol, claim ledger, figure plan, and rewrite rules.
 - `empirical-claims/phase-gate-null-X1e6/` — Candidate C executable empirical artifact package.
