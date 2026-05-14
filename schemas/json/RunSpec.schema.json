@@ -1,6 +1,7 @@
 {
+  "$comment": "Semantic promotion constraints (C1/C2/D0 boundary) are enforced by Pydantic validators in claim_ledger_schema.py, not by this JSON Schema. This schema covers structural type constraints only.",
   "additionalProperties": false,
-  "description": "Declared run plan before execution.",
+  "description": "Structural JSON Schema only. Semantic promotion constraints for the Heller-Winters prime/operator lane (C1/C2/D0 boundary and D0-locked operator rules) are enforced by Pydantic validators in schemas/claim_ledger_schema.py, not by this JSON Schema.",
   "properties": {
     "coordinate_convention": {
       "anyOf": [
@@ -49,5 +50,6 @@
     "execution_mode"
   ],
   "title": "RunSpec",
-  "type": "object"
+  "type": "object",
+  "x-semantic-constraints": []
 }
