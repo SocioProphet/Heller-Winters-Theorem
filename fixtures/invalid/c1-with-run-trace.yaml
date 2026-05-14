@@ -1,0 +1,15 @@
+# Invalid: C1 claim referencing a computational run trace.
+claim_id: "CL-INVALID-004"
+claim_class: "C1"
+statement: "A trace-backed candidate observation is analytically grounded."
+operator_refs: ["CAND-WINDOW-001"]
+artifact_refs:
+  - artifact_id: "CANDIDATE-TRACE-001"
+    artifact_type: "CandidateTrace"
+    version: "v0.1"
+run_receipt_ids: []
+demotion_reason: null
+manuscript_editing_rule: false
+promoted_from: null
+created: "2026-05-14T00:00:00Z"
+last_modified: "2026-05-14T00:00:00Z"
