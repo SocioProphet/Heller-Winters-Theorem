@@ -1,0 +1,48 @@
+{
+  "$defs": {
+    "ArtifactType": {
+      "enum": [
+        "DefinitionArtifact",
+        "OperatorArtifact",
+        "RunSpec",
+        "RunReceipt",
+        "CandidateTrace",
+        "ChannelTrace",
+        "ScoreTrace",
+        "ObservableTrace",
+        "ResidualTrace",
+        "ControlTrace",
+        "PerturbationTrace",
+        "FigureArtifact",
+        "ProofArtifact",
+        "ClaimLedgerEntry"
+      ],
+      "title": "ArtifactType",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "description": "Reference to an evidence artifact.",
+  "properties": {
+    "artifact_id": {
+      "minLength": 1,
+      "title": "Artifact Id",
+      "type": "string"
+    },
+    "artifact_type": {
+      "$ref": "#/$defs/ArtifactType"
+    },
+    "version": {
+      "minLength": 1,
+      "title": "Version",
+      "type": "string"
+    }
+  },
+  "required": [
+    "artifact_id",
+    "artifact_type",
+    "version"
+  ],
+  "title": "ArtifactRef",
+  "type": "object"
+}
