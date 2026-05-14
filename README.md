@@ -93,6 +93,12 @@ The repository also develops an auditable operator framework for prime-distribut
 
 The current prime residual manuscript scaffold is captured in `docs/prime-operator-lane/prime-residual-manuscript-scaffold-v0.1.md`. It locks the density/intensity correction `dπ/dx ~ 1/log x` versus `dπ/du ~ e^u/u`, keeps `e^(u/2)` language as an RH-shaped diagnostic only, and defines the manuscript spine for operator ordering, residual channels, harness protocol, claim ledger, figure semantics, and publication voice.
 
+The companion governance artifacts are:
+
+- `docs/prime-operator-lane/operator-registry-v0.1.md` — typed operator registry for coordinate maps, filters, channels, scores, observables, residuals, certificates, controls, and perturbations.
+- `docs/prime-operator-lane/claim-ledger-v0.1.md` — claim-class ledger fixing C0/C1/C2/C3/D0/E0 boundaries and canonical claims CL-001 through CL-011.
+- `docs/prime-operator-lane/artifact-schema-v0.1.md` — evidence artifact vocabulary for DefinitionArtifact, OperatorArtifact, RunSpec, RunReceipt, traces, figures, proof artifacts, and ledger entries.
+
 This lane remains active, but it is no longer the sole README framing. It is one research substrate inside the larger Heller–Winters coherence programme.
 
 ## Repository-name note
@@ -107,4 +113,7 @@ The GitHub repository may still appear as `Heller-Winters-Theorem` for continuit
 - `docs/04-programme-obligations.md` — live obligations ledger for substrate, instrumentation, theorem candidates, and cross-lane governance.
 - `docs/first-theorem-candidate-workplan.md` — Phase Wα/Wβ/Wγ workplan for isolating the first theorem-worthy result.
 - `docs/prime-operator-lane/prime-residual-manuscript-scaffold-v0.1.md` — current coherent rewrite scaffold for the prime residual-analysis manuscript, including density correction, RH diagnostic boundary, operator taxonomy, harness protocol, claim ledger, figure plan, and rewrite rules.
+- `docs/prime-operator-lane/operator-registry-v0.1.md` — typed operator registry for the prime/operator lane.
+- `docs/prime-operator-lane/claim-ledger-v0.1.md` — claim ledger and promotion/downgrade rules for prime/operator-lane prose and artifacts.
+- `docs/prime-operator-lane/artifact-schema-v0.1.md` — evidence artifact schema for run, trace, figure, proof, and ledger artifacts.
 - `empirical-claims/phase-gate-null-X1e6/` — Candidate C executable empirical artifact package.
