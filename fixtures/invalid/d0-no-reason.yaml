@@ -1,0 +1,12 @@
+# Invalid: D0 claim without demotion_reason.
+claim_id: "CL-INVALID-003"
+claim_class: "D0"
+statement: "RH diagonal residual is bounded."
+operator_refs: ["RESID-RH-DIAG-001"]
+artifact_refs: []
+run_receipt_ids: []
+demotion_reason: null
+manuscript_editing_rule: true
+promoted_from: null
+created: "2026-05-14T00:00:00Z"
+last_modified: "2026-05-14T00:00:00Z"
