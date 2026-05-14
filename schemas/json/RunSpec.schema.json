@@ -1,0 +1,53 @@
+{
+  "additionalProperties": false,
+  "description": "Declared run plan before execution.",
+  "properties": {
+    "coordinate_convention": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Coordinate Convention"
+    },
+    "execution_mode": {
+      "minLength": 1,
+      "title": "Execution Mode",
+      "type": "string"
+    },
+    "operator_ids": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Operator Ids",
+      "type": "array"
+    },
+    "runspec_id": {
+      "minLength": 1,
+      "title": "Runspec Id",
+      "type": "string"
+    },
+    "window_schedule_id": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Window Schedule Id"
+    }
+  },
+  "required": [
+    "runspec_id",
+    "execution_mode"
+  ],
+  "title": "RunSpec",
+  "type": "object"
+}
