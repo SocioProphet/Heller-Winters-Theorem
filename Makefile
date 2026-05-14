@@ -1,4 +1,4 @@
-.PHONY: glossary-strict glossary-check figure-2-1
+.PHONY: glossary-strict glossary-check figure-2-1 glossary-apply validate-claim-ledger
 
 ## Run glossary enforcement in strict mode (min 1 outside use per term)
 glossary-strict:
@@ -15,3 +15,7 @@ figure-2-1:
 ## Apply glossary adoption file and run strict-mode check
 glossary-apply:
 	python3 bin/glossary_construction.py --apply
+
+## Validate prime/operator-lane claim ledger schema fixtures
+validate-claim-ledger:
+	python3 -m pytest -q tests/test_claim_ledger_schema.py
