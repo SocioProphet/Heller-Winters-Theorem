@@ -1,0 +1,14 @@
+claim_id: "CL-002"
+claim_class: "C2"
+statement: "The certified count observable run has linked trace evidence and a run receipt."
+operator_refs: ["COORD-JAC-001", "OBS-COUNT-001", "RESID-LI-001"]
+artifact_refs:
+  - artifact_id: "OBS-TRACE-001"
+    artifact_type: "ObservableTrace"
+    version: "v0.1"
+run_receipt_ids: ["RUN-001"]
+demotion_reason: null
+manuscript_editing_rule: false
+promoted_from: null
+created: "2026-05-14T00:00:00Z"
+last_modified: "2026-05-14T00:00:00Z"
