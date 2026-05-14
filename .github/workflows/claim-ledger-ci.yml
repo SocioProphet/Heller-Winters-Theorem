@@ -29,7 +29,4 @@ jobs:
         with:
           python-version: '3.11'
       - run: pip install -r requirements-dev.txt
-      - run: make validate-claim-ledger
-      - run: make generate-json-schema
-      - name: Verify generated JSON Schema is committed
-        run: git diff --exit-code -- schemas/json
+      - run: make check-claim-ledger
