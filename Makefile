@@ -1,4 +1,4 @@
-.PHONY: glossary-strict glossary-check figure-2-1 glossary-apply validate-claim-ledger generate-json-schema
+.PHONY: glossary-strict glossary-check figure-2-1 glossary-apply validate-claim-ledger generate-json-schema check-claim-ledger
 
 ## Run glossary enforcement in strict mode (min 1 outside use per term)
 glossary-strict:
@@ -23,3 +23,12 @@ validate-claim-ledger:
 ## Generate portable JSON Schema artifacts from Pydantic models
 generate-json-schema:
 	python3 scripts/generate_json_schema.py
+
+## Run full local claim-ledger gate: regenerate, validate, and verify committed JSON Schema
+check-claim-ledger:
+	$(MAKE) generate-json-schema
+	$(MAKE) validate-claim-ledger
+	@if ! git diff --exit-code -- schemas/json; then \
+		echo "schemas out of date — run 'make generate-json-schema' and commit schemas/json"; \
+		exit 1; \
+	fi
