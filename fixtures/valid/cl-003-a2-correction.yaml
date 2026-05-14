@@ -1,0 +1,14 @@
+claim_id: "CL-003"
+claim_class: "C1"
+statement: "The A2 minimality sketch must use the SU(3) fundamental representation with Hermitian plus alternating volume structure and an explicit no-symmetric-bilinear exclusion; the prior cubic-invariant-on-C3 framing is withdrawn."
+operator_refs: []
+artifact_refs:
+  - artifact_id: "A2-CORRECTED-MINIMALITY-SKETCH-001"
+    artifact_type: "ProofArtifact"
+    version: "v0.1"
+run_receipt_ids: []
+demotion_reason: null
+manuscript_editing_rule: false
+promoted_from: null
+created: "2026-05-14T00:00:00Z"
+last_modified: "2026-05-14T00:00:00Z"
