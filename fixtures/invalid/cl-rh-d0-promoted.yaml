@@ -1,0 +1,18 @@
+# Invalid: RESID-RH-DIAG-001 is D0-locked and cannot support C2.
+claim_id: "CL-INVALID-001"
+claim_class: "C2"
+statement: "The RH envelope residual is within the predicted diagnostic band."
+operator_refs: ["RESID-RH-DIAG-001"]
+artifact_refs:
+  - artifact_id: "OBS-TRACE-001"
+    artifact_type: "ObservableTrace"
+    version: "v0.1"
+  - artifact_id: "RESID-TRACE-001"
+    artifact_type: "ResidualTrace"
+    version: "v0.1"
+run_receipt_ids: ["RUN-001"]
+demotion_reason: null
+manuscript_editing_rule: false
+promoted_from: null
+created: "2026-05-14T00:00:00Z"
+last_modified: "2026-05-14T00:00:00Z"
