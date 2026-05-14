@@ -61,7 +61,7 @@
     }
   },
   "additionalProperties": false,
-  "description": "Claim-ledger entry with executable C1/C2/D0 boundary validation.",
+  "description": "Structural JSON Schema for ClaimLedgerEntry. Semantic promotion constraints for the C1/C2/D0 boundary are enforced by Pydantic validators in schemas/claim_ledger_schema.py, not by this JSON Schema; external consumers must additionally enforce the x-semantic-constraints listed here.",
   "properties": {
     "artifact_refs": {
       "items": {
@@ -144,5 +144,31 @@
     "last_modified"
   ],
   "title": "ClaimLedgerEntry",
-  "type": "object"
+  "type": "object",
+  "x-semantic-constraints": [
+    {
+      "description": "C1 claims cannot reference run_receipt_ids or run-trace artifacts; C1 artifact_refs are restricted to DefinitionArtifact, OperatorArtifact, or ProofArtifact.",
+      "enforced_by": "schemas.claim_ledger_schema.ClaimLedgerEntry",
+      "name": "C1-boundary",
+      "not_enforced_by_json_schema": true
+    },
+    {
+      "description": "C2 claims require at least one run_receipt_id, at least one linked CandidateTrace, ChannelTrace, ScoreTrace, or ObservableTrace, and each RunReceipt must resolve to a RunSpec with registered operator_ids.",
+      "enforced_by": "schemas.claim_ledger_schema.ClaimLedgerEntry and validate_claim_references",
+      "name": "C2-promotion-boundary",
+      "not_enforced_by_json_schema": true
+    },
+    {
+      "description": "D0 claims require demotion_reason and manuscript_editing_rule=true; D0 claims cannot be promoted in place to C1 or C2.",
+      "enforced_by": "schemas.claim_ledger_schema.ClaimLedgerEntry",
+      "name": "D0-boundary",
+      "not_enforced_by_json_schema": true
+    },
+    {
+      "description": "RESID-RH-DIAG-001 is D0-locked and cannot support a C2 claim as residual evidence without a separate D0 ClaimLedgerEntry and explicit demotion_reason.",
+      "enforced_by": "schemas.claim_ledger_schema.ClaimLedgerEntry",
+      "name": "RESID-RH-DIAG-001-D0-lock",
+      "not_enforced_by_json_schema": true
+    }
+  ]
 }
