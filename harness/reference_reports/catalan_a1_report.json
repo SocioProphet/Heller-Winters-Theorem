@@ -1,0 +1,99 @@
+{
+  "convention_id": "A1-sauzin-normalization-v0",
+  "proof_reference": "docs/proofs/a1-gate-minimality.md v2",
+  "timestamp": "2026-05-13T23:55:54.183295+00:00",
+  "all_passed": true,
+  "summary": {
+    "coefficient_enumeration": "PASS",
+    "stokes_multiplier": "PASS",
+    "catalan_jump_coefficient": "PASS",
+    "pairing_preservation": "PASS",
+    "commutator_norm": "PASS",
+    "spin_lift_provenance": "PASS",
+    "faithful_spatial_spin_frame": "PASS",
+    "filtration": "PASS"
+  },
+  "checks": {
+    "coefficient_enumeration": {
+      "n_terms": 20,
+      "observed_first_10": [1, 1, 2, 5, 14, 42, 132, 429, 1430, 4862],
+      "expected_first_10": [1, 1, 2, 5, 14, 42, 132, 429, 1430, 4862],
+      "all_match": true,
+      "passed": true
+    },
+    "stokes_multiplier": {
+      "observed_real": -1.0,
+      "observed_imag": 1.2246467991473532e-16,
+      "expected": -1.0,
+      "error_abs": 1.2246467991473532e-16,
+      "tolerance": 1e-10,
+      "passed": true
+    },
+    "catalan_jump_coefficient": {
+      "t_primary": 1e-06,
+      "f_t": -4.000004000003665,
+      "f_t_over_10": -4.000000400000813,
+      "richardson_extrapolation": -4.0000000000004965,
+      "leading_coefficient_abs": 4.0000000000004965,
+      "expected_abs": 4.0,
+      "error_abs": 4.9649173661237e-13,
+      "tolerance": 1e-10,
+      "passed": true,
+      "sign_matches_convention_minus": true
+    },
+    "pairing_preservation": {
+      "n_samples": 200,
+      "max_pairing_error": 4.051522544541844e-16,
+      "max_unitary_error": 4.051522544541844e-16,
+      "max_det_error": 4.577566798522237e-16,
+      "tolerance": 1e-10,
+      "passed": true
+    },
+    "commutator_norm": {
+      "norm_xy": 2.8284271247461903,
+      "norm_yz": 2.8284271247461903,
+      "norm_zx": 2.8284271247461903,
+      "expected_each": 2.8284271247461903,
+      "matches_expected": true,
+      "passed": true
+    },
+    "spin_lift_provenance": {
+      "zeta_matrix": [[-1.0, -0.0], [-0.0, -1.0]],
+      "zeta_squared_is_identity": true,
+      "zeta_central_max_error": 0.0,
+      "zeta_central": true,
+      "zeta_acts_as_minus_on_active_set": true,
+      "zeta_projects_to_identity_in_so3": true,
+      "stokes_monodromy_consistent_with_zeta": true,
+      "passed": true
+    },
+    "faithful_spatial_spin_frame": {
+      "rho_spatial": "identity on SU(2) (= Spin(3))",
+      "target_group": "Spin(3) ≅ SU(2)",
+      "kernel": "trivial",
+      "faithful": true,
+      "passed": true
+    },
+    "filtration": {
+      "active_set_dim_complex": 2,
+      "representation": "SU(2) defining rep (spin-1/2)",
+      "irreducible": true,
+      "filtration_depth": 1,
+      "isotypic_components": [{"highest_weight": "1/2", "multiplicity": 1, "dim": 2}],
+      "passed": true
+    }
+  },
+  "hash_chain": {
+    "chain": [
+      {"name": "coefficient_enumeration", "hash": "7ce450265fff17012a26f902856d99eeb238d6be21653fde8fa27f8cdb25899e", "previous": "0000000000000000000000000000000000000000000000000000000000000000"},
+      {"name": "stokes_multiplier", "hash": "895dd2d82b336d9650cc9a89a5b5aaf92bd1988e354095def7356f65ad3b50e4", "previous": "7ce450265fff17012a26f902856d99eeb238d6be21653fde8fa27f8cdb25899e"},
+      {"name": "catalan_jump_coefficient", "hash": "84329a09b28d102154bf6f8f6f946e23284f57e3a46b49fdfec5ce8117971a61", "previous": "895dd2d82b336d9650cc9a89a5b5aaf92bd1988e354095def7356f65ad3b50e4"},
+      {"name": "pairing_preservation", "hash": "30b47bf68d8628df0975fad420d5c8b1138d4a664adda22be164ff443a22b922", "previous": "84329a09b28d102154bf6f8f6f946e23284f57e3a46b49fdfec5ce8117971a61"},
+      {"name": "commutator_norm", "hash": "f8919b0af67e9722a90927411f8f722064360e92e8f9484f8f9fb4395ee7c679", "previous": "30b47bf68d8628df0975fad420d5c8b1138d4a664adda22be164ff443a22b922"},
+      {"name": "spin_lift_provenance", "hash": "968bf8f3a100086f483a7897dfb7ab3b7a30c87c615bf0e0db5396803b9dbf3f", "previous": "f8919b0af67e9722a90927411f8f722064360e92e8f9484f8f9fb4395ee7c679"},
+      {"name": "faithful_spatial_spin_frame", "hash": "63fad98e220fd1f375d2a865f6bb5b48d1695afede0fd3ebc7a3e5df1cbf2cf1", "previous": "968bf8f3a100086f483a7897dfb7ab3b7a30c87c615bf0e0db5396803b9dbf3f"},
+      {"name": "filtration", "hash": "0e8469cc953d2e340b2eda0e929e1e143bde041e82479948c4784801e13b7075", "previous": "63fad98e220fd1f375d2a865f6bb5b48d1695afede0fd3ebc7a3e5df1cbf2cf1"}
+    ],
+    "head": "0e8469cc953d2e340b2eda0e929e1e143bde041e82479948c4784801e13b7075"
+  }
+}
