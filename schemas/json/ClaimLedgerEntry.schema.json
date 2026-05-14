@@ -1,0 +1,148 @@
+{
+  "$comment": "Semantic promotion constraints (C1/C2/D0 boundary) are enforced by Pydantic validators in claim_ledger_schema.py, not by this JSON Schema. This schema covers structural type constraints only.",
+  "$defs": {
+    "ArtifactRef": {
+      "additionalProperties": false,
+      "description": "Reference to an evidence artifact.",
+      "properties": {
+        "artifact_id": {
+          "minLength": 1,
+          "title": "Artifact Id",
+          "type": "string"
+        },
+        "artifact_type": {
+          "$ref": "#/$defs/ArtifactType"
+        },
+        "version": {
+          "minLength": 1,
+          "title": "Version",
+          "type": "string"
+        }
+      },
+      "required": [
+        "artifact_id",
+        "artifact_type",
+        "version"
+      ],
+      "title": "ArtifactRef",
+      "type": "object"
+    },
+    "ArtifactType": {
+      "enum": [
+        "DefinitionArtifact",
+        "OperatorArtifact",
+        "RunSpec",
+        "RunReceipt",
+        "CandidateTrace",
+        "ChannelTrace",
+        "ScoreTrace",
+        "ObservableTrace",
+        "ResidualTrace",
+        "ControlTrace",
+        "PerturbationTrace",
+        "FigureArtifact",
+        "ProofArtifact",
+        "ClaimLedgerEntry"
+      ],
+      "title": "ArtifactType",
+      "type": "string"
+    },
+    "ClaimClass": {
+      "enum": [
+        "C0",
+        "C1",
+        "C2",
+        "C3",
+        "D0",
+        "E0"
+      ],
+      "title": "ClaimClass",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "description": "Claim-ledger entry with executable C1/C2/D0 boundary validation.",
+  "properties": {
+    "artifact_refs": {
+      "items": {
+        "$ref": "#/$defs/ArtifactRef"
+      },
+      "title": "Artifact Refs",
+      "type": "array"
+    },
+    "claim_class": {
+      "$ref": "#/$defs/ClaimClass"
+    },
+    "claim_id": {
+      "minLength": 1,
+      "title": "Claim Id",
+      "type": "string"
+    },
+    "created": {
+      "format": "date-time",
+      "title": "Created",
+      "type": "string"
+    },
+    "demotion_reason": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Demotion Reason"
+    },
+    "last_modified": {
+      "format": "date-time",
+      "title": "Last Modified",
+      "type": "string"
+    },
+    "manuscript_editing_rule": {
+      "default": false,
+      "title": "Manuscript Editing Rule",
+      "type": "boolean"
+    },
+    "operator_refs": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Operator Refs",
+      "type": "array"
+    },
+    "promoted_from": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/ClaimClass"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "run_receipt_ids": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Run Receipt Ids",
+      "type": "array"
+    },
+    "statement": {
+      "minLength": 1,
+      "title": "Statement",
+      "type": "string"
+    }
+  },
+  "required": [
+    "claim_id",
+    "claim_class",
+    "statement",
+    "created",
+    "last_modified"
+  ],
+  "title": "ClaimLedgerEntry",
+  "type": "object"
+}
