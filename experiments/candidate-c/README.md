@@ -6,7 +6,7 @@ Claim class: descriptive-grade infrastructure claim.
 This experiment demonstrates that Candidate C can emit PFK-compatible receipts against the Heller-Godel canonical PFK surface at:
 
 ```text
-SocioProphet/Heller-Godel @ 0ef1cab4c525fd004e38fa9a92f7e911acbbc976
+SocioProphet/Heller-Godel @ 988307215ad38ccb16514311222184a1b757752b
 ```
 
 ## Scope
@@ -40,3 +40,7 @@ python3 tests/test_candidate_c_emission.py
 ## Non-claims
 
 This artifact does not claim RH, GRH, zero-location control, residual-envelope control, asymptotic convergence, or statistical novelty. It proves only that the native PFK receipt loop can close for Candidate C.
+
+## Pin advance note
+
+This experiment originally landed against Heller-Godel `0ef1cab4c525fd004e38fa9a92f7e911acbbc976`, the initial in-repo PFK seed-tree merge. It now cites `988307215ad38ccb16514311222184a1b757752b`, the PFK registry-expansion merge that canonicalized the granular operator IDs and PFK anti-seed register without changing schema files.

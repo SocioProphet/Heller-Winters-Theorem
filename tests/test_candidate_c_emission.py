@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 from __future__ import annotations
 
-import importlib.util
 import json
 import subprocess
 import sys
@@ -10,7 +9,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 RUNNER = ROOT / "experiments" / "candidate-c" / "run.py"
-UPSTREAM_SHA = "0ef1cab4c525fd004e38fa9a92f7e911acbbc976"
+UPSTREAM_SHA = "988307215ad38ccb16514311222184a1b757752b"
 
 REQUIRED_EVENT_KEYS = {"id", "kind", "scope", "time", "props"}
 REQUIRED_ARTIFACT_KEYS = {"artifact_id", "artifact_type", "claim_class", "inputs", "outputs", "non_claim_boundary"}
