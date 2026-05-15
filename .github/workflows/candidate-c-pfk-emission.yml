@@ -1,0 +1,16 @@
+name: Candidate C Native PFK Emission
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  candidate-c-pfk-emission:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Validate Candidate C native PFK emission
+        run: python3 tests/test_candidate_c_emission.py
