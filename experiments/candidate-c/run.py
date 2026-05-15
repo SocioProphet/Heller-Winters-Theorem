@@ -9,7 +9,7 @@ import random
 from pathlib import Path
 from typing import Sequence
 
-UPSTREAM_SHA = "0ef1cab4c525fd004e38fa9a92f7e911acbbc976"
+UPSTREAM_SHA = "988307215ad38ccb16514311222184a1b757752b"
 LIMIT = 10000
 SEED = 20260510
 FREQUENCIES = [1.0, 2.0, 3.0]
