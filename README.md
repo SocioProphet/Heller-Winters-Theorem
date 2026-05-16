@@ -36,7 +36,8 @@ The controlled lane inventory is maintained in `docs/programme-lane-map.md`. At 
 3. spectral zeta regularization;
 4. descent/topos semantics;
 5. information-geometric learning dynamics;
-6. the subordinate prime/operator lane.
+6. the subordinate prime/operator lane;
+7. `lanes/hphd/` — HPHD zeta mirror-lattice RH-method lane, absorbed from `SocioProphet/hphd-zeta-mirror-lattice`.
 
 ## Defensible mathematical spine
 
@@ -136,6 +137,12 @@ The companion governance artifacts are:
 
 This lane remains active, but it is no longer the sole README framing. It is one research substrate inside the larger Heller–Winters coherence programme.
 
+## HPHD zeta mirror-lattice lane
+
+`lanes/hphd/` hosts the absorbed HPHD zeta mirror-lattice RH-method lane. It contains the trivial-zero mirror-lattice thesis, explicit-formula typing gate, and finite-window Richter saturation SPEC note inherited from `SocioProphet/hphd-zeta-mirror-lattice`.
+
+This lane is methodology and explicit-formula infrastructure. It does not prove RH, GRH, BSD, or any asymptotic theorem. The standalone `hphd-zeta-mirror-lattice` repository is retained as provenance and should redirect here after the companion archive PR merges.
+
 ## Repository-name note
 
 The GitHub repository may still appear as `Heller-Winters-Theorem` for continuity with earlier work. That repository name is historical and aspirational. The canonical conceptual object is the **Heller–Winters Programme**. The word “theorem” is reserved for future, formally stated and proved results inside the programme.
@@ -148,7 +155,9 @@ Other SocioProphet repositories may use Heller methodology without being lanes o
 
 Default policy: **minimalist unless explicitly promoted.** A repo is not inside the Heller–Winters Programme merely because it shares methodology, vocabulary, or proof discipline.
 
-Candidate repos such as `yang-mills`, `np-program`, `bsd-proof-program`, `Heller-Godel`, and `hphd-zeta-mirror-lattice` must be classified explicitly before they are treated as programme lanes. Relationship classes are defined in `docs/programme-lane-map.md`.
+Candidate repos such as `yang-mills`, `np-program`, `bsd-proof-program`, and `Heller-Godel` must be classified explicitly before they are treated as programme lanes. Relationship classes are defined in `docs/programme-lane-map.md`.
+
+`hphd-zeta-mirror-lattice` is no longer a candidate external relationship: its current documentation lane has been absorbed into `lanes/hphd/`.
 
 ## Current canonical documents
 
@@ -163,4 +172,5 @@ Candidate repos such as `yang-mills`, `np-program`, `bsd-proof-program`, `Heller
 - `docs/prime-operator-lane/operator-registry-v0.1.md` — typed operator registry for the prime/operator lane.
 - `docs/prime-operator-lane/claim-ledger-v0.1.md` — claim ledger and promotion/downgrade rules for prime/operator-lane prose and artifacts.
 - `docs/prime-operator-lane/artifact-schema-v0.1.md` — evidence artifact schema for run, trace, figure, proof, and ledger artifacts.
+- `lanes/hphd/` — HPHD zeta mirror-lattice RH-method lane, including absorbed docs `01..05`.
 - `empirical-claims/phase-gate-null-X1e6/` — Candidate C executable empirical artifact package.
