@@ -1,0 +1,33 @@
+name: Theorem Statement Validation
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'docs/theorem-statements/**'
+      - 'tests/theorem_statements/**'
+      - '.github/workflows/theorem-statements-validate.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'docs/theorem-statements/**'
+      - 'tests/theorem_statements/**'
+      - '.github/workflows/theorem-statements-validate.yml'
+
+jobs:
+  validate-theorem-statements:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install test dependency
+        run: python -m pip install pytest
+
+      - name: Run theorem statement tests
+        run: python -m pytest tests/theorem_statements/test_hw_thm_001.py -v
