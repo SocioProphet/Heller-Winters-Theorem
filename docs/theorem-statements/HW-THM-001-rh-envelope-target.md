@@ -50,7 +50,7 @@ The envelope target of Section 1 is equivalent to the Riemann Hypothesis:
 Re(rho) = 1/2
 ```
 
-The equivalence is classical and is **not** a Heller-Winters contribution. The prime-residual envelope `psi(x) = x + O(x^{1/2}(log x)^2)` is equivalent to RH by classical work of von Koch (1901), in the standard refined form.
+The equivalence is classical and is **not a Heller-Winters contribution**. The prime-residual envelope `psi(x) = x + O(x^{1/2}(log x)^2)` is equivalent to RH by classical work of von Koch (1901), in the standard refined form.
 
 This document commits to the **envelope as the working target**. It does not claim the equivalence, and it does not re-prove the equivalence.
 
