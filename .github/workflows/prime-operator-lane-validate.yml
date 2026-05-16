@@ -1,0 +1,33 @@
+name: Prime Operator Lane Validation
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'docs/prime-operator-lane/**'
+      - 'tests/prime_operator_lane/**'
+      - '.github/workflows/prime-operator-lane-validate.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'docs/prime-operator-lane/**'
+      - 'tests/prime_operator_lane/**'
+      - '.github/workflows/prime-operator-lane-validate.yml'
+
+jobs:
+  validate-prime-operator-lane:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install test dependency
+        run: python -m pip install pytest
+
+      - name: Run prime operator lane tests
+        run: python -m pytest tests/prime_operator_lane/test_hw_prime_circle_001.py -v
