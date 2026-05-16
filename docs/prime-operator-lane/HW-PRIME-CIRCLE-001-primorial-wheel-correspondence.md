@@ -62,10 +62,10 @@ The number of residues coprime to the kth primorial is:
 phi(P_k) = product_{i=1}^k (p_i - 1)
 ```
 
-The first values are:
+For `k = 1..9`, the values are:
 
 ```text
-1, 2, 8, 48, 480, 5760, 92160, 1658880, ...
+1, 2, 8, 48, 480, 5760, 92160, 1658880, 36495360
 ```
 
 This is the standard totient-of-primorial sequence, commonly indexed as OEIS A005867.
@@ -86,10 +86,10 @@ g_max(P_k) = j(P_k)
 
 where `j(n)` is the Jacobsthal function: the least `m` such that every interval of `m` consecutive integers contains at least one integer coprime to `n`.
 
-For primorials, the first values computed in this note are:
+For primorials, the first values recorded in this note are:
 
 ```text
-2, 4, 6, 10, 14, 22, 26, 34, 40, ...
+2, 4, 6, 10, 14, 22, 26, 34, 40
 ```
 
 This is the Jacobsthal-at-primorials sequence, commonly indexed as OEIS A048670.
@@ -100,7 +100,7 @@ The complement of `R_k` modulo `P_k` is the set of residues sharing a factor wit
 
 Thus the prime-circle construction's maximal wave-front gap is not an ad hoc feature; it is the Jacobsthal function at primorials.
 
-Claim class: identified-correspondence-grade with finite verification in this PR; standard background for the Jacobsthal definition.
+Claim class: identified-correspondence-grade with bounded direct verification in this PR; standard background for the Jacobsthal definition.
 
 ## 4. Object III — distinct wave-front gap count
 
@@ -172,12 +172,13 @@ tests/prime_operator_lane/test_hw_prime_circle_001.py
 
 It validates:
 
-- residue counts for primorials `P_k`, `k <= 9`;
-- maximal wheel gaps for primorials `P_k`, `k <= 9`;
-- distinct gap counts for `k <= 9`;
-- the `HE-EX`-style anti-overclaim boundary does not apply here; this lane uses `A-HW-PRIME-001`.
+- the totient formula for the first nine primorials;
+- direct residue/gap enumeration through `k = 7`, where naive enumeration is appropriate for CI;
+- the recorded nine-term Jacobsthal and distinct-gap-count values as explicit document data;
+- the mod-30 reduced residue classes;
+- the lane-local anti-overclaim boundary `A-HW-PRIME-001`.
 
-The script is deliberately stdlib-only.
+The script is deliberately stdlib-only. It intentionally does not brute-force the ninth primorial, whose totient is `36,495,360`.
 
 ## What this note does not do
 
