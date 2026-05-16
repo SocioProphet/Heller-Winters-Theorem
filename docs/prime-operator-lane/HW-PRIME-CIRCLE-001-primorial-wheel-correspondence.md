@@ -2,10 +2,10 @@
 
 Identifier: `HW-PRIME-CIRCLE-001`  
 Status: active  
-Claim grade: identified-correspondence-grade  
 Lane: prime/operator lane  
+Claim class: C0 definitions + C1 bounded finite verification + C3 imported background where standard references are cited  
 Companion-reserved: `HW-PRIME-CIRCLE-002`, `HW-PRIME-CIRCLE-INV-001`  
-Anti-seed: `A-HW-PRIME-001`  
+Anti-seed: `A-HW-PRIME-001`, `A-HW-PRIME-002`  
 Source provenance: `primes2_circle2.xlsx` (Drive artifact, 2018-03-17, “Prime Number Evaluator”), reconciled against direct computation.
 
 ## Summary
@@ -100,7 +100,7 @@ The complement of `R_k` modulo `P_k` is the set of residues sharing a factor wit
 
 Thus the prime-circle construction's maximal wave-front gap is not an ad hoc feature; it is the Jacobsthal function at primorials.
 
-Claim class: identified-correspondence-grade with bounded direct verification in this PR; standard background for the Jacobsthal definition.
+Claim class: C0/C3 background for the definition-level identification, with C1 bounded finite verification in this PR.
 
 ## 4. Object III — distinct wave-front gap count
 
@@ -130,7 +130,7 @@ dgc(k) = k^2/4 + O(k)
 
 The closed form `floor(k^2/4) + 1` matches early terms but fails at later checked terms, so it is not recorded as a theorem.
 
-Claim class: finite computed observation plus reserved conjectural frontier.
+Claim class: C1 finite computed observation plus reserved conjectural frontier.
 
 ## 5. Reconciliation of the seed-work observation
 
