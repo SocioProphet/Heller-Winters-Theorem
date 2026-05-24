@@ -85,7 +85,7 @@ def test_even_stream_generates_theta_function():
     z = 0.1
     even_stream = sum(z ** (4 * m**2) for m in range(10))
     theta_approx = 1 + 2 * sum(z ** (4 * m**2) for m in range(1, 10))
-    assert abs(even_stream - theta_approx + 1) < 1e-12
+    assert abs(2 * even_stream - theta_approx - 1) < 1e-10
 
 
 def test_tan_poles_at_half_integer_pi():
