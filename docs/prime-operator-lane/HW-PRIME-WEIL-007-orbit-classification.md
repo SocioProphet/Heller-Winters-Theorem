@@ -18,6 +18,8 @@ sum_{h in H} chi(h) = 0 unless chi is trivial on H.
 
 Complete cancellation for every nontrivial character occurs exactly when `10` is a primitive root modulo `p`.
 
+This document also records the finite Rodin / `142857` bridge as a mod-9 unit-set identity. That bridge is arithmetic bookkeeping only. It is not a physical torus claim and not evidence for RH/GRH.
+
 This document does not prove RH, GRH, Artin's conjecture, or an unconditional variance bound.
 
 ## Category 0 — Terminating primes
@@ -179,6 +181,76 @@ Proof: this is the standard character orthogonality relation on the finite subgr
 
 Corollary: all nontrivial characters cancel over the base-10 orbit iff `H=(Z/pZ)^x`, i.e. iff `10` is a primitive root modulo `p`.
 
+## Rodin / 142857 bridge
+
+This section records a finite mod-9 bridge. It is included because it explains why the digit string `142857`, the Rodin doubling cycle, and the current mod-7 variance dominance are the same small cyclic arithmetic surface seen through different coordinatizations.
+
+The active unit set modulo `9` is:
+
+```text
+(Z/9Z)^x = {1,2,4,5,7,8} ~= Z_6.
+```
+
+The nonunit axis is:
+
+```text
+{3,6,9}.
+```
+
+The Rodin doubling orbit is:
+
+```text
+1 -> 2 -> 4 -> 8 -> 7 -> 5 -> 1.
+```
+
+The repeating decimal digits of `1/7` are:
+
+```text
+142857.
+```
+
+As a set:
+
+```text
+{digits of 1/7} = {1,2,4,5,7,8} = (Z/9Z)^x.
+```
+
+Thus the Rodin cycle and the `1/7` digit cycle use the same six active mod-9 units, though with different orderings. The Rodin sequence is the orbit of generator `2` modulo `9`; the decimal expansion of `1/7` comes from the long-division map attached to the base-10 orbit modulo `7`.
+
+The precise identity is set-level and group-level:
+
+```text
+(Z/9Z)^x ~= (Z/7Z)^x ~= Z_6.
+```
+
+It is not a claim that the digit string itself is the same ordered orbit as powers of `10` modulo `7` without the long-division quotient map.
+
+## Active/inert split
+
+The Rodin active/inert split matches the base-10 orbit classification at the first primorial level:
+
+| Surface | Active object | Inert / excluded object | Reason |
+|---|---|---|---|
+| Rodin mod 9 | `{1,2,4,5,7,8}` | `{3,6,9}` | units vs nonunits modulo `9` |
+| digits of `1/7` | `{1,2,4,5,7,8}` | `{3,6,9}` | same mod-9 unit set as digit alphabet |
+| `P=210` character packet | mod-7 full-orbit packet | mod-2, mod-3, mod-5 degenerate/terminating packet | `2,5 | 10`; `3` has `ord_3(10)=1`; `7` has full orbit |
+
+In the current variance diagnostics, the mod-7 packet dominates because it is the first small-prime component with full base-10 multiplicative orbit.
+
+This is a finite structural explanation for the observed dominance. It is not an asymptotic theorem.
+
+## Fraction bridge
+
+| Fraction | Period | Orbit type | Rodin analogue |
+|---|---:|---|---|
+| `1/9` | 1 | fixed digit `1` in a base-divisor denominator | `9 -> 9` fixed-axis picture |
+| `1/3` | 1 | degenerate digit repetition | `3,6` axis / nonunit surface |
+| `1/11` | 2 | partial orbit `{10,1}` modulo `11` | between active and inert |
+| `1/7` | 6 | full orbit modulo `7` | active six-node unit circuit |
+| `1/19` | 18 | full orbit modulo `19` | full Artin-prime circuit |
+
+This table is finite arithmetic bookkeeping. It does not create a proof of any analytic statement about prime distribution.
+
 ## Resonant-depth oracle surface
 
 For Category 3 primes, the digit-cycle Fourier sum is exactly zero over a complete period:
@@ -244,5 +316,7 @@ This document does not prove that there are infinitely many Category 3 primes.
 This document does not prove an unconditional bound for `psi_{W_K}(chi_p)` for actual prime windows at all resonant depths.
 
 This document does not prove the finite-to-asymptotic transition from digit-cycle cancellation to prime-window variance cancellation.
+
+This document does not claim Rodin-coil geometry, torus winding, or digital-root numerology proves any analytic number theory result.
 
 This document does not close the square-root barrier identified in `HW-PRIME-WEIL-005`.
