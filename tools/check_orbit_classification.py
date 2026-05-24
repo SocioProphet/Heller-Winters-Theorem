@@ -83,6 +83,47 @@ def primitive_root_primes(limit: int, base: int = 10) -> List[int]:
     return [p for p in primes_up_to(limit) if multiplicative_order_mod_prime(base, p) == p - 1]
 
 
+def repetend_digits(denominator: int, base: int = 10) -> Tuple[int, ...]:
+    """Return repetend digits for 1/denominator when denominator is coprime to base.
+
+    Leading zeros inside the repetend are preserved. If the denominator is not
+    coprime to the base, return the empty tuple because the expansion has a
+    terminating/preperiodic component rather than a pure repetend.
+    """
+
+    if denominator <= 0:
+        raise ValueError("denominator must be positive")
+    if math.gcd(denominator, base) != 1:
+        return tuple()
+    remainder = 1 % denominator
+    seen: Dict[int, int] = {}
+    digits: List[int] = []
+    while remainder not in seen:
+        seen[remainder] = len(digits)
+        remainder *= base
+        digits.append(remainder // denominator)
+        remainder %= denominator
+    start = seen[remainder]
+    return tuple(digits[start:])
+
+
+def repetend_digit_sum(denominator: int, base: int = 10) -> int:
+    return sum(repetend_digits(denominator, base))
+
+
+def midy_digit_sum(period: int, base: int = 10) -> int:
+    if period % 2 != 0:
+        raise ValueError("Midy digit-sum law requires an even period")
+    return (base - 1) * period // 2
+
+
+def midy_digit_sum_holds_for_prime(prime: int, base: int = 10) -> bool:
+    order = multiplicative_order_mod_prime(base, prime)
+    if order is None or order % 2 != 0:
+        return False
+    return repetend_digit_sum(prime, base) == midy_digit_sum(order, base)
+
+
 def character_value_mod_prime(prime: int, generator: int, exponent: int, residue: int) -> complex:
     if residue % prime == 0:
         return 0j
@@ -216,6 +257,15 @@ def run_checks() -> Tuple[OrbitClassification, ...]:
     found_prefix = primitive_root_primes(100, 10)
     if found_prefix[: len(expected_artin_prefix)] != expected_artin_prefix:
         raise AssertionError(found_prefix)
+
+    for prime in (11, 13, 17, 19):
+        if not midy_digit_sum_holds_for_prime(prime, 10):
+            raise AssertionError(f"Midy digit-sum law failed for {prime}")
+
+    if repetend_digit_sum(9, 10) != 1:
+        raise AssertionError("1/9 should have digit sum 1")
+    if repetend_digits(10, 10) != tuple():
+        raise AssertionError("1/10 should terminate rather than yield pure repetend")
 
     if rodin_doubling_orbit() != (1, 2, 4, 8, 7, 5):
         raise AssertionError("unexpected Rodin doubling orbit modulo 9")
