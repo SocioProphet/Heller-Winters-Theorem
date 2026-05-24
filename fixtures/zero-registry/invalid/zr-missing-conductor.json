@@ -1,0 +1,29 @@
+{
+  "schema_version": "zero-registry.v0.1",
+  "registry_id": "HW-ZERO-BAD-MISSING-CONDUCTOR",
+  "claim_class": "normalization_scaffold",
+  "surfaces": [
+    {
+      "surface_id": "SURF-BAD-MISSING-CONDUCTOR",
+      "surface_type": "completed_dirichlet_l_function",
+      "character_label": "chi_bad",
+      "display_modulus": 30,
+      "primitive_status": "induced",
+      "parity": "odd",
+      "completed_function": {
+        "normalization_id": "HW-PRIME-CHARACTER-CONDUCTOR-001",
+        "formula_text": "Lambda(s,chi)=(f/pi)^((s+a)/2) Gamma((s+a)/2) L(s,chi)",
+        "functional_equation_status": "shape_recorded"
+      },
+      "zero_classes": [
+        {
+          "class_id": "ZERO-BAD-NONTRIVIAL",
+          "class_type": "nontrivial_zero",
+          "symbol": "rho_bad",
+          "multiplicity_policy": "carried_explicitly",
+          "location_claim": "critical_strip"
+        }
+      ]
+    }
+  ]
+}

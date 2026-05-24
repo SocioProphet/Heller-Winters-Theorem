@@ -1,0 +1,30 @@
+{
+  "schema_version": "zero-registry.v0.1",
+  "registry_id": "HW-ZERO-BAD-LOCATION-CLAIM",
+  "claim_class": "normalization_scaffold",
+  "surfaces": [
+    {
+      "surface_id": "SURF-BAD-LOCATION-CLAIM",
+      "surface_type": "completed_dirichlet_l_function",
+      "character_label": "chi_bad_location",
+      "display_modulus": 3,
+      "conductor": 3,
+      "primitive_status": "primitive",
+      "parity": "odd",
+      "completed_function": {
+        "normalization_id": "HW-PRIME-CHARACTER-CONDUCTOR-001",
+        "formula_text": "Lambda(s,chi)=(f/pi)^((s+a)/2) Gamma((s+a)/2) L(s,chi)",
+        "functional_equation_status": "shape_recorded"
+      },
+      "zero_classes": [
+        {
+          "class_id": "ZERO-BAD-LOCATION",
+          "class_type": "nontrivial_zero",
+          "symbol": "rho_bad_location",
+          "multiplicity_policy": "carried_explicitly",
+          "location_claim": "proved_GRH_without_proof"
+        }
+      ]
+    }
+  ]
+}
