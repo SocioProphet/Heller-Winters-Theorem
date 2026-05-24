@@ -1,0 +1,55 @@
+{
+  "schema_version": "zero-registry.v0.1",
+  "registry_id": "HW-ZERO-AP-EXP-001",
+  "claim_class": "normalization_scaffold",
+  "non_claims": [
+    "Does not prove RH.",
+    "Does not prove GRH.",
+    "Does not locate zeros.",
+    "Does not prove PNT in arithmetic progressions."
+  ],
+  "surfaces": [
+    {
+      "surface_id": "SURF-DIRICHLET-MOD3-SIGN",
+      "surface_type": "completed_dirichlet_l_function",
+      "character_label": "chi_3",
+      "display_modulus": 3,
+      "conductor": 3,
+      "primitive_status": "primitive",
+      "parity": "odd",
+      "completed_function": {
+        "normalization_id": "HW-PRIME-CHARACTER-CONDUCTOR-001",
+        "formula_text": "Lambda(s,chi)=(f/pi)^((s+a)/2) Gamma((s+a)/2) L(s,chi)",
+        "root_number_convention": "epsilon(chi) declared when used",
+        "functional_equation_status": "shape_recorded"
+      },
+      "zero_classes": [
+        {
+          "class_id": "ZERO-CHI3-NONTRIVIAL",
+          "class_type": "nontrivial_zero",
+          "symbol": "rho_chi3",
+          "multiplicity_policy": "carried_explicitly",
+          "location_claim": "critical_strip",
+          "ordering_convention": "symmetric_height_truncation",
+          "residue_formula": "-m_rho X^rho Gamma(rho)"
+        },
+        {
+          "class_id": "ZERO-CHI3-TRIVIAL",
+          "class_type": "trivial_zero",
+          "symbol": "tau_chi3",
+          "multiplicity_policy": "carried_explicitly",
+          "location_claim": "standard_trivial_locations",
+          "ordering_convention": "not_applicable",
+          "residue_formula": "declared by completed-function convention"
+        }
+      ],
+      "assumptions": [
+        {
+          "assumption_id": "ASSUME-STANDARD-FE-CHI3",
+          "assumption_type": "standard_functional_equation",
+          "statement": "Use the standard completed Dirichlet L-function functional equation for the primitive odd character modulo 3 when contour-shift artifacts cite this registry."
+        }
+      ]
+    }
+  ]
+}
