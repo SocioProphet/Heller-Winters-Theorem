@@ -1,3 +1,4 @@
+import cmath
 from pathlib import Path
 import unittest
 
@@ -39,6 +40,29 @@ class TestHWOpen009WindowedOmega(unittest.TestCase):
             "Convert positive normalized second moment",
         ]:
             self.assertIn(token, text)
+
+    def test_path_b_diagonal_cesaro_is_positive(self) -> None:
+        delta = 0.1
+        gamma = 14.1347
+        rho_0 = complex(0.5 + delta, gamma)
+        sigma_0 = rho_0.real
+        c0 = abs((1 - 10 ** (-rho_0)) / rho_0)
+        window_cesaro = c0**2
+        terminal_scale_r = 10 ** (2 * sigma_0)
+        terminal_scale_cesaro = c0**2 * terminal_scale_r / (terminal_scale_r - 1)
+        self.assertGreater(window_cesaro, 0.0)
+        self.assertGreater(terminal_scale_cesaro, 0.0)
+
+    def test_path_b_partial_discharge_recorded(self) -> None:
+        text = TARGET.read_text(encoding="utf-8")
+        for token in [
+            "This is a partial discharge of Path B at the diagonal-spine level only",
+            "The diagonal contribution from the selected zero `rho_0` is positive",
+            "C_0^2 > 0",
+        ]:
+            self.assertIn(token, text)
+        path_b_fully_discharged = False
+        self.assertFalse(path_b_fully_discharged)
 
     def test_variance_route_boundary_is_pinned(self) -> None:
         text = TARGET.read_text(encoding="utf-8")
