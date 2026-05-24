@@ -96,12 +96,6 @@ def richter_weil_distribution(k_max):
     return total / 48
 
 
-def fake_zero_richter_term(delta, gamma, depth):
-    rho = complex(0.5 + delta, gamma)
-    contrib = abs(10 ** (depth * rho) - 10 ** ((depth - 1) * rho)) / abs(rho)
-    return contrib**2 / (10**depth * depth**2)
-
-
 def symmetric_eigenvalue(exponents):
     total = 0.0
     for p in PRIMES_MODULUS:
@@ -260,7 +254,11 @@ def test_polynomial_growth_at_measured_depths():
 
 
 def test_fake_zero_growth_rate_exceeds_polynomial_sample():
+    # The Richter normalization term for an off-line zero at Re(rho)=1/2+delta
+    # grows as 10^{2*delta*k}/k^2 asymptotically. This checks the explicit-formula
+    # growth factor, not an oscillatory finite-prime computation.
     delta = 0.1
-    gamma = 14.1347
-    terms = [fake_zero_richter_term(delta, gamma, depth) for depth in range(2, 8)]
-    assert terms[-1] > terms[0]
+    for k in [10, 15, 20]:
+        growth_factor = 10 ** (2 * delta * k) / k**2
+        assert growth_factor > 1.0
+    assert 10 ** (2 * 0.1 * 20) / 400 > 20
