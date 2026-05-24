@@ -42,22 +42,31 @@ rho_p = (p-1)^(p-1) / p^p.
 The principal square-root expansion has raw coefficient `A_p` defined by
 
 ```text
-C_p(x)=y_p - A_p sqrt(1-x/rho_p) + O(1-x/rho_p).
+C_p(x)=y_p - A_p sqrt(1-x/rho_p) + b_p(1-x/rho_p) + O((1-x/rho_p)^(3/2)).
 ```
 
-Direct expansion gives
+Direct expansion gives the exact leading formula
 
 ```text
 A_p^2 = 2p/(p-1)^3.
 ```
 
+The next coefficient is
+
+```text
+b_p = (p y_p^(p-1) - binom(p,3)y_p^(p-3)A_p^2)
+      / (2 binom(p,2)y_p^(p-2)).
+```
+
 Checked values:
 
-| `p` | `rho_p` | `A_p` | `A_p^2` |
-| ---: | ---: | ---: | ---: |
-| 2 | `1/4` | `2` | `4` |
-| 3 | `4/27` | `sqrt(3)/2` | `3/4` |
-| 5 | `256/3125` | `sqrt(10)/8` | `5/32` |
+| `p` | `rho_p` | `A_p` | `A_p^2` | `b_p` |
+| ---: | ---: | ---: | ---: | ---: |
+| 2 | `1/4` | `2` | `4` | `2` |
+| 3 | `4/27` | `sqrt(3)/2` | `3/4` | `2/3` |
+| 5 | `256/3125` | `sqrt(10)/8` | `5/32` | `1/4` |
+| 7 | `6^6/7^7` | `sqrt(7/108)` | `7/108` | `4/27` |
+| 11 | `10^10/11^11` | `sqrt(11/1000)` | `11/1000` | `2/25` |
 
 Correction: the earlier candidate pattern
 
@@ -65,15 +74,25 @@ Correction: the earlier candidate pattern
 c_p^2 = 1 - rho_p
 ```
 
-is false for the raw Puiseux coefficient normalization. It is not a valid next prediction for `p=5`.
+is false for the raw Puiseux coefficient normalization.
 
-Problem: determine whether there is a separately normalized unit-circle component behind the observed `p=2` / `p=3` complementarity, or whether the complementarity was a low-depth artifact. The raw coefficient pattern is now the concrete falsifiable target:
+The falsifiable `p=5` prediction is now algebraically accounted for:
 
 ```text
-A_p^2 = 2p/(p-1)^3.
+A_5^2 = 5/32,
+A_5 = sqrt(10)/8,
+b_5 = 1/4.
 ```
 
-Open: verify the `p=5` raw coefficient in Heller-Godel and then decide whether a normalized coefficient convention exists that preserves a unit-circle identity.
+The corresponding Heller-Godel preflight candidate is `HG-MTH-P5 — p=5 Puiseux Preflight`.
+
+Open: determine whether the observed coincidence
+
+```text
+b_7 = rho_3 = 4/27
+```
+
+has structural meaning or is only a low-depth arithmetic coincidence.
 
 Boundary note: this entry is a finite arithmetic diagnostic. The general theorem belongs in Heller-Godel only after the relevant encoding and Puiseux-normalization surfaces are promoted with explicit normalization conventions.
 
