@@ -150,7 +150,74 @@ The bound is not saturated. This is numerical evidence consistent with the `B^(1
 
 Moderate-scale growth exponents are noisy: individual zero oscillations dominate at this scale, and short-window ratios across `B=200` and `B=500` should not be treated as stable asymptotic evidence.
 
-## 7. Relation to Ehrhart and repunit window data
+## 7. Richter-window refinement of the finite Weil approach
+
+The Richter logarithmic window at decimal digit depth `k` is
+
+```text
+W_k = [10^(k-1), 10^k).
+```
+
+It is the natural digit-depth localization of the prime sum. Define the window character sum
+
+```text
+psi_{W_k}(chi)
+  = sum_{p in W_k, p mod P in G_P} (log p) chi(p).
+```
+
+Under GRH one expects
+
+```text
+|psi_{W_k}(chi)| = O(10^(k/2) k).
+```
+
+If a zero occurs off the critical line at real part `beta > 1/2`, the same explicit-formula heuristic permits window growth of order `10^(k beta)`.
+
+The Richter exponent is
+
+```text
+alpha_k(chi) = log |psi_{W_k}(chi)| / log sqrt(10^k).
+```
+
+The GRH-compatible target is `alpha_k(chi) -> 1` in the Richter normalization. A zero with real part `beta > 1/2` gives the corresponding limiting exponent `2 beta > 1`.
+
+The normalized window sum is
+
+```text
+psi_{W_k}(chi) / (k sqrt(10^k)).
+```
+
+Under GRH this is `O(1)`. To turn this into a summable distributional diagnostic, use the `l^2`-weighted Richter Weil series
+
+```text
+W^Richter(chi)
+  = sum_{k>=1} |psi_{W_k}(chi)|^2 / (10^k k^2).
+```
+
+Finite truncations are positive by construction. The convergence of the normalized window series is the Richter-envelope formulation of Condition B: it is a window-by-window statement rather than a single-cutoff statement.
+
+Numerical evidence at modulus `P=210`:
+
+| Depth `k` | `max_chi |psi_{W_k}(chi)|` | `k sqrt(10^k)` | ratio | Richter exponent |
+| ---: | ---: | ---: | ---: | ---: |
+| 1 | `0` | `3.16` | `0` | N/A |
+| 2 | `28.7` | `20.0` | `1.44` | `1.46` |
+| 3 | `75.7` | `94.9` | `0.80` | `1.25` |
+
+Depth 1 is empty for the `P=210` unit-filter because all single-digit primes divide 210. Depths 2 and 3 are positive, and the observed Richter exponent decreases toward the GRH-compatible value `1`.
+
+Repunit resonance connection: a prime `q` is resonant at window depth `k` when
+
+```text
+q | R_k,
+R_k = (10^k - 1)/9.
+```
+
+For example, `11 | R_2 = 11` and `11 in [10,100)`. These resonant primes modulate the oscillation structure of `psi_{W_k}(chi)` and connect `HW-PRIME-WINDOW-001` directly to the Weil positivity surface.
+
+This section does not prove Condition B. It identifies the convergence of normalized Richter window sums as a precise window-local formulation of Condition B and records finite evidence consistent with GRH-scale behavior.
+
+## 8. Relation to Ehrhart and repunit window data
 
 `HW-PRIME-WINDOW-001` and the Ehrhart section identify a discrete lattice-counting symmetry and reciprocity structure. Ehrhart-Macdonald reciprocity supplies a finite discrete analogue of functional-equation symmetry.
 
@@ -163,12 +230,13 @@ Thus the finite arithmetic program supplies:
 3. finite autocorrelation positivity;
 4. Gaussian-smoothed finite positive distributions;
 5. GRH-signature finite diagnostics;
-6. Ehrhart-style reciprocity diagnostics;
-7. a profinite completion surface.
+6. Richter-window finite diagnostics;
+7. Ehrhart-style reciprocity diagnostics;
+8. a profinite completion surface.
 
 The analytic continuation / Weil criterion remains an open boundary.
 
-## 8. Relation to Lane VIII Borel-Stieltjes scope
+## 9. Relation to Lane VIII Borel-Stieltjes scope
 
 The Lane VIII Borel-Stieltjes scope in the Yang-Mills repository records the Borel-Laplace / transseries treatment of the Stieltjes correction tower from the continuum side.
 
@@ -176,7 +244,7 @@ Here the same correction tower appears as the finite-to-limit error control surf
 
 The two framings are not identical, but they point to the same analytic obstruction: whether the discrete-to-continuous correction tower is controlled strongly enough to preserve positivity and growth-rate bounds in the limit.
 
-## 9. Non-claims
+## 10. Non-claims
 
 This document does not prove RH or GRH.
 
@@ -189,6 +257,8 @@ This document does not assert that the raw symmetric finite operator is positive
 This document does not assert that raw finite eigenvalues converge to `-L'/L(0,chi)`.
 
 This document does not assert that the finite GRH-signature ratio proves GRH.
+
+This document does not assert that Richter-window evidence proves GRH.
 
 This document does not assert strict Borel summability of the Stieltjes tower; renormalon or transseries corrections are explicitly part of the open boundary.
 
