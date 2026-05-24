@@ -1,4 +1,4 @@
-.PHONY: glossary-strict glossary-check figure-2-1 glossary-apply validate-claim-ledger generate-json-schema check-claim-ledger check-proof-hazards check-p210-character-table check-registry
+.PHONY: glossary-strict glossary-check figure-2-1 glossary-apply validate-claim-ledger generate-json-schema check-claim-ledger check-proof-hazards check-p210-character-table check-registry check-finite-character-operator
 
 ## Run glossary enforcement in strict mode (min 1 outside use per term)
 glossary-strict:
@@ -32,6 +32,11 @@ check-p210-character-table:
 ## Validate analytic registry schema fixtures
 check-registry:
 	python3 -m pytest -q tests/test_zero_registry_schema.py
+
+## Validate finite character-operator diagnostic
+check-finite-character-operator:
+	python3 tools/check_finite_character_operator.py
+	python3 -m pytest -q tests/test_finite_character_operator.py
 
 ## Generate portable JSON Schema artifacts from Pydantic models
 generate-json-schema:
