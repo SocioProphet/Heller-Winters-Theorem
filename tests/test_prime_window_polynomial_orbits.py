@@ -1,8 +1,12 @@
-from math import cos, coth, factorial, gcd, pi, sqrt, tan
+from math import cos, cosh, exp, factorial, gcd, log, pi, sinh, sqrt, tan, tanh
 
 
 def repunit(k):
     return (10**k - 1) // 9
+
+
+def theta3(q, terms=20):
+    return 1 + 2 * sum(q ** (n**2) for n in range(1, terms))
 
 
 def test_n_squared_plus_1_orbit_in_G210():
@@ -92,7 +96,38 @@ def test_tan_poles_at_half_integer_pi():
 
 
 def test_mittag_leffler_sum_n_squared_plus_1():
-    n_max = 1000
+    n_max = 10000
     partial = sum(1 / (n**2 + 1) for n in range(1, n_max + 1))
-    full = pi * coth(pi) / 2 - 1 / 2
-    assert abs(partial - full) < 0.01
+    exact = (pi / tanh(pi) - 1) / 2
+    assert abs(partial - exact) < 0.001
+
+
+def test_exact_cancellation_on_critical_line():
+    assert sinh(0) == 0.0
+    assert cosh(0) == 1.0
+    assert cosh(0) ** 2 - sinh(0) ** 2 == 1.0
+
+
+def test_hyperbolic_identity_holds_exactly():
+    for delta in [0, 0.1, 0.5, 1.0, 2.0]:
+        for k in [1, 2, 3, 5, 10]:
+            u = delta * k * log(10)
+            assert abs(cosh(u) ** 2 - sinh(u) ** 2 - 1.0) < 1e-9
+
+
+def test_tanh_is_zero_on_critical_line():
+    assert tanh(0) == 0.0
+
+
+def test_tanh_approaches_one_off_critical_line():
+    for delta in [0.1, 0.2]:
+        for k in [10, 20]:
+            u = delta * k * log(10)
+            assert tanh(u) > 0.9
+
+
+def test_theta_functional_equation_at_t_equals_1():
+    t = 1.0
+    lhs = theta3(exp(-pi * t))
+    rhs = t ** (-0.5) * theta3(exp(-pi / t))
+    assert abs(lhs - rhs) < 1e-6
