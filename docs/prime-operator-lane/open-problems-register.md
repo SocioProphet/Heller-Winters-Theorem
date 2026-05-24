@@ -26,27 +26,56 @@ Non-claim: the finite operators do not prove RH, do not identify zero ordinates,
 
 Established finite inputs:
 
-- At `p=2`, the coefficient side records the `1/2` component.
-- At `p=3`, the coefficient side records the `sqrt(3)/2` component.
-- These two components satisfy the complementary unit-circle identity
+For the arity-`p` algebraic generating function
 
-```math
-\left(\frac12\right)^2+\left(\frac{\sqrt3}{2}\right)^2=1.
+```text
+C_p(x)=1+x C_p(x)^p,
 ```
 
-Problem: verify the next case and prove the general Puiseux coefficient pattern. The falsifiable next prediction is that the `p=5` coefficient should satisfy
+the critical data are
 
-```math
-c_5^2=1-\rho_5.
+```text
+y_p = p/(p-1),
+rho_p = (p-1)^(p-1) / p^p.
 ```
 
-Open: verify the `p=5` case directly and prove the general formula
+The principal square-root expansion has raw coefficient `A_p` defined by
 
-```math
-c_p^2=1-\rho_p.
+```text
+C_p(x)=y_p - A_p sqrt(1-x/rho_p) + O(1-x/rho_p).
 ```
 
-Boundary note: the `p=2` and `p=3` observations are not yet a general theorem. The general theorem belongs in Heller-Godel once the encoding hypothesis is promoted from method-grade assembly to theorem-grade claim.
+Direct expansion gives
+
+```text
+A_p^2 = 2p/(p-1)^3.
+```
+
+Checked values:
+
+| `p` | `rho_p` | `A_p` | `A_p^2` |
+| ---: | ---: | ---: | ---: |
+| 2 | `1/4` | `2` | `4` |
+| 3 | `4/27` | `sqrt(3)/2` | `3/4` |
+| 5 | `256/3125` | `sqrt(10)/8` | `5/32` |
+
+Correction: the earlier candidate pattern
+
+```text
+c_p^2 = 1 - rho_p
+```
+
+is false for the raw Puiseux coefficient normalization. It is not a valid next prediction for `p=5`.
+
+Problem: determine whether there is a separately normalized unit-circle component behind the observed `p=2` / `p=3` complementarity, or whether the complementarity was a low-depth artifact. The raw coefficient pattern is now the concrete falsifiable target:
+
+```text
+A_p^2 = 2p/(p-1)^3.
+```
+
+Open: verify the `p=5` raw coefficient in Heller-Godel and then decide whether a normalized coefficient convention exists that preserves a unit-circle identity.
+
+Boundary note: this entry is a finite arithmetic diagnostic. The general theorem belongs in Heller-Godel only after the relevant encoding and Puiseux-normalization surfaces are promoted with explicit normalization conventions.
 
 ## HW-OPEN-003 — Eisenstein integer carry
 
