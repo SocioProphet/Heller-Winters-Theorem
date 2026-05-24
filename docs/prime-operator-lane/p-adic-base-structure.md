@@ -87,10 +87,16 @@ FC_n^(p) = binom(pn,n) / ((p-1)n + 1).
 Their p-adic valuation is governed by Kummer's theorem. The binomial part satisfies
 
 ```text
-v_p binom(pn,n) = ((p-1)n - s_p((p-1)n)) / (p-1),
+v_p binom(pn,n) = s_p((p-1)n) / (p-1),
 ```
 
-where `s_p(m)` is the sum of the base-`p` digits of `m`.
+where `s_p(m)` is the sum of the base-`p` digits of `m`. The related Legendre expression
+
+```text
+((p-1)n - s_p((p-1)n)) / (p-1)
+```
+
+computes `v_p(((p-1)n)!)`, not this binomial valuation.
 
 Thus the p-adic valuation of the generating-function coefficients is controlled by base-`p` digit sums. The p-adic base makes the integrality structure of the Fuss-Catalan coefficients visible digit by digit.
 
@@ -101,7 +107,7 @@ binom(6,2) = 15,
 v_3(15) = 1,
 (p-1)n = 4,
 s_3(4) = s_3(11_3) = 2,
-((p-1)n - s_p((p-1)n))/(p-1) = (4-2)/2 = 1.
+s_p((p-1)n)/(p-1) = 2/2 = 1.
 ```
 
 This is recorded as a section boundary and finite diagnostic, not as a new theorem.
