@@ -22,6 +22,14 @@ Stieltjes tower refinement. The gap between the finite operator eigenvalue `lamb
 
 Weil-positivity attack surface. `HW-PRIME-WEIL-001` records the Gaussian-smoothed finite Weil positivity strategy, the GRH-signature growth-rate measurement `|psi(B,chi)|/sqrt(B) < log(B)^2`, and the conditional theorem target separating finite positivity from the open weak-convergence and growth-exponent conditions. This is a cross-reference only: it does not close `HW-OPEN-001` and does not promote the finite diagnostic to a Hilbert-Pólya construction.
 
+Variance route. `HW-OPEN-008` and `HW-PRIME-WEIL-003` record a second approach to the same finite/infinite spectral gap: the fixed-modulus Parseval variance route. The exact finite identity
+
+```text
+Var_P(W_k) = (1/|G_P|) sum_{chi != 1} |psi_{W_k}(chi)|^2
+```
+
+is proved by finite Parseval orthogonality. The remaining analytic step is the explicit-formula lower-bound lemma: an off-line zero should force exponential growth in this variance. This route is a proof obligation, not a closed theorem, and it does not construct a Hilbert-Pólya operator.
+
 Non-claim: the finite operators do not prove RH, do not identify zero ordinates, and do not construct a Hilbert-Pólya operator.
 
 ## HW-OPEN-002 — Puiseux coefficient general pattern
