@@ -226,6 +226,74 @@ The window operator `T_hat_{W_k}` is a restriction of that finite operator to a 
 
 Thus `HW-PRIME-WINDOW-001` does not replace `HW-PRIME-FINITE-OPERATOR-001`. It refines it by adding digit-window localization and repunit-resonance diagnostics.
 
+## 8. Ehrhart polynomial — discrete side of zeta
+
+The Ehrhart polynomial of a lattice polytope `P` counts lattice points in dilates:
+
+```text
+L(P,t) = |tP cap Z^d|,  t in N.
+```
+
+For the standard `d`-simplex `Delta_d` with vertices at the origin and the `d` coordinate points,
+
+```text
+L(Delta_d,t) = binom(t+d,d).
+```
+
+At unit dilation,
+
+```text
+L(Delta_0,1)=1,
+L(Delta_1,1)=2,
+L(Delta_2,1)=3.
+```
+
+Thus the digit sequence of the repunit additive sum is the Ehrhart simplex sequence at unit dilation:
+
+```text
+R_1 + ... + R_n = 123...n,
+left digit k = L(Delta_{k-1},1)=k,
+```
+
+for `1 <= n <= 9` in base 10.
+
+The Ehrhart series is
+
+```text
+Ehr(P,z) = sum_{t>=0} L(P,t) z^t = h*(z)/(1-z)^(d+1).
+```
+
+For the unit hypercube `[0,1]^d`, this gives
+
+```text
+Ehr([0,1]^d,z) = sum_{t>=0} (t+1)^d z^t = sum_{n>=1} n^d z^(n-1).
+```
+
+After substituting `z=e^{-u}`, the Mellin transform gives the zeta bridge:
+
+```text
+int_0^infinity u^(s-1) Ehr([0,1]^d,e^{-u}) du = Gamma(s) zeta(s-d).
+```
+
+This is the analytic bridge from discrete lattice counting to the Riemann zeta function.
+
+The Euler-Mascheroni constant is simultaneously the constant term in the Laurent expansion of zeta at the pole and the leading residual in the discrete-to-continuous Euler-Maclaurin correction. On the Ehrhart side it records the leading error between lattice counts and the corresponding continuous volume approximation, accumulated across dilates.
+
+Ehrhart-Macdonald reciprocity states:
+
+```text
+L(P,-t) = (-1)^d L(P^circ,t).
+```
+
+This is the discrete functional-equation analogue: it exchanges the polytope with its interior and introduces the parity sign. For the 2-simplex,
+
+```text
+L(Delta_2,t) = (t+1)(t+2)/2,
+L(Delta_2,-t) = (t-1)(t-2)/2 = L(Delta_2^circ,t).
+```
+
+The vanishing of the interior lattice count at small dilations is the Ehrhart-side finite analogue of discrete-side zeros. This diagnostic does not identify nontrivial zeta zeros.
+
 ## Non-claims
 
 This document does not predict the next prime.
