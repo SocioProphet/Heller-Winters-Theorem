@@ -1,21 +1,27 @@
-# HW-OPEN-015 — Operator Domain and Essential Self-Adjointness Target
+# HW-OPEN-015 — Operator Domain and Normal Spectral-Radius Target
 
 Status: open operator-domain theorem target.  
-Claim class: finite operator facts plus infinite-domain obstruction map; not theorem-grade RH progress.  
+Claim class: finite normal-operator facts plus infinite-domain obstruction map; not theorem-grade RH progress.  
 Lane: prime/operator lane, Hilbert-Polya / operator-domain surface.  
 Depends on: `HW-PRIME-FINITE-OPERATOR-001`, `HW-OPEN-005`, `HW-PRIME-WEIL-017`.
 
 ## Purpose
 
-This document states Gate 3 of the Prime-Weil route: the operator-domain and essential-self-adjointness problem.
+This document states Gate 3 of the Prime-Weil route in corrected operator language.
 
-The finite operator has already been constructed and tested in:
+The earlier self-adjointness framing was too strong for the finite raw prime-residue operator. The finite convolution operator need not be self-adjoint because the raw prime-residue kernel need not satisfy:
 
 ```text
-tools/check_finite_character_operator.py
+A_K(h) = conjugate(A_K(h^{-1})).
 ```
 
-The finite result is not the proof. In finite dimension, an inversion-symmetric real convolution kernel gives a self-adjoint matrix. The real problem is the infinite/profinite completion and whether the limiting operator has a canonical self-adjoint realization whose spectral bounds imply the needed variance control.
+However, for finite abelian `G_P`, convolution operators are diagonalized by the character basis. Therefore the finite raw operator is normal:
+
+```text
+T_{P,K}^* T_{P,K} = T_{P,K} T_{P,K}^*.
+```
+
+The spectral theorem applies to normal operators. The proof gate is therefore not primarily self-adjointness. The proof gate is the spectral-radius/operator-norm bound.
 
 ## Finite operator surface
 
@@ -38,7 +44,7 @@ With the standard inner product on `l^2(G_P)`, the adjoint is convolution by the
 A_K^*(h) = conjugate(A_K(h^{-1})).
 ```
 
-Thus `T_{P,K}` is self-adjoint in finite dimension iff:
+The operator is self-adjoint iff:
 
 ```text
 A_K(h) = conjugate(A_K(h^{-1}))
@@ -46,11 +52,11 @@ A_K(h) = conjugate(A_K(h^{-1}))
 
 for all `h`.
 
-The existing finite diagnostic enforces this by replacing the raw kernel with its inversion-symmetric part.
+The raw finite kernel generally fails this condition, so the raw operator is generally not self-adjoint.
 
-## Finite spectral facts
+## Finite normality fact
 
-For finite abelian `G_P`, characters diagonalize convolution:
+For finite abelian `G_P`, every convolution operator is diagonalized by the finite character basis:
 
 ```text
 T_{P,K} chi = lambda_chi chi.
@@ -62,9 +68,33 @@ The eigenvalue is:
 lambda_chi = sum_{h in G_P} A_K(h) chi(h).
 ```
 
-If the kernel is real and inversion-symmetric, then the eigenvalues are real.
+Because the same unitary Fourier basis diagonalizes `T_{P,K}` and `T_{P,K}^*`, finite convolution is normal.
 
-This is finite linear algebra. It does not prove any zero-location statement.
+Therefore:
+
+```text
+||T_{P,K}|| = max_chi |lambda_chi|.
+```
+
+For the nontrivial restriction:
+
+```text
+||T_{P,K}^perp|| = max_{chi != 1} |psi_{W_K}(chi)|.
+```
+
+This is the exact finite operator reformulation of the character-sum barrier.
+
+## Correct Gate 3 statement
+
+The operator route asks for an unconditional spectral-radius bound:
+
+```text
+||T_{P,K}^perp|| = O(10^(K/2) K^A).
+```
+
+In the current lane, this is equivalent to GRH-strength square-root cancellation for the associated character sums.
+
+Thus the operator route is now a concrete normal-operator spectral-radius problem, not a vague Hilbert-Polya self-adjointness problem.
 
 ## Infinite completion target
 
@@ -84,7 +114,7 @@ The infinite operator target is a formal convolution operator:
 
 where `K` is the limiting arithmetic kernel obtained from prime-residue data after a specified regularization.
 
-## Domain problem
+## Domain and normality problem
 
 The key open problem is to define a dense domain:
 
@@ -96,33 +126,28 @@ such that:
 
 1. finite-cylinder functions lie in `D(T_infty)`;
 2. `T_infty D(T_infty) subset H_infty`;
-3. `T_infty` is symmetric on `D(T_infty)`;
+3. `T_infty` is closable;
 4. the adjoint `T_infty^*` is explicitly describable;
-5. deficiency indices can be computed or bounded;
-6. essential self-adjointness is proved or the obstruction is identified.
+5. the closure is normal, or the obstruction to normality is identified;
+6. a spectral-radius/operator-norm bound at GRH scale is proved or the obstruction is identified.
 
-## Why this matters
-
-If a canonical self-adjoint realization exists, then spectral radius and operator norm can be studied in a Hilbert-space framework rather than only through character-sum estimates.
-
-However, self-adjointness alone is not enough. A proof route would still need a norm bound of the right scale:
-
-```text
-||T_{P,K}^perp|| = O(10^(K/2) poly(K)).
-```
-
-That bound is GRH-strength unless the operator structure supplies a new positivity or compactness mechanism.
+Essential self-adjointness may still be useful for a symmetrized or transformed operator, but it is not the primary finite operator fact.
 
 ## Current obstruction
 
-The finite operator is self-adjoint after symmetrization, but the infinite kernel is not currently known to define a bounded or essentially self-adjoint operator on the proposed completion.
+The finite operator is normal and explicitly diagonalized. This does not close the proof because the spectral-radius bound remains exactly the character-sum bound:
 
-The obstruction is analytic:
+```text
+max_{chi != 1} |psi_{W_K}(chi)| = O(10^(K/2) K^A).
+```
+
+The infinite obstruction is analytic:
 
 - growth of the limiting kernel;
 - choice of regularization;
 - domain stability;
-- adjoint-domain equality;
+- adjoint-domain control;
+- normality of the closure;
 - spectral-radius bounds strong enough to imply the variance estimate.
 
 ## Non-claims
@@ -133,7 +158,9 @@ This document does not prove GRH.
 
 This document does not construct a Hilbert-Polya operator.
 
-This document does not prove essential self-adjointness of `T_infty`.
+This document does not prove normality of an infinite limiting operator.
+
+This document does not prove essential self-adjointness of any infinite operator.
 
 This document does not prove an operator-norm bound at GRH scale.
 
