@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 from __future__ import annotations
 
+import math
 from dataclasses import dataclass
 from typing import Tuple
 
@@ -21,7 +22,7 @@ TRUNCATION_ROWS = (
     TruncationHeightRow(10, 5e7, VERIFIED_HEIGHT, True, "yes"),
     TruncationHeightRow(20, 2e13, VERIFIED_HEIGHT, False, "borderline/no"),
     TruncationHeightRow(50, 1e29, VERIFIED_HEIGHT, False, "no"),
-    TruncationHeightRow(11088, 10.0**5544, VERIFIED_HEIGHT, False, "impossible"),
+    TruncationHeightRow(11088, math.inf, VERIFIED_HEIGHT, False, "impossible"),
 )
 
 
@@ -36,6 +37,7 @@ def run_checks() -> Tuple[TruncationHeightRow, ...]:
     assert rows[2].feasible is False
     assert rows[-1].depth == 11088
     assert rows[-1].feasible is False
+    assert math.isinf(rows[-1].t_needed)
     return rows
 
 
