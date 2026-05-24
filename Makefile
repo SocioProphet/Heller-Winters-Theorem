@@ -1,4 +1,4 @@
-.PHONY: glossary-strict glossary-check figure-2-1 glossary-apply validate-claim-ledger generate-json-schema check-claim-ledger check-proof-hazards check-p210-character-table check-registry check-finite-character-operator
+.PHONY: glossary-strict glossary-check figure-2-1 glossary-apply validate-claim-ledger generate-json-schema check-claim-ledger check-proof-hazards check-p210-character-table check-registry check-finite-character-operator check-antisymmetric-character-operator
 
 ## Run glossary enforcement in strict mode (min 1 outside use per term)
 glossary-strict:
@@ -37,6 +37,11 @@ check-registry:
 check-finite-character-operator:
 	python3 tools/check_finite_character_operator.py
 	python3 -m pytest -q tests/test_finite_character_operator.py
+
+## Validate antisymmetric finite character-operator diagnostic
+check-antisymmetric-character-operator:
+	python3 tools/check_antisymmetric_character_operator.py
+	python3 -m pytest -q tests/test_antisymmetric_character_operator.py
 
 ## Generate portable JSON Schema artifacts from Pydantic models
 generate-json-schema:
