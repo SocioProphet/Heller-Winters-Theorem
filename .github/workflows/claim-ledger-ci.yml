@@ -7,6 +7,7 @@ on:
       - 'fixtures/**'
       - 'tests/test_claim_ledger_schema.py'
       - 'scripts/generate_json_schema.py'
+      - 'tools/check_p210_character_table.py'
       - 'requirements-dev.txt'
       - 'Makefile'
       - '.github/workflows/claim-ledger-ci.yml'
@@ -16,6 +17,7 @@ on:
       - 'fixtures/**'
       - 'tests/test_claim_ledger_schema.py'
       - 'scripts/generate_json_schema.py'
+      - 'tools/check_p210_character_table.py'
       - 'requirements-dev.txt'
       - 'Makefile'
       - '.github/workflows/claim-ledger-ci.yml'
@@ -30,3 +32,4 @@ jobs:
           python-version: '3.11'
       - run: pip install -r requirements-dev.txt
       - run: make check-claim-ledger
+      - run: make check-p210-character-table
