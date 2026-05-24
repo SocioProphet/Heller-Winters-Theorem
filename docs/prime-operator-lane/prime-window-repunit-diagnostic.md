@@ -269,7 +269,71 @@ The half-step `1/2` in this logarithmic center is the same normalization scale t
 
 The density of first digits admissible to primes in base 10 is `2/5`: among digits `1..9`, the terminal-prime-compatible odd non-5 digits are `{1,3,7,9}`. This is the terminal-digit admissibility density, not the full prime density in a window.
 
-## 8. Euler-Mascheroni correction per window
+## 8. Taylor, theta, and half-integer split diagnostics
+
+The Taylor series split
+
+```text
+exp(x) = sum_{n even} x^n/n! + sum_{n odd} x^n/n!
+```
+
+separates the even and odd streams. With imaginary argument,
+
+```text
+exp(i x) = cos(x) + i sin(x),
+```
+
+where `cos(x)` uses even powers and `sin(x)` uses odd powers. This is an exact parity decomposition of the exponential series.
+
+The polynomial generating series
+
+```text
+sum_{n>=0} z^(n^k+p) = z^p sum_{n>=0} z^(n^k)
+```
+
+has the same parity split:
+
+```text
+z^p (sum_m z^((2m)^k) + sum_m z^((2m+1)^k)).
+```
+
+For `k=2`, this is a theta-function split. The full bilateral theta series is
+
+```text
+theta_3(q) = sum_{n in Z} q^(n^2),
+```
+
+and the even-square part is governed by `theta_3(q^4)`. Thus the parity split of `n^2+p` is the arithmetic version of the even/odd split of the theta series.
+
+The tangent ratio records the corresponding analytic split:
+
+```text
+tan(x) = sin(x)/cos(x),
+tanh(x) = sinh(x)/cosh(x).
+```
+
+This is a structural diagnostic only. It does not assert that ratios of prime counts literally converge to a tangent function.
+
+The Mittag-Leffler identity
+
+```text
+sum_{n=1}^infinity 1/(n^2+1)
+  = (pi coth(pi) - 1)/2
+```
+
+is a concrete bridge from the `n^2+1` denominator sequence to the trigonometric / hyperbolic meromorphic structure. It records the same `i`-root structure because `n^2+1=(n-i)(n+i)`.
+
+The poles of `tan(z)` occur at
+
+```text
+z = pi(k+1/2),
+```
+
+which exposes the half-integer shift in the trigonometric decomposition. This `1/2` also appears in the Richter geometric center `10^(k-1/2)` and in the critical-line coordinate `Re(s)=1/2`. The shared value is a coordinate/fixed-point diagnostic, not by itself a proof of RH.
+
+The theta functional equation is the rigorous analytic bridge from theta parity structure to zeta functional-equation symmetry. This document records the finite diagnostic connection only; it does not claim that the finite window split forces zero locations.
+
+## 9. Euler-Mascheroni correction per window
 
 The Euler-Mascheroni constant records the leading residual between discrete harmonic sums and their continuous logarithmic approximation:
 
@@ -295,7 +359,7 @@ is the depth-3 fingerprint of this structure: additive repunit stacking, triangu
 
 This is a diagnostic finite-arithmetic statement. It does not assert that `gamma` alone predicts prime counts in digit windows.
 
-## 9. Boundary with HW-PRIME-FINITE-OPERATOR-001
+## 10. Boundary with HW-PRIME-FINITE-OPERATOR-001
 
 `HW-PRIME-FINITE-OPERATOR-001` defines the full finite character-operator diagnostic over a selected modulus and prime cutoff.
 
@@ -303,7 +367,7 @@ The window operator `T_hat_{W_k}` is a restriction of that finite operator to a 
 
 Thus `HW-PRIME-WINDOW-001` does not replace `HW-PRIME-FINITE-OPERATOR-001`. It refines it by adding digit-window localization and repunit-resonance diagnostics.
 
-## 10. Ehrhart polynomial — discrete side of zeta
+## 11. Ehrhart polynomial — discrete side of zeta
 
 The Ehrhart polynomial of a lattice polytope `P` counts lattice points in dilates:
 
@@ -382,5 +446,7 @@ This document does not prove RH, GRH, Hilbert-Pólya, or any zero-location theor
 This document does not claim that digital-root cycles determine primality.
 
 This document does not assert that polynomial orbit density proves primality or gives an asymptotic formula for polynomial prime values.
+
+This document does not assert that the Taylor/theta parity split proves a zeta zero-location theorem.
 
 This document does not assert proof transfer to Yang-Mills or any Clay problem.
