@@ -1,0 +1,56 @@
+{
+  "schema_version": "zero-registry.v0.1",
+  "registry_id": "HW-ZERO-P210-CHARACTER-001",
+  "claim_class": "normalization_scaffold",
+  "non_claims": [
+    "Does not prove RH.",
+    "Does not prove GRH.",
+    "Does not locate zeros.",
+    "Does not prove prime equidistribution.",
+    "Does not collapse display modulus and conductor."
+  ],
+  "surfaces": [
+    {
+      "surface_id": "SURF-P210-CHI-1-1-1",
+      "surface_type": "completed_dirichlet_l_function",
+      "character_label": "chi_{1,1,1} mod 210",
+      "display_modulus": 210,
+      "conductor": 105,
+      "primitive_status": "induced",
+      "parity": "odd",
+      "completed_function": {
+        "normalization_id": "HW-PRIME-CHARACTER-CONDUCTOR-001",
+        "formula_text": "Lambda(s,chi)=(f/pi)^((s+a)/2) Gamma((s+a)/2) L(s,chi)",
+        "root_number_convention": "epsilon(chi) declared when used",
+        "functional_equation_status": "shape_recorded"
+      },
+      "zero_classes": [
+        {
+          "class_id": "ZERO-P210-CHI111-NONTRIVIAL",
+          "class_type": "nontrivial_zero",
+          "symbol": "rho_chi111",
+          "multiplicity_policy": "carried_explicitly",
+          "location_claim": "critical_strip",
+          "ordering_convention": "symmetric_height_truncation",
+          "residue_formula": "-m_rho X^rho Gamma(rho)"
+        },
+        {
+          "class_id": "ZERO-P210-CHI111-TRIVIAL",
+          "class_type": "trivial_zero",
+          "symbol": "tau_chi111",
+          "multiplicity_policy": "carried_explicitly",
+          "location_claim": "standard_trivial_locations",
+          "ordering_convention": "not_applicable",
+          "residue_formula": "declared by completed-function convention"
+        }
+      ],
+      "assumptions": [
+        {
+          "assumption_id": "ASSUME-CONDUCTOR-NORMALIZATION-P210-CHI111",
+          "assumption_type": "standard_functional_equation",
+          "statement": "Use the primitive conductor surface associated with chi_{1,1,1}; display modulus 210 is not treated as the analytic conductor."
+        }
+      ]
+    }
+  ]
+}

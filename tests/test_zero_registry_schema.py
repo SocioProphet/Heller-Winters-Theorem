@@ -6,13 +6,7 @@ from jsonschema import Draft202012Validator
 
 ROOT = Path(__file__).resolve().parents[1]
 SCHEMA_PATH = ROOT / "schemas" / "zero_registry.schema.json"
-FIXTURE_PATH = (
-    ROOT
-    / "fixtures"
-    / "zero-registry"
-    / "valid"
-    / "zr-001-exp-ap-diagnostic.json"
-)
+VALID_FIXTURE_ROOT = ROOT / "fixtures" / "zero-registry" / "valid"
 INVALID_FIXTURE_ROOT = ROOT / "fixtures" / "zero-registry" / "invalid"
 
 
@@ -38,15 +32,34 @@ def test_zero_registry_schema_is_valid_draft_2020_12():
     Draft202012Validator.check_schema(schema)
 
 
-def test_valid_zero_registry_fixture_passes_schema_validation():
-    fixture = load_json(FIXTURE_PATH)
-    errors = validation_errors(FIXTURE_PATH)
+def test_all_valid_zero_registry_fixtures_pass_schema_validation():
+    fixture_paths = sorted(VALID_FIXTURE_ROOT.glob("*.json"))
 
-    assert errors == []
+    assert fixture_paths
+
+    for fixture_path in fixture_paths:
+        errors = validation_errors(fixture_path)
+        assert errors == [], fixture_path.name
+
+
+def test_valid_exp_ap_fixture_preserves_expected_bookkeeping():
+    fixture = load_json(VALID_FIXTURE_ROOT / "zr-001-exp-ap-diagnostic.json")
+
     assert fixture["registry_id"] == "HW-ZERO-AP-EXP-001"
     assert fixture["surfaces"][0]["conductor"] == 3
     assert fixture["surfaces"][0]["display_modulus"] == 3
     assert fixture["surfaces"][0]["zero_classes"][0]["location_claim"] == "critical_strip"
+
+
+def test_valid_p210_fixture_preserves_conductor_boundary():
+    fixture = load_json(VALID_FIXTURE_ROOT / "zr-002-p210-character-surface.json")
+    surface = fixture["surfaces"][0]
+
+    assert fixture["registry_id"] == "HW-ZERO-P210-CHARACTER-001"
+    assert surface["display_modulus"] == 210
+    assert surface["conductor"] == 105
+    assert surface["primitive_status"] == "induced"
+    assert surface["conductor"] != surface["display_modulus"]
 
 
 def test_invalid_zero_registry_missing_conductor_fails():
