@@ -102,11 +102,25 @@ A target normalized second moment is:
 (1/N) sum_{K=1}^N |psi_{W_K}(chi)|^2 / 10^(2K sigma_0).
 ```
 
-The diagonal contribution from `rho_0` is positive and has a geometric-series normalization. In the single-zero model, it gives a positive limiting lower contribution of the form:
+The diagonal contribution from the selected zero `rho_0` is positive. In the single-zero window model:
 
 ```text
-C_0^2 * positive_geometric_factor.
+|A_K(rho_0)|^2 / 10^(2K sigma_0) = C_0^2.
 ```
+
+Thus the diagonal part has positive Cesaro contribution:
+
+```text
+(1/N) sum_{K=1}^N |A_K(rho_0)|^2 / 10^(2K sigma_0) = C_0^2 > 0.
+```
+
+If one instead studies cumulative partial sums normalized at the terminal scale `N`, the same positivity appears through a geometric factor such as:
+
+```text
+C_0^2 * r / (r - 1),    r = 10^(2 sigma_0).
+```
+
+Both formulations record the same point: the diagonal contribution is strictly positive after the correct normalization.
 
 Therefore, in the single-dominant-zero model, the normalized second moment has positive lower density and implies:
 
@@ -115,6 +129,8 @@ Therefore, in the single-dominant-zero model, the normalized second moment has p
 ```
 
 for a positive-density subsequence of windows.
+
+This is a partial discharge of Path B at the diagonal-spine level only.
 
 ## What Path B still owes
 
