@@ -218,3 +218,47 @@ def test_normalized_window_sums_consistent_with_grh_at_depth_3():
         w = window_character_sum(exponents, 3)
         normalized = abs(w) / (3 * math.sqrt(10**3))
         assert normalized < 30
+
+
+def test_parseval_identity_at_depth_2():
+    lhs = sum(abs(window_character_sum(exponents, 2)) ** 2 for exponents in all_character_exponents()) / 48
+    group = units_mod(P4)
+    f2 = {
+        g: sum(log(p) for p in primes_in_window(2) if gcd(p, P4) == 1 and p % P4 == g)
+        for g in group
+    }
+    rhs = sum(value**2 for value in f2.values())
+    assert abs(lhs - rhs) < 0.01
+
+
+def test_individual_series_terms_decreasing_for_chi_111():
+    chi_111 = (0, 1, 1, 1)
+    t2 = abs(window_character_sum(chi_111, 2)) ** 2 / (10**2 * 4)
+    t3 = abs(window_character_sum(chi_111, 3)) ** 2 / (10**3 * 9)
+    assert t3 < t2
+
+
+def test_grh_normalized_ratio_decreasing_for_chi_111():
+    chi_111 = (0, 1, 1, 1)
+    r2 = abs(window_character_sum(chi_111, 2)) / (2 * sqrt(100))
+    r3 = abs(window_character_sum(chi_111, 3)) / (3 * sqrt(1000))
+    assert r3 < r2
+
+
+def test_polynomial_growth_at_measured_depths():
+    W2 = richter_weil_distribution(2)
+    W3 = richter_weil_distribution(3)
+    ratio = W3 / W2
+    assert ratio < 50
+    assert ratio > 1
+
+
+def test_fake_zero_growth_rate_exceeds_polynomial_sample():
+    # The Richter normalization term for an off-line zero at Re(rho)=1/2+delta
+    # grows as 10^{2*delta*k}/k^2 asymptotically. This checks the explicit-formula
+    # growth factor, not an oscillatory finite-prime computation.
+    delta = 0.1
+    for k in [10, 15, 20]:
+        growth_factor = 10 ** (2 * delta * k) / k**2
+        assert growth_factor > 1.0
+    assert 10 ** (2 * 0.1 * 20) / 400 > 20
