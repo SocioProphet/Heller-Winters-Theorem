@@ -1,0 +1,235 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://socioprophet.dev/schemas/heller-winters/zero-registry.schema.json",
+  "title": "Heller-Winters Zero Registry",
+  "description": "Machine-checkable registry for analytic zero surfaces used by Heller-Winters explicit-formula artifacts. This schema is bookkeeping only and makes no RH, GRH, zero-location, or theorem-strength claim.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "registry_id",
+    "claim_class",
+    "surfaces"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "zero-registry.v0.1"
+    },
+    "registry_id": {
+      "type": "string",
+      "pattern": "^HW-ZERO-[A-Z0-9-]+$"
+    },
+    "claim_class": {
+      "type": "string",
+      "enum": [
+        "diagnostic",
+        "normalization_scaffold",
+        "conditional_target",
+        "theorem_target",
+        "proof_artifact"
+      ]
+    },
+    "non_claims": {
+      "type": "array",
+      "items": { "type": "string" },
+      "default": []
+    },
+    "surfaces": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/analytic_surface" }
+    }
+  },
+  "$defs": {
+    "analytic_surface": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "surface_id",
+        "surface_type",
+        "display_modulus",
+        "conductor",
+        "primitive_status",
+        "completed_function",
+        "zero_classes"
+      ],
+      "properties": {
+        "surface_id": {
+          "type": "string",
+          "pattern": "^SURF-[A-Z0-9-]+$"
+        },
+        "surface_type": {
+          "type": "string",
+          "enum": [
+            "zeta",
+            "dirichlet_l_function",
+            "completed_dirichlet_l_function",
+            "auxiliary_surface"
+          ]
+        },
+        "character_label": {
+          "type": "string"
+        },
+        "display_modulus": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "conductor": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "primitive_status": {
+          "type": "string",
+          "enum": [
+            "primitive",
+            "induced",
+            "principal",
+            "trivial",
+            "not_applicable"
+          ]
+        },
+        "parity": {
+          "type": "string",
+          "enum": [
+            "even",
+            "odd",
+            "not_applicable",
+            "unknown"
+          ]
+        },
+        "completed_function": {
+          "$ref": "#/$defs/completed_function"
+        },
+        "zero_classes": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/zero_class" }
+        },
+        "assumptions": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/assumption" },
+          "default": []
+        }
+      }
+    },
+    "completed_function": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "normalization_id",
+        "formula_text",
+        "functional_equation_status"
+      ],
+      "properties": {
+        "normalization_id": {
+          "type": "string"
+        },
+        "formula_text": {
+          "type": "string"
+        },
+        "root_number_convention": {
+          "type": "string"
+        },
+        "functional_equation_status": {
+          "type": "string",
+          "enum": [
+            "not_used",
+            "shape_recorded",
+            "cited_standard_theorem",
+            "proved_in_artifact"
+          ]
+        }
+      }
+    },
+    "zero_class": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "class_id",
+        "class_type",
+        "symbol",
+        "multiplicity_policy",
+        "location_claim"
+      ],
+      "properties": {
+        "class_id": {
+          "type": "string",
+          "pattern": "^ZERO-[A-Z0-9-]+$"
+        },
+        "class_type": {
+          "type": "string",
+          "enum": [
+            "nontrivial_zero",
+            "trivial_zero",
+            "pole",
+            "gamma_pole",
+            "exceptional_zero",
+            "auxiliary_zero"
+          ]
+        },
+        "symbol": {
+          "type": "string"
+        },
+        "multiplicity_policy": {
+          "type": "string",
+          "enum": [
+            "carried_explicitly",
+            "assumed_simple",
+            "proved_simple",
+            "not_applicable"
+          ]
+        },
+        "location_claim": {
+          "type": "string",
+          "enum": [
+            "none",
+            "critical_strip",
+            "critical_line_conditional",
+            "critical_line_proved",
+            "declared_finite_set",
+            "standard_trivial_locations"
+          ]
+        },
+        "ordering_convention": {
+          "type": "string",
+          "enum": [
+            "not_applicable",
+            "symmetric_height_truncation",
+            "absolute_convergence_proved",
+            "distributional",
+            "contour_defined"
+          ],
+          "default": "not_applicable"
+        },
+        "residue_formula": {
+          "type": "string"
+        }
+      }
+    },
+    "assumption": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["assumption_id", "assumption_type", "statement"],
+      "properties": {
+        "assumption_id": {
+          "type": "string"
+        },
+        "assumption_type": {
+          "type": "string",
+          "enum": [
+            "RH",
+            "GRH",
+            "zero_simplicity",
+            "standard_functional_equation",
+            "contour_bound",
+            "other"
+          ]
+        },
+        "statement": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}
