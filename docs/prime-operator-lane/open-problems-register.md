@@ -187,6 +187,29 @@ Open: formalize this base hierarchy as a typed bridge connecting the finite arit
 
 Non-claim: this entry does not assert that any base yields a proof of RH, GRH, or Yang-Mills mass gap. It records natural coordinate systems for each level and the open bridge problem between them.
 
+## HW-OPEN-007 — Prime residue oracle and repeating-decimal sieve
+
+Finite scaffolding:
+
+- `HW-PRIME-WINDOW-001`
+- `HW-PRIME-FINITE-OPERATOR-001`
+- `HW-PRIME-WEIL-001`
+- `HW-PRIME-WEIL-002`
+
+Problem: formalize the digit-cycle / residue-class oracle that connects repeating decimal structure, repunit resonances, and prime-window residue transitions.
+
+The candidate oracle surface has three finite components:
+
+1. a repeating-decimal sieve, where the cycle of `1/q` identifies residue-period information through `ord_q(10)`;
+2. a first-digit / terminal-digit admissibility bound, where base-10 prime candidates are restricted to `{1,3,7,9}` at the terminal digit, giving the `2/5` admissibility density among digits `0..9`;
+3. a residue-transition oracle, where the next-prime candidate transition is constrained by the current residue class, the repunit resonance cycle, and the finite character orbit.
+
+The polynomial orbit analysis from `HW-PRIME-WINDOW-001` is a test surface for this oracle. For `n^2+1`, the orbit in `G_210` has size `16` out of `48`; all even-`n` prime candidates are `1 mod 4`; primes `3 mod 4` never divide values of `n^2+1`; and the gap sequence between even-`n` candidates is an arithmetic progression with common difference `8`.
+
+Open: determine whether the oracle is merely a finite sieve description or whether it yields a reusable bound on Richter-window character sums for polynomial thin sets.
+
+Non-claim: this entry does not predict the next prime, prove infinitude of primes of the form `n^2+1`, prove Landau's fourth problem, prove RH/GRH, or construct a Hilbert-Pólya operator.
+
 ## Register non-claim
 
 This register does not assert progress toward any Clay problem. It records open problems, current scaffolding, and the precise finite/infinite boundary of the prime/operator-lane program.
