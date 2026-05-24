@@ -20,6 +20,8 @@ Current boundary: the finite `P(7)=210` character-operator eigenvalues approxima
 
 Stieltjes tower refinement. The gap between the finite operator eigenvalue `lambda_chi(B)` approximating spectral data at cutoff `B` and the actual zero ordinate is governed by the Stieltjes constants. The `n`-th order correction to the eigenvalue approximation involves `gamma_n` — the `n`-th moment of the accumulated discrete-to-continuous error between the finite prime sum and its integral approximation. The full tower `{gamma_n}` would need to be controlled to close the gap between the finite operator eigenvalue and the actual spectral data. This is the analytic content of `HW-OPEN-001` stated precisely. The finite program approximates the leading correction; the full tower is not computable from the finite operator alone.
 
+Weil-positivity attack surface. `HW-PRIME-WEIL-001` records the Gaussian-smoothed finite Weil positivity strategy, the GRH-signature growth-rate measurement `|psi(B,chi)|/sqrt(B) < log(B)^2`, and the conditional theorem target separating finite positivity from the open weak-convergence and growth-exponent conditions. This is a cross-reference only: it does not close `HW-OPEN-001` and does not promote the finite diagnostic to a Hilbert-Pólya construction.
+
 Non-claim: the finite operators do not prove RH, do not identify zero ordinates, and do not construct a Hilbert-Pólya operator.
 
 ## HW-OPEN-002 — Puiseux coefficient general pattern
