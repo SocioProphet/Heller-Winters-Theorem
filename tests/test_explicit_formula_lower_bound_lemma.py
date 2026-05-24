@@ -16,9 +16,10 @@ def test_A_k_lower_bound():
 def test_B_k_on_line_dominated_for_large_k():
     # |B_k^on| = O(10^(k/2) * log^2(k)).
     # |A_k| / |B_k^on| has envelope 10^(k*delta)/log^2(10^k),
-    # which tends to infinity for delta > 0.
+    # which tends to infinity for delta > 0. For delta=0.1, the crossover
+    # occurs after the small-window regime, so use post-crossover depths.
     delta = 0.1
-    for k in [10, 20, 50]:
+    for k in [50, 100]:
         ratio = 10 ** (k * delta) / (math.log(10**k) ** 2)
         assert ratio > 1
 
