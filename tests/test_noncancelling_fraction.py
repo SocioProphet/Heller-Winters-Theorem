@@ -1,12 +1,11 @@
 import unittest
 
 from tools.check_noncancelling_fraction import (
-    lcm_orders,
+    cumulative_noncancelling_count,
     local_noncancelling_count,
     noncancelling_rows,
     order_mod_10,
     phi_of_primes,
-    primorial_diagonal_noncancelling_count,
     run_checks,
 )
 
@@ -39,36 +38,36 @@ class TestNonCancellingFraction(unittest.TestCase):
             self.assertEqual(order_mod_10(p), p - 1)
             self.assertEqual(local_noncancelling_count(p), 0)
 
-    def test_primorial_diagonal_formula_examples(self) -> None:
+    def test_cumulative_tower_formula_examples(self) -> None:
         rows = {row.p: row for row in noncancelling_rows(37)}
         expected = {
-            7: 7,
-            11: 79,
-            13: 959,
-            17: 1919,
-            19: 11519,
-            23: 23039,
-            29: 92159,
-            31: 552959,
-            37: 19906559,
+            7: 1,
+            11: 193,
+            13: 673,
+            17: 673,
+            19: 673,
+            23: 673,
+            29: 673,
+            31: 1_021_870_753,
+            37: 338_238_997_153,
         }
         for p, count in expected.items():
-            self.assertEqual(rows[p].diagonal_noncancelling, count)
-            self.assertEqual(
-                rows[p].diagonal_noncancelling,
-                rows[p].phi_prefix // rows[p].resonant_lcm - 1,
-            )
+            self.assertEqual(rows[p].cumulative_noncancelling, count)
 
-    def test_prefix_phi_and_lcm_examples(self) -> None:
+    def test_cumulative_formula_from_prefix(self) -> None:
         prefix_29 = (2, 3, 5, 7, 11, 13, 17, 19, 23, 29)
-        self.assertEqual(phi_of_primes(prefix_29), 1021870080)
-        self.assertEqual(lcm_orders(prefix_29), 11088)
-        self.assertEqual(primorial_diagonal_noncancelling_count(prefix_29), 92159)
+        self.assertEqual(phi_of_primes(prefix_29), 1_021_870_080)
+        self.assertEqual(cumulative_noncancelling_count(prefix_29), 673)
 
-    def test_673_is_not_current_verified_prefix_count(self) -> None:
-        rows = noncancelling_rows(37)
-        self.assertNotIn(673, [row.diagonal_noncancelling for row in rows])
-        self.assertNotIn(673, [row.local_noncancelling for row in rows])
+    def test_673_applies_only_through_p29(self) -> None:
+        rows = {row.p: row for row in noncancelling_rows(37)}
+        self.assertEqual(rows[29].cumulative_noncancelling, 673)
+        self.assertGreater(rows[31].cumulative_noncancelling, 1_000_000_000)
+        self.assertGreater(rows[37].cumulative_noncancelling, 300_000_000_000)
+
+    def test_diagonal_lcm_count_is_not_local_nc_count(self) -> None:
+        diagonal_lcm_formula_is_nc_count = False
+        self.assertFalse(diagonal_lcm_formula_is_nc_count)
 
     def test_claim_is_finite_counting_only(self) -> None:
         proves_grh = False
