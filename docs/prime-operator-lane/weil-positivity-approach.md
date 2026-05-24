@@ -187,14 +187,16 @@ The normalized window sum is
 psi_{W_k}(chi) / (k sqrt(10^k)).
 ```
 
-Under GRH this is `O(1)`. To turn this into a summable distributional diagnostic, use the `l^2`-weighted Richter Weil series
+Under GRH this is `O(1)`. The individual squared Richter series
 
 ```text
 W^Richter(chi)
-  = sum_{k>=1} |psi_{W_k}(chi)|^2 / (10^k k^2).
+  = sum_{k>=1} |psi_{W_k}(chi)|^2 / (10^k k^2)
 ```
 
-Finite truncations are positive by construction. The convergence of the normalized window series is the Richter-envelope formulation of Condition B: it is a window-by-window statement rather than a single-cutoff statement.
+is therefore GRH-strength: its convergence for every relevant character is not currently an unconditional theorem in this repository. It is part of the hard growth-rate boundary, not a separately proved B1 theorem.
+
+Finite truncations are still positive by construction. What remains open is the passage from finite positive truncations to the full Weil distribution in the correct topology.
 
 Numerical evidence at modulus `P=210`:
 
@@ -215,9 +217,45 @@ R_k = (10^k - 1)/9.
 
 For example, `11 | R_2 = 11` and `11 in [10,100)`. These resonant primes modulate the oscillation structure of `psi_{W_k}(chi)` and connect `HW-PRIME-WINDOW-001` directly to the Weil positivity surface.
 
-This section does not prove Condition B. It identifies the convergence of normalized Richter window sums as a precise window-local formulation of Condition B and records finite evidence consistent with GRH-scale behavior.
+This section does not prove Condition B. It identifies the convergence of normalized Richter window sums as a precise window-local formulation of the same hard growth boundary and records finite evidence consistent with GRH-scale behavior.
 
-## 8. Relation to Ehrhart and repunit window data
+## 8. B1 convergence — corrected analysis
+
+The first attempted B1 statement would have asserted unconditional convergence of the individual Richter series. That statement is too strong. With the normalization above, individual convergence is GRH-strength.
+
+The correct finite identity is the Parseval identity on `G_P`. Define
+
+```text
+f_k(g) = sum_{p in W_k, p mod P = g} log p.
+```
+
+Then
+
+```text
+(1/|G_P|) sum_{chi in G_P^} |psi_{W_k}(chi)|^2
+  = sum_{g in G_P} f_k(g)^2.
+```
+
+This identity is finite and unconditional. It is the correct averaged squared-window relation. It also explains why replacing the right-hand side with `sum_{p in W_k} (log p)^2` is wrong once multiple primes land in the same residue class: residue-class cross terms contribute to `f_k(g)^2`.
+
+The finite numerical observations at depths 2 and 3 are:
+
+| Depth `k` | individual normalized term for `chi_(1,1,1)` | normalized ratio |
+| ---: | ---: | ---: |
+| 2 | `2.06` | `1.44` |
+| 3 | `0.64` | `0.80` |
+
+The terms decrease in this small sample, consistent with GRH-scale behavior. This is numerical evidence only.
+
+Corrected conditional theorem: if the normalized window sums
+
+```text
+psi_{W_k}(chi) / (k sqrt(10^k))
+```
+
+remain uniformly bounded for every relevant character in the profinite limit, then the individual Richter series has the expected GRH-scale behavior, the finite positive truncations have a plausible weak-limit target, and the remaining bridge is the identification of that weak limit with the Weil distribution in the correct test-function topology. The boundedness condition is not proved here; it is the hard GRH-strength part of the program.
+
+## 9. Relation to Ehrhart and repunit window data
 
 `HW-PRIME-WINDOW-001` and the Ehrhart section identify a discrete lattice-counting symmetry and reciprocity structure. Ehrhart-Macdonald reciprocity supplies a finite discrete analogue of functional-equation symmetry.
 
@@ -231,12 +269,13 @@ Thus the finite arithmetic program supplies:
 4. Gaussian-smoothed finite positive distributions;
 5. GRH-signature finite diagnostics;
 6. Richter-window finite diagnostics;
-7. Ehrhart-style reciprocity diagnostics;
-8. a profinite completion surface.
+7. finite Parseval window identities;
+8. Ehrhart-style reciprocity diagnostics;
+9. a profinite completion surface.
 
 The analytic continuation / Weil criterion remains an open boundary.
 
-## 9. Relation to Lane VIII Borel-Stieltjes scope
+## 10. Relation to Lane VIII Borel-Stieltjes scope
 
 The Lane VIII Borel-Stieltjes scope in the Yang-Mills repository records the Borel-Laplace / transseries treatment of the Stieltjes correction tower from the continuum side.
 
@@ -244,7 +283,7 @@ Here the same correction tower appears as the finite-to-limit error control surf
 
 The two framings are not identical, but they point to the same analytic obstruction: whether the discrete-to-continuous correction tower is controlled strongly enough to preserve positivity and growth-rate bounds in the limit.
 
-## 10. Non-claims
+## 11. Non-claims
 
 This document does not prove RH or GRH.
 
@@ -259,6 +298,8 @@ This document does not assert that raw finite eigenvalues converge to `-L'/L(0,c
 This document does not assert that the finite GRH-signature ratio proves GRH.
 
 This document does not assert that Richter-window evidence proves GRH.
+
+This document does not assert unconditional convergence of the individual Richter series.
 
 This document does not assert strict Borel summability of the Stieltjes tower; renormalon or transseries corrections are explicitly part of the open boundary.
 
