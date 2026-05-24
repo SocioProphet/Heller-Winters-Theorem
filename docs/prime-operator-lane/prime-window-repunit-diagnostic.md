@@ -192,7 +192,84 @@ lambda_chi(W_k) = sum_{g in G_{P_k}} A_{W_k}(g) chi(g).
 
 These window eigenvalues approximate the character-sum behavior of primes restricted to `W_k`.
 
-## 6. Euler-Mascheroni correction per window
+## 6. Polynomial value distributions
+
+For fixed `k` and fixed odd `p`, the polynomial value sequence
+
+```text
+n^k + p
+```
+
+splits into two parity streams:
+
+```text
+E_k = {n^k + p : n even},
+O_k = {n^k + p : n odd}.
+```
+
+For odd `p`, the even-`n` stream is odd and contains the only ordinary prime candidates beyond the exceptional prime `2`; the odd-`n` stream is even and therefore composite except in trivial edge cases.
+
+For `n^2+1`, the prime-candidate stream is obtained from even `n`. It has values
+
+```text
+(2m)^2 + 1 = 4m^2 + 1,
+```
+
+so every candidate is congruent to `1 mod 4`. The gaps between consecutive even-`n` candidates are
+
+```text
+(2m+2)^2 + 1 - ((2m)^2 + 1) = 8m + 4,
+```
+
+an arithmetic progression with common difference `8`. All gaps are divisible by `4`.
+
+Modulo `G_210=(Z/210Z)^x`, the orbit
+
+```text
+{n^2+1 mod 210 : gcd(n^2+1,210)=1}
+```
+
+has size `16`, exactly one third of the 48 unit classes. Thus the polynomial value stream reaches a strict subset of the finite prime residue surface.
+
+This gives a finite orbit-density diagnostic: polynomial thin sets occupy only the residue classes admitted by their modular orbit. It is an upper-bound and sieve diagnostic, not a prime-count theorem.
+
+For primes `q == 3 mod 4`, `-1` is not a quadratic residue modulo `q`, so
+
+```text
+n^2 + 1 != 0 mod q
+```
+
+for all `n`. Equivalently, such primes never divide a value of `n^2+1`. The sequence is therefore permanently sieved away from those divisor classes.
+
+More generally, `n^2+p == 0 mod q` is possible exactly when `-p` is a quadratic residue modulo `q`, except at the degenerate local factors dividing `2pq`. This quadratic-residue criterion is the local sieve law for the polynomial value distribution.
+
+## 7. Perfect cancellation and geometric window center
+
+On any finite group `G`, every non-trivial character satisfies
+
+```text
+sum_{g in G} chi(g) = 0.
+```
+
+For `G_10=(Z/10Z)^x={1,3,7,9}`, this is the perfect cancellation theorem for non-trivial characters modulo 10. It is finite coset orthogonality and does not depend on prime distribution.
+
+The Richter window
+
+```text
+[10^(k-1), 10^k)
+```
+
+has geometric center
+
+```text
+sqrt(10^(k-1) * 10^k) = 10^(k-1/2).
+```
+
+The half-step `1/2` in this logarithmic center is the same normalization scale that appears in GRH-compatible Richter growth. This is a coordinate identity, not a proof of GRH.
+
+The density of first digits admissible to primes in base 10 is `2/5`: among digits `1..9`, the terminal-prime-compatible odd non-5 digits are `{1,3,7,9}`. This is the terminal-digit admissibility density, not the full prime density in a window.
+
+## 8. Euler-Mascheroni correction per window
 
 The Euler-Mascheroni constant records the leading residual between discrete harmonic sums and their continuous logarithmic approximation:
 
@@ -218,7 +295,7 @@ is the depth-3 fingerprint of this structure: additive repunit stacking, triangu
 
 This is a diagnostic finite-arithmetic statement. It does not assert that `gamma` alone predicts prime counts in digit windows.
 
-## 7. Boundary with HW-PRIME-FINITE-OPERATOR-001
+## 9. Boundary with HW-PRIME-FINITE-OPERATOR-001
 
 `HW-PRIME-FINITE-OPERATOR-001` defines the full finite character-operator diagnostic over a selected modulus and prime cutoff.
 
@@ -226,7 +303,7 @@ The window operator `T_hat_{W_k}` is a restriction of that finite operator to a 
 
 Thus `HW-PRIME-WINDOW-001` does not replace `HW-PRIME-FINITE-OPERATOR-001`. It refines it by adding digit-window localization and repunit-resonance diagnostics.
 
-## 8. Ehrhart polynomial — discrete side of zeta
+## 10. Ehrhart polynomial — discrete side of zeta
 
 The Ehrhart polynomial of a lattice polytope `P` counts lattice points in dilates:
 
@@ -303,5 +380,7 @@ This document does not prove a prime number theorem in windows.
 This document does not prove RH, GRH, Hilbert-Pólya, or any zero-location theorem.
 
 This document does not claim that digital-root cycles determine primality.
+
+This document does not assert that polynomial orbit density proves primality or gives an asymptotic formula for polynomial prime values.
 
 This document does not assert proof transfer to Yang-Mills or any Clay problem.
