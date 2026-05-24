@@ -1,4 +1,4 @@
-from math import gcd
+from math import comb, gcd
 
 
 def dr(n: int) -> int:
@@ -57,3 +57,32 @@ def test_repunit_resonance_condition() -> None:
         order = ord10(p)
         for k in range(1, 13):
             assert (repunit(k) % p == 0) == (k % order == 0)
+
+
+def test_ehrhart_simplex_sequence_matches_repunit_digits() -> None:
+    # L(Delta_{k-1}, 1) = k for k=1,2,...,8.
+    for k in range(1, 9):
+        l_delta = comb(1 + k - 1, k - 1)
+        assert l_delta == k
+
+
+def test_ehrhart_sum_equals_phi_9_at_n_3() -> None:
+    phi9 = sum(1 for k in range(1, 10) if gcd(k, 9) == 1)
+    ehrhart_sum = sum(comb(1 + d, d) for d in range(3))
+
+    assert ehrhart_sum == 6
+    assert phi9 == 6
+    assert ehrhart_sum == phi9
+
+
+def test_ehrhart_macdonald_reciprocity_2_simplex() -> None:
+    # L(Delta_2,t) = (t+1)(t+2)/2.
+    # L(Delta_2,-t) = (t-1)(t-2)/2 = L(Delta_2^interior,t).
+    def l_delta_2(t: int) -> int:
+        return (t + 1) * (t + 2) // 2
+
+    def l_delta_2_interior(t: int) -> int:
+        return (t - 1) * (t - 2) // 2
+
+    for t in range(1, 8):
+        assert l_delta_2(-t) == l_delta_2_interior(t)
