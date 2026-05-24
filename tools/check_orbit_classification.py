@@ -101,6 +101,21 @@ def orbit_character_sum(prime: int, exponent: int, base: int = 10) -> complex:
     return sum(character_value_mod_prime(prime, generator, exponent, residue) for residue in orbit_mod_prime(base, prime))
 
 
+def digit_cycle_partial_sums(prime: int, exponent: int, base: int = 10) -> Tuple[complex, ...]:
+    """Return partial character sums along the base orbit modulo a prime."""
+
+    order = multiplicative_order_mod_prime(base, prime)
+    if order is None:
+        return tuple()
+    generator = primitive_generator_mod_prime(prime)
+    total = 0j
+    partials: List[complex] = []
+    for residue in orbit_mod_prime(base, prime):
+        total += character_value_mod_prime(prime, generator, exponent, residue)
+        partials.append(total)
+    return tuple(partials)
+
+
 def classify_prime(prime: int, base: int = 10) -> OrbitClassification:
     if math.gcd(base, prime) != 1:
         return OrbitClassification(
