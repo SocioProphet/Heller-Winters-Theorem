@@ -1,6 +1,6 @@
 # HW-OPEN-013 — Orbit Quality Energy Hypothesis
 
-Status: open falsifiable hypothesis surface.  
+Status: pre-registered falsifiable hypothesis surface.  
 Claim class: conjectural diagnostic / next-computation target, not theorem-grade analytic progress.  
 Lane: prime/operator lane, orbit-quality / packet-energy surface.  
 Depends on: `HW-PRIME-WEIL-011`, `HW-PRIME-WEIL-012`, `HW-PRIME-WEIL-014`.
@@ -16,38 +16,57 @@ The prior diagnostics show that raw variance is affected by two different mechan
 
 `HW-OPEN-013` asks whether a count-normalized energy statistic can detect orbit quality in a stable way across later prime layers.
 
-## Hypothesis shape
+## Coset interpretation
 
-Let `q` be a prime with `gcd(q,10)=1`, and let:
-
-```text
-d_q = ord_q(10),
-I_q = (q-1) / d_q.
-```
-
-The local non-cancelling character count is:
+Let:
 
 ```text
-n_nc(q) = I_q - 1.
+H_q = <10> subset (Z/qZ)^x,
+d_q = |H_q| = ord_q(10),
+I_q = [(Z/qZ)^x : H_q] = (q-1)/d_q.
 ```
 
-For the non-cancelling packet at the `q` layer, define count-normalized energy:
+Cancelling characters are nontrivial on `H_q`. They probe within-coset fluctuations and cancel over complete base-10 orbits.
+
+Non-cancelling characters are trivial on `H_q`. They probe between-coset fluctuations and detect whether some cosets of `H_q` receive systematically more prime weight than others.
+
+Thus the orbit-quality signal should depend primarily on the orbit period `d_q` and quotient index `I_q`, not raw primorial character count.
+
+## Pre-registered model
+
+The pre-registered model for the non-cancelling/cancelling energy-per-character ratio is:
 
 ```text
-E_nc(q,K) = (sum_{chi in NC(q)} |psi_{W_K}(chi)|^2) / |NC(q)|.
+R(q) = 1 + 0.3439 / d_q,
 ```
 
-The orbit-quality hypothesis is that, after removing raw character-count growth, `E_nc(q,K)` is controlled by a function of the orbit quotient index `I_q` and the orbit period `d_q`, rather than by the size of the primorial character group alone.
-
-A future PR must choose an explicit model function, for example:
+where:
 
 ```text
-E_nc(q,K) ~ F(K, I_q, d_q)
+d_q = ord_q(10).
 ```
 
-and then test it against computed data.
+The constant `0.3439` is calibrated from the `p=11`, `K=4` finite diagnostic before the `q=37` measurement. The model is now fixed and must not be changed after the q=37 computation.
 
-This document does not select a final model function because the numerical prediction in the current discussion was redacted. The next computation must supply it explicitly.
+This is a falsifiable finite-diagnostic model. It is not a theorem.
+
+## Pre-registered predictions
+
+For `q=13`:
+
+```text
+d_13 = ord_13(10) = 6,
+R(13) = 1 + 0.3439 / 6 = 1.057316666...
+```
+
+For `q=37`:
+
+```text
+d_37 = ord_37(10) = 3,
+R(37) = 1 + 0.3439 / 3 = 1.114633333...
+```
+
+These predictions are committed before the q=37 measurement.
 
 ## First falsifiable target
 
@@ -70,12 +89,14 @@ This is a partial-orbit prime with a large local non-cancelling quotient.
 The next computation should measure:
 
 ```text
-E_nc(37,K)
+E_nc(37,K) / E_cancel(37,K)
 ```
 
-at the deepest feasible Richter windows and compare it with the model prediction selected for `F`.
+using the same count-normalized statistic as `HW-PRIME-WEIL-011` and compare it against the pre-registered value:
 
-The hypothesis becomes meaningful only when the predicted value and measured value are both committed and CI-checked.
+```text
+R(37) = 1.114633333...
+```
 
 ## Relation to p=11
 
@@ -87,7 +108,7 @@ I_11 = 5,
 n_nc(11) = 4.
 ```
 
-`HW-PRIME-WEIL-011` and `HW-PRIME-WEIL-012` computed count-normalized p=11 packet energies. Those results provide the first calibration point for the orbit-quality energy hypothesis.
+`HW-PRIME-WEIL-011` and `HW-PRIME-WEIL-012` computed count-normalized p=11 packet energies. Those results provide the calibration point for the orbit-quality energy hypothesis.
 
 The p=11 data also show finite prime-race fluctuation: the non-cancelling/cancelling ratio rises through `K=4` and then inverts at `K=5`. Therefore the hypothesis must be robust to finite-window oscillation and cannot be a monotone finite-depth law.
 
@@ -95,9 +116,9 @@ The p=11 data also show finite prime-race fluctuation: the non-cancelling/cancel
 
 A future test supports the hypothesis if:
 
-1. the model function `F` is fixed before measurement;
+1. the model function remains fixed before measurement;
 2. the p=37 non-cancelling packet is computed with the same count-normalized statistic;
-3. the measured p=37 value is within the declared tolerance of the predicted value;
+3. the measured p=37 value is within the declared tolerance of `1.114633333...`;
 4. the result is stable under at least one additional depth or one additional partial-orbit prime;
 5. the non-claim boundary remains intact.
 
@@ -105,9 +126,9 @@ A future test supports the hypothesis if:
 
 The hypothesis is falsified or requires refinement if:
 
-1. the p=37 measured value is far from the declared prediction;
+1. the p=37 measured value is far from `1.114633333...`;
 2. finite-window prime-race oscillations dominate the predicted orbit-quality signal;
-3. the chosen `F(K,I_q,d_q)` fails on a second partial-orbit prime;
+3. `R(q)=1+0.3439/d_q` fails on a second partial-orbit prime;
 4. full-orbit packets do not separate from partial-orbit packets under count normalization;
 5. raw character-count effects re-enter after normalization.
 
@@ -127,7 +148,7 @@ This document does not prove Artin's conjecture.
 
 This document does not prove an unconditional variance bound.
 
-This document does not prove a p=37 packet-energy prediction.
+This document does not prove the p=37 packet-energy prediction.
 
 This document does not claim that orbit quality alone determines energy concentration.
 
