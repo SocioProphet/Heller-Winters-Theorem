@@ -60,7 +60,10 @@ def test_negative_one_in_padic_base():
 def test_fuss_catalan_padic_valuation():
     for p in [2, 3]:
         for n in range(1, 6):
-            kummer_val = ((p - 1) * n - digit_sum_base_p((p - 1) * n, p)) // (p - 1)
+            # Kummer: v_p(C(pn,n)) = s_p((p-1)n)/(p-1).
+            # The Legendre expression ((p-1)n - s_p((p-1)n))/(p-1)
+            # instead computes v_p(((p-1)n)!), not this binomial valuation.
+            kummer_val = digit_sum_base_p((p - 1) * n, p) // (p - 1)
             binom_val = v_p(comb(p * n, n), p)
             assert kummer_val == binom_val
 
