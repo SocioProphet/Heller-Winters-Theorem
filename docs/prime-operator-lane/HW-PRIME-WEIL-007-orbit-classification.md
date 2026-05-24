@@ -18,7 +18,7 @@ sum_{h in H} chi(h) = 0 unless chi is trivial on H.
 
 Complete cancellation for every nontrivial character occurs exactly when `10` is a primitive root modulo `p`.
 
-This document also records the finite Rodin / `142857` bridge as a mod-9 unit-set identity. That bridge is arithmetic bookkeeping only. It is not a physical torus claim and not evidence for RH/GRH.
+This document also records the finite Rodin / `142857` bridge as a mod-9 unit-set identity and the Midy/complementary-pairs digit-sum law. These bridges are arithmetic bookkeeping only. They are not physical torus claims and not evidence for RH/GRH.
 
 This document does not prove RH, GRH, Artin's conjecture, or an unconditional variance bound.
 
@@ -181,6 +181,45 @@ Proof: this is the standard character orthogonality relation on the finite subgr
 
 Corollary: all nontrivial characters cancel over the base-10 orbit iff `H=(Z/pZ)^x`, i.e. iff `10` is a primitive root modulo `p`.
 
+## Midy / complementary-pairs digit-sum law
+
+For a denominator `n` coprime to `10`, the repetend of `1/n` has period:
+
+```text
+ord_n(10).
+```
+
+When the period is even and the standard Midy/complementary-pairs condition applies, the repeating block splits into complementary digit pairs whose sums are `9` in base `10`.
+
+For the prime examples used in this lane, the digit-sum law is:
+
+```text
+digit_sum(1/p) = 9 * ord_p(10) / 2.
+```
+
+Equivalently:
+
+```text
+digit_sum(1/p) = (9/2) * period.
+```
+
+This is a digit-repetend identity. It is not an analytic prime-distribution theorem.
+
+### Digit-sum sequence
+
+| Fraction | `10 mod n` / period data | Period | Digit sum | Structure |
+|---|---|---:|---:|---|
+| `1/9` | `10 == 1 mod 9` | 1 | `1 = 9^0` | fixed identity digit |
+| `1/10` | `10 == 0 mod 10` | terminates | — | base reset / terminating case |
+| `1/11` | `10 == -1 mod 11` | 2 | `9 = 9^1` | first nontrivial complementary pair |
+| `1/13` | `ord_13(10)=6` | 6 | `27 = 3*9` | three complementary pairs |
+| `1/17` | `ord_17(10)=16` | 16 | `72 = 8*9` | eight complementary pairs |
+| `1/19` | `ord_19(10)=18` | 18 | `81 = 9^2` | nine complementary pairs |
+
+The `1/19` case has digit sum `81` because the period contains exactly nine complementary pairs, and each pair sums to `9`.
+
+This is the precise finite arithmetic meaning of the phrase “two complete Rodin circles” in the informal discussion: the period length is `18`, so the number of complementary pairs is `9`, the mod-9/Rodin modulus.
+
 ## Rodin / 142857 bridge
 
 This section records a finite mod-9 bridge. It is included because it explains why the digit string `142857`, the Rodin doubling cycle, and the current mod-7 variance dominance are the same small cyclic arithmetic surface seen through different coordinatizations.
@@ -247,9 +286,19 @@ This is a finite structural explanation for the observed dominance. It is not an
 | `1/3` | 1 | degenerate digit repetition | `3,6` axis / nonunit surface |
 | `1/11` | 2 | partial orbit `{10,1}` modulo `11` | between active and inert |
 | `1/7` | 6 | full orbit modulo `7` | active six-node unit circuit |
-| `1/19` | 18 | full orbit modulo `19` | full Artin-prime circuit |
+| `1/19` | 18 | full orbit modulo `19` | full Artin-prime circuit; digit sum `9^2` |
 
 This table is finite arithmetic bookkeeping. It does not create a proof of any analytic statement about prime distribution.
+
+## Character sums and digit sums
+
+The Midy/complementary-pairs law and the finite character-cancellation law are dual finite descriptions of the same orbit structure.
+
+The digit-sum law says that the repetend is balanced around the base-10 midpoint when the period splits into complementary pairs.
+
+The character-sum law says that the finite Fourier transform over a complete multiplicative orbit cancels for every nontrivial character.
+
+The analytic prime-window problem is harder: `psi_{W_K}(chi)` sums characters over primes in a value window, not over a deterministic full digit cycle. Therefore the digit-sum identity explains the finite orbit geometry but does not by itself bound prime-window character sums.
 
 ## Resonant-depth oracle surface
 
@@ -318,5 +367,7 @@ This document does not prove an unconditional bound for `psi_{W_K}(chi_p)` for a
 This document does not prove the finite-to-asymptotic transition from digit-cycle cancellation to prime-window variance cancellation.
 
 This document does not claim Rodin-coil geometry, torus winding, or digital-root numerology proves any analytic number theory result.
+
+This document does not claim the Midy digit-sum law proves any analytic number theory result.
 
 This document does not close the square-root barrier identified in `HW-PRIME-WEIL-005`.
