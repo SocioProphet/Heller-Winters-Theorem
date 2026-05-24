@@ -6,6 +6,10 @@ verifies the finite Fourier cancellation law:
 
     sum_{h in <10>} chi(h) = 0 unless chi is trivial on <10>.
 
+It also records the finite Rodin/142857 bridge as a cyclic-group identity:
+the Rodin doubling orbit in (Z/9Z)^x and the decimal digits of 1/7 have the
+same unit set modulo 9.
+
 It is a finite arithmetic diagnostic. It does not prove Artin's conjecture,
 RH, GRH, or any unconditional variance bound.
 """
@@ -16,6 +20,10 @@ import cmath
 import math
 from dataclasses import dataclass
 from typing import Dict, Iterable, List, Tuple
+
+RODIN_ACTIVE_SET = (1, 2, 4, 5, 7, 8)
+RODIN_AXIS_SET = (3, 6, 9)
+DIGITS_1_OVER_7 = (1, 4, 2, 8, 5, 7)
 
 
 @dataclass(frozen=True)
@@ -116,6 +124,27 @@ def digit_cycle_partial_sums(prime: int, exponent: int, base: int = 10) -> Tuple
     return tuple(partials)
 
 
+def rodin_doubling_orbit(modulus: int = 9) -> Tuple[int, ...]:
+    value = 1
+    orbit: List[int] = []
+    while value not in orbit:
+        orbit.append(value)
+        value = (2 * value) % modulus
+    return tuple(orbit)
+
+
+def units_mod_9() -> Tuple[int, ...]:
+    return tuple(n for n in range(1, 10) if math.gcd(n, 9) == 1)
+
+
+def rodin_axis_mod_9() -> Tuple[int, ...]:
+    return tuple(n for n in range(1, 10) if math.gcd(n, 9) != 1)
+
+
+def one_seventh_digit_set() -> Tuple[int, ...]:
+    return tuple(sorted(DIGITS_1_OVER_7))
+
+
 def classify_prime(prime: int, base: int = 10) -> OrbitClassification:
     if math.gcd(base, prime) != 1:
         return OrbitClassification(
@@ -188,6 +217,15 @@ def run_checks() -> Tuple[OrbitClassification, ...]:
     if found_prefix[: len(expected_artin_prefix)] != expected_artin_prefix:
         raise AssertionError(found_prefix)
 
+    if rodin_doubling_orbit() != (1, 2, 4, 8, 7, 5):
+        raise AssertionError("unexpected Rodin doubling orbit modulo 9")
+    if units_mod_9() != RODIN_ACTIVE_SET:
+        raise AssertionError("unexpected unit set modulo 9")
+    if rodin_axis_mod_9() != RODIN_AXIS_SET:
+        raise AssertionError("unexpected nonunit axis modulo 9")
+    if one_seventh_digit_set() != RODIN_ACTIVE_SET:
+        raise AssertionError("digits of 1/7 should equal the mod-9 unit set as a set")
+
     return rows
 
 
@@ -201,6 +239,8 @@ def main() -> None:
             f"noncancelling={row.noncancelling_nontrivial_characters}"
         )
     print(f"base-10 primitive-root primes <=100: {primitive_root_primes(100, 10)}")
+    print(f"Rodin doubling orbit mod 9: {rodin_doubling_orbit()}")
+    print(f"digits of 1/7 as set: {one_seventh_digit_set()}")
 
 
 if __name__ == "__main__":
