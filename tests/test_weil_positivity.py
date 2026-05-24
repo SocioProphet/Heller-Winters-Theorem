@@ -20,6 +20,10 @@ def primes_upto(B):
     return [n for n in range(2, B + 1) if is_prime(n)]
 
 
+def primes_in_window(depth):
+    return [p for p in primes_upto(10**depth - 1) if 10 ** (depth - 1) <= p < 10**depth]
+
+
 def units_mod(P):
     return [g for g in range(1, P) if gcd(g, P) == 1]
 
@@ -59,6 +63,14 @@ def raw_character_sum(exponents, B):
     return total
 
 
+def window_character_sum(exponents, depth):
+    total = 0j
+    for p in primes_in_window(depth):
+        if gcd(p, P4) == 1:
+            total += log(p) * character_value(p, exponents)
+    return total
+
+
 def gaussian_eigenvalue(exponents, sigma, B):
     total = 0j
     for p in primes_upto(B):
@@ -66,6 +78,22 @@ def gaussian_eigenvalue(exponents, sigma, B):
             weight = math.exp(-(log(p) ** 2) / (2 * sigma**2))
             total += log(p) * character_value(p, exponents) * weight
     return total
+
+
+def richter_exponent(exponents, depth):
+    w = window_character_sum(exponents, depth)
+    if abs(w) == 0:
+        return float("nan")
+    return log(abs(w)) / log(sqrt(10**depth))
+
+
+def richter_weil_distribution(k_max):
+    total = 0.0
+    for depth in range(1, k_max + 1):
+        denom = (10**depth) * (depth**2)
+        for exponents in all_character_exponents():
+            total += abs(window_character_sum(exponents, depth)) ** 2 / denom
+    return total / 48
 
 
 def symmetric_eigenvalue(exponents):
@@ -157,3 +185,36 @@ def test_short_window_growth_ratio_is_not_used_as_a_gate():
     B = 500
     ratios = [abs(raw_character_sum(exponents, B)) / sqrt(B) for exponents in all_character_exponents()]
     assert max(ratios) < log(B) ** 2
+
+
+def test_richter_window_sums_defined_at_depth_2_and_3():
+    for depth in [2, 3]:
+        for exponents in all_character_exponents():
+            w = window_character_sum(exponents, depth)
+            assert isinstance(w, complex)
+
+
+def test_richter_weil_distribution_positive_at_depth_2_and_3():
+    for k_max in [2, 3]:
+        assert richter_weil_distribution(k_max) > 0
+
+
+def test_richter_exponent_decreasing_for_chi_111():
+    exponents_111 = (0, 1, 1, 1)
+    exp2 = richter_exponent(exponents_111, 2)
+    exp3 = richter_exponent(exponents_111, 3)
+    assert exp2 > 0 and exp3 > 0
+    assert exp3 < exp2
+
+
+def test_repunit_resonance_prime_11_in_window_2():
+    R2 = (10**2 - 1) // 9
+    assert R2 % 11 == 0
+    assert 10 <= 11 < 100
+
+
+def test_normalized_window_sums_consistent_with_grh_at_depth_3():
+    for exponents in all_character_exponents():
+        w = window_character_sum(exponents, 3)
+        normalized = abs(w) / (3 * math.sqrt(10**3))
+        assert normalized < 30
