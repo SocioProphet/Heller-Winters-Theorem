@@ -206,6 +206,26 @@ The character value itself remains a root of unity and therefore has unit norm:
 
 The unit-norm fact and the `SU(2)` Casimir value are not the same statement.
 
+The Pythagorean identity
+
+```math
+\left(\frac{\sqrt3}{2}\right)^2+\left(-\frac12\right)^2=1
+```
+
+expresses the unit-circle constraint on character values. Its components are
+
+```math
+\frac34=j(j+1)\quad (j=1/2)
+```
+
+in the Casimir-compatible normalization above, and
+
+```math
+\frac14=\rho_2
+```
+
+as the Catalan singularity. The `p=3` Puiseux coefficient `sqrt(3)/2` and the `j=1/2` quantum number `1/2` are the real and imaginary components of `varphi_{1,1,1}(g_*)` — orthogonal components of a single unit-circle element. Their sum of squares is `1`. This is the finite arithmetic witness that the Heller-Godel and Heller-Winters programs are not independent in this diagnostic layer: they are complementary projections of the same object onto the real and imaginary subspaces of `Q(zeta_12)`.
+
 ## 5. Gaussian eigenvalue of the distinguished character
 
 The finite Gaussian eigenvalue of the distinguished character is
