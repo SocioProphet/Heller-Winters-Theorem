@@ -105,6 +105,33 @@ Current boundary: the finite program builds the best computable finite approxima
 
 Non-claim: this entry does not assert that the Hilbert-Pólya operator does not exist. It records precisely why the finite arithmetic scaffolding cannot construct it directly.
 
+## HW-OPEN-005 — Profinite inductive limit and essential self-adjointness
+
+Finite scaffolding:
+
+- `HW-PRIME-FINITE-OPERATOR-001`
+- `HW-PRIME-ANTISYM-OPERATOR-001`
+- `HW-PRIME-GAUSSIAN-INT-001`
+- `HW-PRIME-PROFINITE-001`
+
+The primorial operators `T_{P_k}` form a compatible inductive system. Their natural analytic completion is
+
+```text
+L^2(Z_hat^x, d mu_Haar),
+```
+
+the `L^2` space of the profinite completion of the multiplicative group under Haar measure. This is a separable infinite-dimensional Hilbert space canonically defined from the arithmetic structure.
+
+The formal limit operator `T_infinity` on `L^2(Z_hat^x)` has character-indexed eigenvalue data governed by the regularized logarithmic derivative of the corresponding Dirichlet `L`-function. The finite operators `T_{P_k}` approximate this limit surface with error governed by the Stieltjes tower (`HW-OPEN-001`).
+
+Open problem: is the naive convolution operator `T_infinity` essentially self-adjoint on the dense domain formed by the union of the finite Hilbert spaces?
+
+Essential self-adjointness requires controlling the `L^2(Z_hat^x)` growth of the limit kernel `K_infinity`. This growth is governed by the same Stieltjes tower that controls the finite operator eigenvalue approximation. If the Stieltjes tower is Borel summable in the scoped sense of the Yang-Mills Lane VIII Borel-Stieltjes surface, essential self-adjointness becomes plausible, but not established.
+
+The cardinality gap from `HW-OPEN-004` is resolved at the arithmetic-completion level: `L^2(Z_hat^x)` lives at `2^{aleph_0}` but is canonically defined from the arithmetic inductive system via profinite Haar measure, without requiring Osterwalder-Schrader distributional machinery or gauge theory. It is the natural completion of the finite program.
+
+Non-claim: this entry does not assert that `T_infinity` is essentially self-adjoint, that its spectrum matches the target zero-ordinate surface, or that this construction proves RH.
+
 ## Register non-claim
 
 This register does not assert progress toward any Clay problem. It records open problems, current scaffolding, and the precise finite/infinite boundary of the prime/operator-lane program.
