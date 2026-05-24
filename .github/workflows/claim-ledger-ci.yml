@@ -7,8 +7,10 @@ on:
       - 'fixtures/**'
       - 'tests/test_claim_ledger_schema.py'
       - 'tests/test_zero_registry_schema.py'
+      - 'tests/test_finite_character_operator.py'
       - 'scripts/generate_json_schema.py'
       - 'tools/check_p210_character_table.py'
+      - 'tools/check_finite_character_operator.py'
       - 'requirements-dev.txt'
       - 'Makefile'
       - '.github/workflows/claim-ledger-ci.yml'
@@ -18,8 +20,10 @@ on:
       - 'fixtures/**'
       - 'tests/test_claim_ledger_schema.py'
       - 'tests/test_zero_registry_schema.py'
+      - 'tests/test_finite_character_operator.py'
       - 'scripts/generate_json_schema.py'
       - 'tools/check_p210_character_table.py'
+      - 'tools/check_finite_character_operator.py'
       - 'requirements-dev.txt'
       - 'Makefile'
       - '.github/workflows/claim-ledger-ci.yml'
@@ -36,3 +40,4 @@ jobs:
       - run: make check-claim-ledger
       - run: make check-p210-character-table
       - run: make check-registry
+      - run: make check-finite-character-operator
