@@ -72,8 +72,13 @@ def test_chi_111_casimir_relation():
 
     j = 0.5
     spin_component = chi_111_gstar.imag
-    assert abs(spin_component * spin_component + j - j * (j + 1)) < 1e-12
+    casimir_component = spin_component * spin_component + j
+    catalan_component = catalan_singularity_from_j_half()
+
+    assert abs(casimir_component - j * (j + 1)) < 1e-12
+    assert abs(casimir_component - su2_j_half_casimir()) < 1e-12
     assert abs(su2_j_half_casimir() - 0.75) < 1e-12
+    assert abs(casimir_component + catalan_component - 1.0) < 1e-12
 
 
 def test_catalan_singularity_from_j_half():
