@@ -68,6 +68,10 @@ def primes_in_window(depth: int) -> Tuple[int, ...]:
     return tuple(p for p in primes_up_to_sieve(high - 1) if low <= p < high)
 
 
+def prime_count_window(depth: int) -> int:
+    return len(primes_in_window(depth))
+
+
 @lru_cache(maxsize=None)
 def mod7_dlog() -> Dict[int, int]:
     table: Dict[int, int] = {}
@@ -121,7 +125,7 @@ def grh_envelope(depth: int) -> float:
 
 
 def oracle_bound_at_resonant_depth(depth: int = 6) -> float:
-    prime_count = len(primes_in_window(depth))
+    prime_count = prime_count_window(depth)
     return 2.0 * math.log(10**depth) * math.sqrt(prime_count / 6.0)
 
 
@@ -180,7 +184,7 @@ def equidistribution_row(depth: int) -> EquidistributionRow:
     oracle = oracle_bound_at_resonant_depth(depth) if depth == 6 else None
     return EquidistributionRow(
         depth=depth,
-        prime_count=len(primes_in_window(depth)),
+        prime_count=prime_count_window(depth),
         max_epsilon=max_epsilon(depth),
         psi_chi7_abs=psi_abs,
         psi_over_sqrt=psi_over_sqrt,
