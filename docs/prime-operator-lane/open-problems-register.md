@@ -132,6 +132,40 @@ The cardinality gap from `HW-OPEN-004` is resolved at the arithmetic-completion 
 
 Non-claim: this entry does not assert that `T_infinity` is essentially self-adjoint, that its spectrum matches the target zero-ordinate surface, or that this construction proves RH.
 
+## HW-OPEN-006 — Multi-base error space representation
+
+The choice of base encodes what is treated as the fundamental unit of measurement. Different bases make different aspects of the discrete-to-continuous gap legible. The prime-operator lane has identified the following natural bases, one per level of the `HG-DOC-002` embedding stack:
+
+| Base | Natural unit | Stack level | What becomes legible |
+| --- | --- | --- | --- |
+| `p` (p-adic) | p-adic valuation | Level 0 | integrality of `FC` numbers, Teichmuller lifts, Euler factors |
+| `zeta_p` | cyclotomic root | Level 1 | character values, finite Fourier modes |
+| `1/(2i)` | branch-cut unit | Levels 2-3 | analytic / singular decomposition at `p=2` |
+| `omega=zeta_3` | Eisenstein unit | Level 4 | `p=3` monodromy, Eisenstein carry |
+| `i` | imaginary rotation | operator level | `K^+` / `K^-` real-imaginary splitting |
+| `e` | natural growth | Levels 7-8 | RG flow, coupling running, `Lambda_YM` |
+| `pi` | periodicity | Level 9 | zero spacing, oscillatory corrections |
+| `gamma` | error unit | Gap 6-7 | discrete-to-continuous error, Stieltjes tower |
+| `1/gamma` | inverse error unit | Gap 6-7 | zero ordinates as resonances in error space |
+
+The p-adic base is foundational: every other base derives from it or is compared against it through a completion surface. The cyclotomic roots `zeta_p` are roots of unity visible in local p-adic / cyclotomic structures. The imaginary unit `i=zeta_4` is the cyclotomic unit governing the Gaussian-integer operator split. The transcendental bases `e`, `pi`, and `gamma` are completion coordinates modeled through rational approximations and adelic comparison surfaces.
+
+The key insight: base `gamma` is the natural coordinate for the gap between Level 6, the finite carry cocycle, and Level 7, the lattice Hilbert space, because `gamma` is precisely the accumulated error when crossing from discrete harmonic summation to continuous logarithmic integration.
+
+In base `1/gamma` coordinates, the zero-location problem can be restated as a resonance problem in the accumulated-error coordinate. This is a restatement, not a proof, but it identifies a natural coordinate system for the spectral problem.
+
+The Euler product
+
+```text
+L(s,chi) = product_p (1 - chi(p)p^(-s))^(-1)
+```
+
+is the character-indexed spectral data of `T_infinity` expressed as a product of p-adic local factors: one factor per prime, one p-adic base per factor.
+
+Open: formalize this base hierarchy as a typed bridge connecting the finite arithmetic program, Levels 0-6 with p-adic and cyclotomic bases, to the continuum spectral problem, Levels 9-10 with periodic and transcendental bases, with the `gamma`-base gap precisely identified as the finite/infinite boundary.
+
+Non-claim: this entry does not assert that any base yields a proof of RH, GRH, or Yang-Mills mass gap. It records natural coordinate systems for each level and the open bridge problem between them.
+
 ## Register non-claim
 
 This register does not assert progress toward any Clay problem. It records open problems, current scaffolding, and the precise finite/infinite boundary of the prime/operator-lane program.
