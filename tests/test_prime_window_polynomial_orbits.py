@@ -1,4 +1,4 @@
-from math import gcd, sqrt
+from math import cos, coth, factorial, gcd, pi, sqrt, tan
 
 
 def repunit(k):
@@ -69,3 +69,30 @@ def test_next_prime_transition_from_3_most_likely_7():
 def test_repunit_resonance_prime_11_in_depth_2():
     assert repunit(2) == 11
     assert repunit(2) % 11 == 0
+
+
+def test_cosine_series_uses_even_powers_only():
+    x = 0.5
+    cos_approx = sum((-1) ** n * x ** (2 * n) / factorial(2 * n) for n in range(10))
+    assert abs(cos_approx - cos(x)) < 1e-10
+
+
+def test_even_stream_generates_theta_function():
+    z = 0.1
+    even_stream = sum(z ** (4 * m**2) for m in range(10))
+    theta_approx = 1 + 2 * sum(z ** (4 * m**2) for m in range(1, 10))
+    assert abs(even_stream - theta_approx + 1) < 1e-12
+
+
+def test_tan_poles_at_half_integer_pi():
+    for k in range(5):
+        pole = pi * (k + 0.5)
+        x_near = pole - 0.001
+        assert abs(tan(x_near)) > 100
+
+
+def test_mittag_leffler_sum_n_squared_plus_1():
+    n_max = 1000
+    partial = sum(1 / (n**2 + 1) for n in range(1, n_max + 1))
+    full = pi * coth(pi) / 2 - 1 / 2
+    assert abs(partial - full) < 0.01
