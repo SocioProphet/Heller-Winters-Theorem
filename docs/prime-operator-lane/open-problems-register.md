@@ -132,6 +132,62 @@ The cardinality gap from `HW-OPEN-004` is resolved at the arithmetic-completion 
 
 Non-claim: this entry does not assert that `T_infinity` is essentially self-adjoint, that its spectrum matches the target zero-ordinate surface, or that this construction proves RH.
 
+## HW-OPEN-006 — Multi-base error-space representation
+
+Finite scaffolding:
+
+- `HW-PRIME-WINDOW-001`
+- `HW-PRIME-PROFINITE-001`
+- `HW-OPEN-001`
+- `HW-OPEN-005`
+
+Different algebraic and transcendental bases make different aspects of the discrete-to-continuous gap legible. The choice of base determines which structure is treated as the fundamental unit of measurement.
+
+In this program, the natural bases for the embedding-stack levels are:
+
+| Base | Natural unit | What becomes legible | Embedding-stack location |
+| --- | --- | --- | --- |
+| `zeta_p` | cyclotomic unit | finite character values and general `p` Puiseux structure | Levels 0-1 |
+| `1/(2i)` | branch-cut unit | analytic / singular decomposition at `p=2` | Levels 2-3 |
+| `omega` | Eisenstein unit | `p=3` Puiseux structure and Eisenstein carry | Level 4 / HW-OPEN-003 |
+| `gamma` | error unit | discrete-to-continuous gap and Stieltjes tower | finite / infinite boundary |
+| `1/gamma` | inverse error unit | zero ordinates as resonances in accumulated-error coordinates | spectral open-problem surface |
+| `e` | natural growth | RG flow, coupling running, and `Lambda_YM` scaling | Yang-Mills Levels 7-8 |
+| `pi` | periodicity | zero spacing and oscillatory correction terms | continuum spectral surface |
+| `i` | rotation | real/imaginary decomposition and `K^+` / `K^-` splitting | Gaussian-integer operator lane |
+
+The Euler-Mascheroni constant `gamma` is the accumulated rectangular error between the discrete harmonic sum and the continuous logarithm:
+
+```text
+gamma = lim_{N -> infinity} (sum_{n=1}^N 1/n - log N).
+```
+
+Using `gamma` as the base means measuring analytic objects in units of the discrete-to-continuous error itself.
+
+The Laurent expansion
+
+```text
+zeta(s) = 1/(s-1) + sum_{n>=0} (-1)^n gamma_n (s-1)^n / n!
+```
+
+becomes, after the rescaling `s = 1 + gamma t`,
+
+```text
+zeta(1 + gamma t) = 1/(gamma t)
+  + gamma_0
+  - gamma_1 gamma t
+  + gamma_2 gamma^2 t^2 / 2
+  - ...
+```
+
+This expresses the Stieltjes tower as the Taylor correction structure in the error-unit coordinate.
+
+In this coordinate system, the critical-line form of the zero problem becomes a statement about whether the spectral resonances occur as purely imaginary frequencies in the accumulated-error coordinate. This is a restatement of the zero-location question, not a proof.
+
+Open problem: formalize this multi-base representation as a typed bridge between the finite arithmetic program and analytic continuation. The bridge would need to specify which base changes are algebraic, which are transcendental coordinate changes, and which claims are invariant under the change of base.
+
+Non-claim: this entry does not prove RH, does not identify zero ordinates, does not construct a Hilbert-Pólya operator, and does not transfer proof from arithmetic to Yang-Mills.
+
 ## Register non-claim
 
 This register does not assert progress toward any Clay problem. It records open problems, current scaffolding, and the precise finite/infinite boundary of the prime/operator-lane program.
