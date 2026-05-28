@@ -129,6 +129,8 @@ The repository also develops an auditable operator framework for prime-distribut
 
 The current prime residual manuscript scaffold is captured in `docs/prime-operator-lane/prime-residual-manuscript-scaffold-v0.1.md`. It locks the density/intensity correction `dπ/dx ~ 1/log x` versus `dπ/du ~ e^u/u`, keeps `e^(u/2)` language as an RH-shaped diagnostic only, and defines the manuscript spine for operator ordering, residual channels, harness protocol, claim ledger, figure semantics, and publication voice.
 
+HW-PRIME-WEIL-009 registers the reciprocal dimension-coordinate bridge to `SocioProphet/Heller-Godel`: the HW-PRIME-WEIL-008 circle/hyperbola boundary is paired with the representation-theoretic `dim rho = 1` unit-circle locus in HG-MTH-008.6. This is an analogy of boundary position only; `dim rho` is never equal to the HW off-critical-line parameter delta.
+
 The companion governance artifacts are:
 
 - `docs/prime-operator-lane/operator-registry-v0.1.md` — typed operator registry for coordinate maps, filters, channels, scores, observables, residuals, certificates, controls, and perturbations.
