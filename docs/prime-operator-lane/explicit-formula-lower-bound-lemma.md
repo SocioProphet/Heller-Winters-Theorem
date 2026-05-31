@@ -4,7 +4,7 @@ Identifier: `HW-PRIME-WEIL-003`
 Related open problem: `HW-OPEN-008`  
 Status: lemma surface / proof-obligation decomposition  
 Claim class: partial proof structure — not claimed fully discharged  
-Mathematical content added by this document: isolated off-line-zero term bound, standard on-line remainder target, and remaining off-line cancellation/equidistribution step
+Mathematical content added by this document: isolated off-line-zero term bound, standard on-line remainder target, second-moment zero-count domination target, and remaining off-line cancellation/equidistribution step
 
 This document records the next proof step for the Parseval-bias route. It does not prove RH or GRH, and it does not claim that `HW-OPEN-008` is closed.
 
@@ -137,7 +137,49 @@ For the `Omega` statement, it is not necessary to rule out cancellation at every
 
 The expected route is an equidistribution or almost-periodicity argument for the finite set of dominant ordinates. This is the remaining proof obligation.
 
-## 6. Consequence for Parseval variance
+## 6. Second-moment zero-count amendment
+
+The second-moment strategy replaces a single linear character-sum lower bound with a sum over windows and over non-trivial characters:
+
+```text
+sum_{k<=K} |psi_{W_k}(chi)|^2.
+```
+
+For a finite collection of off-line zeros at real part `1/2+delta`, the diagonal terms contribute at scale
+
+```text
+Omega(10^(K(1+2 delta))).
+```
+
+Cross terms oscillate with phases depending on differences of ordinates. The remaining task is to prove they do not cancel the diagonal contribution over all large windows.
+
+The Riemann-von Mangoldt zero-count heuristic supplies the needed size comparison for finite-height truncations. Zeros with ordinates up to the height relevant to window depth `K` have count
+
+```text
+N(K) = O(K log K).
+```
+
+Thus a coarse upper-bound scale for the square of the number of contributing zeros is
+
+```text
+N(K)^2 = O(K^2 log^2 K).
+```
+
+For every fixed `delta>0`, the exponential factor
+
+```text
+10^(2 delta K)
+```
+
+dominates `K^2 log^2 K`. Therefore the off-line exponential envelope dominates any polynomial zero-count loss:
+
+```text
+10^(2 delta K) / (K^2 log^2 K) -> infinity.
+```
+
+This closes the size-comparison part of the second-moment argument. It does not by itself prove the oscillatory cross-term cancellation estimate.
+
+## 7. Consequence for Parseval variance
 
 Once the lower-bound lemma is discharged for `chi_0`, Parseval gives
 
@@ -161,15 +203,19 @@ Var_P(W_k) / (10^k k^2) = Omega(10^(2 delta k)/k^2)
 
 under Richter normalization.
 
+For cumulative windows up to depth `K`, the second-moment amendment strengthens the size comparison by observing that the off-line exponential envelope dominates the Riemann-von Mangoldt zero-count polynomial loss.
+
 This is the direct connection to `HW-OPEN-008`.
 
-## 7. Non-claims
+## 8. Non-claims
 
 This document does not prove RH or GRH.
 
 This document does not prove the lower-bound lemma in full.
 
 This document does not prove the required equidistribution or almost-periodicity statement for dominant off-line zero ordinates.
+
+This document does not prove the oscillatory cross-term estimate in the second-moment expansion.
 
 This document does not assume zero simplicity.
 
